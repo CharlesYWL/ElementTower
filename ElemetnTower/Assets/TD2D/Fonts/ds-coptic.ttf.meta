@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 041765e1727442c4e99a5f5c0bf8e56d
+timeCreated: 1492027860
+licenseType: Store
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DS Coptic
+  fontNames:
+  - DS Coptic
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
