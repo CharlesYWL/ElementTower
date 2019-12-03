@@ -5,6 +5,7 @@ public class EnemyMovement : MonoBehaviour
 {
 
     private Transform target;
+    private float MaxTurnSpeed = 10f;
     private int wavepointIndex = 0;
     public float Speed = 10f;
 
@@ -16,12 +17,14 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         Vector3 dir = target.position - transform.position;
+        Quaternion wanted_rotation = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, wanted_rotation, MaxTurnSpeed * Time.deltaTime);
         transform.Translate(dir.normalized * Speed * Time.deltaTime, Space.World);
-
         if (Vector3.Distance(transform.position, target.position) <= 0.4f)
         {
             GetNextWaypoint();
         }
+
     }
 
     void GetNextWaypoint()
