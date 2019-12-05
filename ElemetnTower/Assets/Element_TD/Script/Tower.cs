@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    private Transform Target;
+    private Transform Target=null;
 
     [Header("Property")]
     public float Range = 15f;
@@ -13,9 +14,11 @@ public class Tower : MonoBehaviour
     
     [Header("Setup Fields")]
     public string EnemyTag = "Enemy";
-
     public GameObject ProjectilePrefab;
     public Transform ProjectilePoint;
+    public Transform ProjectCrystal;
+
+
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -50,7 +53,10 @@ public class Tower : MonoBehaviour
     void Update()
     {
         if (Target == null)
+        {
+            UpdateTarget();
             return;
+        }
         //Fire Projectile Method
         if(FireCountDown <= 0f)
         {
@@ -58,15 +64,26 @@ public class Tower : MonoBehaviour
             FireCountDown = 1f / FireRate;
         }
         FireCountDown -= Time.deltaTime;
+
+        RotateCrystal(ProjectCrystal);
+    }
+
+    // this function used to rate Crystal
+    private void RotateCrystal(Transform crystal)
+    {
+        
     }
 
     public void FireProjectile()
     {
+        this.ProjectilePoint.LookAt(Target);
         GameObject ProjectileShoot = (GameObject)Instantiate(ProjectilePrefab, ProjectilePoint.position, ProjectilePoint.rotation);
-        Projectile projectile = ProjectileShoot.GetComponent<Projectile>();
-        if(projectile != null)
+
+        ProjectileMover pm = ProjectileShoot.GetComponent<ProjectileMover>();
+        if (pm != null)
         {
-            projectile.FindEnemy(Target);
+            //Auto follow target
+            pm.FollowTarget = this.Target;
         }
     }
     private void OnDrawGizmosSelected()
