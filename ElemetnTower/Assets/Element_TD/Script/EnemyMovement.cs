@@ -11,32 +11,36 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        target = WayPoint.points[0];
+        target = WayPoints.points[0];
     }
 
     void Update()
     {
         Vector3 dir = target.position - transform.position;
-        Quaternion wanted_rotation = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, wanted_rotation, MaxTurnSpeed * Time.deltaTime);
-        transform.Translate(dir.normalized * Speed * Time.deltaTime, Space.World);
+        transform.Translate(dir.normalized * Speed * Time.deltaTime, Space.World); //Initialze the first wavepoint
+
+        //Obtain next wavepoint
         if (Vector3.Distance(transform.position, target.position) <= 0.4f)
         {
             GetNextWaypoint();
         }
+        Quaternion wanted_rotation = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, wanted_rotation, MaxTurnSpeed * Time.deltaTime);
+        
+        
 
     }
 
     void GetNextWaypoint()
     {
-        if (wavepointIndex >= WayPoint.points.Length - 1)
+        if (wavepointIndex >= WayPoints.points.Length - 1)
         {
             EndPath();
             return;
         }
 
         wavepointIndex++;
-        target = WayPoint.points[wavepointIndex];
+        target = WayPoints.points[wavepointIndex];
     }
 
     void EndPath()
