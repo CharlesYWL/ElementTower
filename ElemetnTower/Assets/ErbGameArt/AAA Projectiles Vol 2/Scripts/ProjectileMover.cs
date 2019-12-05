@@ -44,7 +44,15 @@ public class ProjectileMover : MonoBehaviour
             //Modified for ElementTower
             //rb.velocity = transform.forward * speed;
             Vector3 hightOffset = new Vector3(0, 2f, 0);
-            rb.velocity = (FollowTarget.position-transform.position+hightOffset).normalized * speed;
+            if (FollowTarget)
+            {
+                rb.velocity = (FollowTarget.position - transform.position + hightOffset).normalized * speed;
+            }
+            else
+            {
+                rb.velocity = transform.forward * speed;
+            }
+
 
         }
     }

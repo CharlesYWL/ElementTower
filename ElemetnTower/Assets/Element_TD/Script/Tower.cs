@@ -16,7 +16,6 @@ public class Tower : MonoBehaviour
     public string EnemyTag = "Enemy";
     public GameObject ProjectilePrefab;
     public Transform ProjectilePoint;
-    public Transform ProjectCrystal;
 
 
     void Start()
@@ -81,7 +80,7 @@ public class Tower : MonoBehaviour
     {
         this.ProjectilePoint.LookAt(Target);
         GameObject ProjectileShoot = (GameObject)Instantiate(ProjectilePrefab, ProjectilePoint.position, ProjectilePoint.rotation);
-
+        ProjectileShoot.transform.localScale = new Vector3(2, 2, 2);
         ProjectileMover pm = ProjectileShoot.GetComponent<ProjectileMover>();
         if (pm != null)
         {
