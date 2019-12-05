@@ -62,7 +62,12 @@ public class Tower : MonoBehaviour
 
     public void FireProjectile()
     {
-        Instantiate(ProjectilePrefab, ProjectilePoint.position, ProjectilePoint.rotation);
+        GameObject ProjectileShoot = (GameObject)Instantiate(ProjectilePrefab, ProjectilePoint.position, ProjectilePoint.rotation);
+        Projectile projectile = ProjectileShoot.GetComponent<Projectile>();
+        if(projectile != null)
+        {
+            projectile.FindEnemy(Target);
+        }
     }
     private void OnDrawGizmosSelected()
     {
