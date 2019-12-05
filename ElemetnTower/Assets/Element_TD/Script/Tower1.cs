@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Tower1 : MonoBehaviour
 {
     private Transform Target=null;
 
@@ -51,13 +51,16 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Animator animator = GetComponent<Animator>();
         if (Target == null)
         {
+            //animator.ResetTrigger("IsAttack");
             UpdateTarget();
             return;
         }
         else
         {
+            animator.SetTrigger("IsAttack");
             float DistanceToEnemy = Vector3.Distance(transform.position, Target.position);
             if (DistanceToEnemy > Range)
             {
