@@ -12,6 +12,7 @@
 /ElemetnTower/ProjectSettings/ProjectVersion.*
 /ElemetnTower/Assets/Element_TD/*.meta
 /ElemetnTower/Assets/ErbGameArt/*.meta
+/ElementTower/Assets/ErbGameArt/AAA Projectiles Vol 2/LWRP and HDRP support
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/ElemetnTower/[Aa]ssets/**/*.meta
