@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        Quaternion Rotation = Quaternion.LookRotation(WayPoints.points[wavepointIndex].position - transform.position);
+        Quaternion Rotation = Quaternion.LookRotation(-WayPoints.points[wavepointIndex].position + transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * RotationSpeed);
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * Speed * Time.deltaTime, Space.World); //Initialze the first wavepoint
