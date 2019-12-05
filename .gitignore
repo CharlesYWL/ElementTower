@@ -10,7 +10,7 @@
 /ElemetnTower/[Ll]ogs/
 /ElemetnTower/[Mm]emoryCaptures/
 /ElemetnTower/ProjectSettings/ProjectVersion.*
-
+/ElemetnTower/Assets/ErbGameArt/*.meta
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/ElemetnTower/[Aa]ssets/**/*.meta
