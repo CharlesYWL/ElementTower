@@ -21,7 +21,7 @@ public class Tower : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        //InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
     private void UpdateTarget()
@@ -57,6 +57,15 @@ public class Tower : MonoBehaviour
             UpdateTarget();
             return;
         }
+        else
+        {
+            float DistanceToEnemy = Vector3.Distance(transform.position, Target.position);
+            if (DistanceToEnemy > Range)
+            {
+                UpdateTarget();
+            }
+
+        }
         //Fire Projectile Method
         if(FireCountDown <= 0f)
         {
@@ -65,14 +74,8 @@ public class Tower : MonoBehaviour
         }
         FireCountDown -= Time.deltaTime;
 
-        RotateCrystal(ProjectCrystal);
     }
 
-    // this function used to rate Crystal
-    private void RotateCrystal(Transform crystal)
-    {
-        
-    }
 
     public void FireProjectile()
     {
