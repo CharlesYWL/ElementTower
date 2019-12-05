@@ -9,7 +9,8 @@ ElemetnTower/[Bb]uild/
 ElemetnTower/[Bb]uilds/
 ElemetnTower/[Ll]ogs/
 ElemetnTower/[Mm]emoryCaptures/
-ElemetnTower/ProjectSettings/ProjectVersion.txt
+ElemetnTower/ProjectSettings/ProjectVersion.*
+
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !ElemetnTower/[Aa]ssets/**/*.meta
