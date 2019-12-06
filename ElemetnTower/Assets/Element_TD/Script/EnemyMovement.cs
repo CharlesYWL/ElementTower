@@ -3,34 +3,26 @@ using System.Collections;
 
 public class EnemyMovement : MonoBehaviour
 {
-
+    private float Health = 100f;
     private Transform target;
     private float MaxTurnSpeed = 10f;
     private float RotationSpeed = 5f;
     private int wavepointIndex = 0;
     public float Speed = 10f;
-    public int EnemyTotalHealth = 100;
 
     void Start()
     {
         target = WayPoints.points[0];
     }
-
-    //Damage System for Enemy
-    public void Damage(int DamageAmount)
+    //Damage Method
+    public void TakeDamage(int DamageAmount)
     {
-        EnemyTotalHealth -= DamageAmount;
-        if(EnemyTotalHealth <= 0)
+        Health -= DamageAmount;
+        if (Health <= 0)
         {
-            EnemyDie();
+            Destroy(gameObject);
         }
     }
-    //Enemy Die when the health below or equal to zero
-    void EnemyDie()
-    {
-        Destroy(gameObject);
-    }
-
     void Update()
     {
         Quaternion Rotation = Quaternion.LookRotation(-WayPoints.points[wavepointIndex].position + transform.position);
@@ -48,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
         
 
     }
-
+    
     void GetNextWaypoint()
     {
         if (wavepointIndex >= WayPoints.points.Length - 1)

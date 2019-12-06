@@ -7,9 +7,8 @@ public class WaveSpawner : MonoBehaviour
     public GameObject EnemyPrefab;
     public Transform spawnPoint;
     public float TimeBetweenWaves = 5f;
-    [SerializeField] private float countdown = 3f;
-    [SerializeField] private int waveNumber = 0;
-    [SerializeField] private int MaxWave = 10;
+    private float countdown = 3f;
+    private int waveNumber = 0;
     private void Update()
     {
         if(countdown <= 0f)
@@ -26,12 +25,8 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < waveNumber; i++)
         {
             SpawnEnemy();
-            if(waveNumber > 10)
-            {
-                waveNumber = 0;
-            }
             yield return new WaitForSeconds(0.5f);
-        }
+        }        
     }
 
     public void SpawnEnemy()
