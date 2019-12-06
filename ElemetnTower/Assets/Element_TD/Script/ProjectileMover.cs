@@ -6,6 +6,7 @@ public class ProjectileMover : MonoBehaviour
 {
     public float speed = 15f;
     public float hitOffset = 0f;
+    public int damage = 40;
     public bool UseFirePointRotation;
     public Vector3 rotationOffset = new Vector3(0, 0, 0);
     public GameObject hit;
@@ -19,6 +20,7 @@ public class ProjectileMover : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //Flash VFX
         if (flash != null)
         {
             var flashInstance = Instantiate(flash, transform.position, Quaternion.identity);
@@ -34,7 +36,9 @@ public class ProjectileMover : MonoBehaviour
                 Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
+        
         Destroy(gameObject,5);
+
 	}
 
     void FixedUpdate ()
@@ -57,7 +61,7 @@ public class ProjectileMover : MonoBehaviour
         }
     }
 
-    //https ://docs.unity3d.com/ScriptReference/Rigidbody.OnCollisionEnter.html
+    // VFX Function
     void OnCollisionEnter(Collision collision)
     {
         //Lock all axes movement and rotation
@@ -68,6 +72,7 @@ public class ProjectileMover : MonoBehaviour
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
         Vector3 pos = contact.point + contact.normal * hitOffset;
 
+        //HitVFX
         if (hit != null)
         {
             var hitInstance = Instantiate(hit, pos, rot);
@@ -86,6 +91,7 @@ public class ProjectileMover : MonoBehaviour
                 Destroy(hitInstance, hitPsParts.main.duration);
             }
         }
+        
         foreach (var detachedPrefab in Detached)
         {
             if (detachedPrefab != null)
@@ -93,7 +99,19 @@ public class ProjectileMover : MonoBehaviour
                 detachedPrefab.transform.parent = null;
             }
         }
-
+        if(FollowTarget != null)
+        {
+            ShootDamage(FollowTarget);
+        }       
         Destroy(gameObject);
+        
+    }
+    void ShootDamage(Transform EnemyTarget)
+    {
+        EnemyMovement Enemy = EnemyTarget.GetComponent<EnemyMovement>();
+        if (Enemy != null)
+        {
+            Enemy.Damage(damage);
+        }
     }
 }

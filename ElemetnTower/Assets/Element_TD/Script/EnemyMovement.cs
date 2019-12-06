@@ -9,10 +9,26 @@ public class EnemyMovement : MonoBehaviour
     private float RotationSpeed = 5f;
     private int wavepointIndex = 0;
     public float Speed = 10f;
+    public int EnemyTotalHealth = 100;
 
     void Start()
     {
         target = WayPoints.points[0];
+    }
+
+    //Damage System for Enemy
+    public void Damage(int DamageAmount)
+    {
+        EnemyTotalHealth -= DamageAmount;
+        if(EnemyTotalHealth <= 0)
+        {
+            EnemyDie();
+        }
+    }
+    //Enemy Die when the health below or equal to zero
+    void EnemyDie()
+    {
+        Destroy(gameObject);
     }
 
     void Update()
