@@ -7,6 +7,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
 {
     private Vector2 offSet;
     Transform parentToReturnTo = null;
+    public GameObject Tower;
+    public bool TowerCreate = false;
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("On Begin Drag");
@@ -28,6 +30,21 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
         Debug.Log("On End Drag");
         transform.SetParent(parentToReturnTo);
         GetComponent<CanvasGroup>().blocksRaycasts = true;
+        if (TowerCreate)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
+    // this is used for genetae appropriate tower
+    public GameObject GetTower()
+    {
+        return Tower;
+    }
+
+    // this is to set TowerCreate true to destory itself
+    public void TowerSuccessCreate()
+    {
+        TowerCreate = true;
     }
 }

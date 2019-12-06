@@ -16,19 +16,6 @@ public class BuildPoint :  BuildInterface,IDropHandler
         rend = GetComponent<MeshRenderer>();
     }
 
-    private void OnMouseDown()
-    {
-        if (tower != null) {
-            Debug.Log("Cant build there");
-            //TODO: Display on UI
-            return;
-        }
-        //Build a tower and Destory itself
-        GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
-        tower = Instantiate(towerToBuild, transform.position, transform.rotation);
-        Destroy(hintWehave);
-        Destroy(gameObject);
-    }
     private void OnMouseEnter()
     {
         Debug.Log("Mouse Enter");
@@ -49,8 +36,21 @@ public class BuildPoint :  BuildInterface,IDropHandler
     // BUG: Cannot be triggered
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("Something Drop here");
+        Debug.Log( eventData.pointerDrag.name+"Drop here");
         //Build new tower
+        if (tower != null)
+        {
+            Debug.Log("Cant build there");
+            //TODO: Display on UI
+            return;
+        }
+        //Build a tower and Destory itself
+        //GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
+        eventData.pointerDrag.GetComponent<Draggable>().TowerSuccessCreate();
+        GameObject towerToBuild = eventData.pointerDrag.GetComponent<Draggable>().GetTower();
+        tower = Instantiate(towerToBuild, transform.position, transform.rotation);
+        Destroy(hintWehave);
+        Destroy(gameObject);
     }
 
 }
