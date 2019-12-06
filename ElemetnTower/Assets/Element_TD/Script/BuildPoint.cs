@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class BuildPoint :  BuildInterface
+public class BuildPoint :  BuildInterface,IDropHandler
 {
     public Color hoverColor;
     public GameObject hint;
@@ -33,15 +34,23 @@ public class BuildPoint :  BuildInterface
         Debug.Log("Mouse Enter");
         //TODO: get hint for users
         hintWehave = Instantiate(hint, transform.position, transform.rotation);
-        hintWehave.transform.localScale = new Vector3(2,2,2);
+        hintWehave.transform.localScale = new Vector3(2, 2, 2);
     }
 
     private void OnMouseExit()
     {
         Debug.Log("Mouse Exit");
+
         //TODO: now its just to show we enter the box
         Destroy(hintWehave);
     }
 
-     
+    // This function deal with card dropped here
+    // BUG: Cannot be triggered
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("Something Drop here");
+        //Build new tower
+    }
+
 }
