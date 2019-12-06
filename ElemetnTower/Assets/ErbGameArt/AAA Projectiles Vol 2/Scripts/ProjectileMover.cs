@@ -46,6 +46,7 @@ public class ProjectileMover : MonoBehaviour
             Vector3 hightOffset = new Vector3(0, 2f, 0);
             if (FollowTarget)
             {
+                transform.LookAt(FollowTarget.position);
                 rb.velocity = (FollowTarget.position - transform.position + hightOffset).normalized * speed;
             }
             else
