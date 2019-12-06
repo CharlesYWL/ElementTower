@@ -13,6 +13,9 @@ public class ProjectileMover : MonoBehaviour
     private Rigidbody rb;
     public GameObject[] Detached;
 
+    //Modified for ElementTower
+    public Transform FollowTarget = null;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,10 +41,21 @@ public class ProjectileMover : MonoBehaviour
     {
 		if (speed != 0)
         {
-            rb.velocity = transform.forward * speed;
-            //transform.position += transform.forward * (speed * Time.deltaTime);         
+            //Modified for ElementTower
+            //rb.velocity = transform.forward * speed;
+            Vector3 hightOffset = new Vector3(0, 2f, 0);
+            if (FollowTarget)
+            {
+                rb.velocity = (FollowTarget.position - transform.position + hightOffset).normalized * speed;
+            }
+            else
+            {
+                rb.velocity = transform.forward * speed;
+            }
+
+
         }
-	}
+    }
 
     //https ://docs.unity3d.com/ScriptReference/Rigidbody.OnCollisionEnter.html
     void OnCollisionEnter(Collision collision)
@@ -79,6 +93,7 @@ public class ProjectileMover : MonoBehaviour
                 detachedPrefab.transform.parent = null;
             }
         }
+
         Destroy(gameObject);
     }
 }
