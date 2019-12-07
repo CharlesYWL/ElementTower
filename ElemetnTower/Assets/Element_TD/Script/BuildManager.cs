@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Element;
 
+/// <summary>
+/// ITS useless now, buy leave it for further necessary
+/// </summary>
 public class BuildManager : MonoBehaviour
 {
     //Shared public 

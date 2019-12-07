@@ -16,14 +16,4 @@ public class Cards : MonoBehaviour
     {
         
     }
-    public void ChooseMageTowerLv1()
-    {
-        Debug.Log("We choose MageLv1");
-        buildManager.SetTowerToBuild(buildManager.MageTowerLv1Prefeb);
-    }
-    public void ChooseMageTowerLv2()
-    {
-        Debug.Log("We choose MageLv2");
-        buildManager.SetTowerToBuild(buildManager.MageTowerLv2Prefeb);
-    }
 }

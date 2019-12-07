@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyMovement : MonoBehaviour
 {
-
+    private float Health = 100f;
     private Transform target;
     private float MaxTurnSpeed = 10f;
     private float RotationSpeed = 5f;
@@ -14,7 +14,15 @@ public class EnemyMovement : MonoBehaviour
     {
         target = WayPoints.points[0];
     }
-
+    //Damage Method
+    public void TakeDamage(float DamageAmount)
+    {
+        Health -= DamageAmount;
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Update()
     {
         Quaternion Rotation = Quaternion.LookRotation(-WayPoints.points[wavepointIndex].position + transform.position);
@@ -32,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
         
 
     }
-
+    
     void GetNextWaypoint()
     {
         if (wavepointIndex >= WayPoints.points.Length - 1)
