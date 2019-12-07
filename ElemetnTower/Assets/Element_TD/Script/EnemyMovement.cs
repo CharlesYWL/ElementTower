@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(gameObject);
+            TopPanelInfo.getTopPanelInfo.AddMoney();
         }
     }
     void Update()
@@ -35,9 +36,6 @@ public class EnemyMovement : MonoBehaviour
         {
             GetNextWaypoint();
         }
-
-        
-        
 
     }
     
