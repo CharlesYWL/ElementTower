@@ -6,10 +6,13 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler, IPointerClickHandler
 {
+    [Header("Property")]
+    public GameObject Tower;
+
+    [Header("Dont Thouch Below")]
     private Vector2 offSet;
     public Transform parentToReturnTo = null;
-    public GameObject Tower;
-    public bool TowerCreate = false;
+    private bool TowerCreate = false;
     BuildManager bm;
 
     GameObject placeHolder=null;
@@ -96,4 +99,5 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
         bm.CardClicked(this.gameObject);
        
     }
+
 }

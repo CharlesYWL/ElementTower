@@ -28,8 +28,10 @@ public class BuildManager : MonoBehaviour
     public GameObject CardsHoler;
     public GameObject ShopHoler;
     public GameObject TopPanel;
+    public Camera cam;
     private Cards c;
     private Shop s;
+
 
     enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
 
@@ -141,5 +143,9 @@ public class BuildManager : MonoBehaviour
 
         Debug.Log("Check Child of SHOP: "+ (dg.parentToReturnTo == this.ShopHoler.transform));
         return dg.parentToReturnTo==this.ShopHoler.transform;
+    }
+
+    public Camera GetCamera() {
+        return cam;    
     }
 }

@@ -136,6 +136,7 @@ public class Tower : BuildInterface, IPointerClickHandler
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         { 
+            // Test only
             Debug.Log("Right click"); 
         }
     }
