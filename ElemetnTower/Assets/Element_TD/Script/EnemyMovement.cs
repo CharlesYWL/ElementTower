@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
         if(countDown <= 3 && countDown > 0)
         {
             Speed = 6f;
-            Instantiate(SlowDownVFX, transform.position, transform.rotation);
+            //Instantiate(SlowDownVFX, transform.position, transform.rotation);
         }
         else
         {
