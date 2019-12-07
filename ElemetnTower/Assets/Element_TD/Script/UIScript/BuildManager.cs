@@ -9,6 +9,7 @@ using Element;
 public class BuildManager : MonoBehaviour
 {
     //Shared public 
+    [Header("CardPool")]
     public static BuildManager instance;
     public GameObject CyrstalTower;
     public GameObject DesertTower;
@@ -22,9 +23,11 @@ public class BuildManager : MonoBehaviour
     public GameObject ThunderTower;
     public GameObject WindTower;
 
-
-    public GameObject cards;
+    [Header("UI")]
+    public GameObject CardsHoler;
+    public GameObject ShopHoler;
     private Cards c;
+    private Shop s;
     private void Awake()
     {
         if(instance != null)
@@ -33,7 +36,8 @@ public class BuildManager : MonoBehaviour
             return;
         }
         instance = this;
-        c = cards.GetComponent<Cards>();
+        c = CardsHoler.GetComponent<Cards>();
+        s = ShopHoler.GetComponent<Shop>();
     }
     void Start()
     {
