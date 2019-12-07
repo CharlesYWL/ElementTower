@@ -31,6 +31,8 @@ public class BuildManager : MonoBehaviour
     private Cards c;
     private Shop s;
 
+    enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
+
     private float timeCount = 0f;
     private void Awake()
     {
@@ -63,7 +65,7 @@ public class BuildManager : MonoBehaviour
     {
         //TODO: neew to modify prob
         GameObject target=null;
-        int i = Random.Range(1, 11);
+        int i = Random.Range(1, 12);
         switch (i)
         {
             case 1:
@@ -122,5 +124,20 @@ public class BuildManager : MonoBehaviour
     public float GetTime()
     {
         return this.timeCount;
+    }
+
+    public void CardClicked(GameObject card)
+    {
+        if (isChildOfShop(card))
+        { // which means card is in shop
+            //TODO: Check Money Here!!!
+            card.transform.SetParent(CardsHoler.transform);
+        }
+        return;
+    }
+    public bool isChildOfShop(GameObject card)
+    {
+        Debug.Log("Check Child of SHOP: "+ (card.transform.parent == ShopHoler.transform));
+        return card.transform.parent == ShopHoler.transform;
     }
 }

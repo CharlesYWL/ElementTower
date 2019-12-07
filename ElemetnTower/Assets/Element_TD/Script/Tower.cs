@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Tower : BuildInterface
 {
     private Transform Target = null;
 
@@ -86,7 +86,7 @@ public class Tower : MonoBehaviour
     {
         this.ProjectilePoint.LookAt(Target);
         GameObject ProjectileShoot = (GameObject)Instantiate(ProjectilePrefab, ProjectilePoint.position, ProjectilePoint.rotation);
-        ProjectileShoot.transform.localScale = new Vector3(3, 3, 3);
+        ProjectileShoot.transform.localScale = new Vector3(4, 4, 4);
         ProjectileMover pm = ProjectileShoot.GetComponent<ProjectileMover>();
         if (pm != null)
         {
@@ -118,7 +118,12 @@ public class Tower : MonoBehaviour
     }
     private void OnMouseExit()
     {
-        //TODO: now its just to show we enter the box
         Destroy(hintWehave);
+    }
+
+    // TODO: It will pop up recycle sign to click.
+    private void OnMouseDown()
+    {
+        
     }
 }

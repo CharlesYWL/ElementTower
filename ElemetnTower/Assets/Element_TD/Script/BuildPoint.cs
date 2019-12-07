@@ -9,7 +9,7 @@ public class BuildPoint :  BuildInterface,IDropHandler
     private GameObject hintWehave;
     private MeshRenderer rend;
     private GameObject tower;
-
+    private readonly BuildManager bm = BuildManager.instance;
     private void Start()
     {
         rend = GetComponent<MeshRenderer>();
@@ -38,7 +38,11 @@ public class BuildPoint :  BuildInterface,IDropHandler
     // BUG: Cannot be triggered
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log( eventData.pointerDrag.name+"Drop here");
+/*        if (bm.isChildOfShop(eventData.pointerDrag))
+        {
+            Debug.Log("We drag a shop card to building points");
+            return;
+        }*/
         //Build new tower
         if (tower != null)
         {
@@ -47,12 +51,18 @@ public class BuildPoint :  BuildInterface,IDropHandler
             return;
         }
         //Build a tower and Destory itself
-        //GameObject towerToBuild = BuildManager.instance.GetTowerToBuild();
-        eventData.pointerDrag.GetComponent<Draggable>().TowerSuccessCreate();
-        GameObject towerToBuild = eventData.pointerDrag.GetComponent<Draggable>().GetTower();
-        tower = Instantiate(towerToBuild, transform.position, transform.rotation);
-        Destroy(hintWehave);
-        Destroy(gameObject);
+/*        Debug.Log("eventData is: " + eventData.pointerDrag.name);
+        Debug.Log("isChildOfShop? " + (bm.isChildOfShop(eventData.pointerDrag)));*/
+        if (true)
+        {
+            Debug.Log("We drag a shopcard on buildpoints");
+            eventData.pointerDrag.GetComponent<Draggable>().TowerSuccessCreate();
+            GameObject towerToBuild = eventData.pointerDrag.GetComponent<Draggable>().GetTower();
+            tower = Instantiate(towerToBuild, transform.position, transform.rotation);
+            Destroy(hintWehave);
+            Destroy(gameObject);
+        }
+
     }
 
 }

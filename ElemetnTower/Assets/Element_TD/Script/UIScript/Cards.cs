@@ -10,6 +10,7 @@ public class Cards : MonoBehaviour
 {
     BuildManager buildManager;
     // Start is called before the first frame update
+    private int MAXCAP = 8;
     void Start()
     {
         buildManager = BuildManager.instance;
@@ -31,7 +32,6 @@ public class Cards : MonoBehaviour
     }
     public int getCardsNumber()
     {
-        Debug.Log(transform.childCount);
         return transform.childCount;
     }
 }
