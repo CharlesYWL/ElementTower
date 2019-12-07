@@ -22,6 +22,7 @@ public class BuildManager : MonoBehaviour
     public GameObject ThunderTower;
     public GameObject WindTower;
 
+
     public GameObject cards;
     private Cards c;
     private void Awake()
@@ -36,7 +37,8 @@ public class BuildManager : MonoBehaviour
     }
     void Start()
     {
-        InvokeRepeating("RandomGenerateCard", 2.0f, 1f);
+        //This is for demo only! Delete after we have purchase system
+        InvokeRepeating("RandomGenerateCard", 3.0f, 5f);
     }
 
     public void Update()

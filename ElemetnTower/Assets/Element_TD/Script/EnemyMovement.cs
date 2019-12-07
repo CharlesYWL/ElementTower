@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(gameObject);
+            TopPanelInfo.getTopPanelInfo.AddMoney();
         }
     }
     public void SlowDownSpeed()
@@ -57,6 +58,7 @@ public class EnemyMovement : MonoBehaviour
             GetNextWaypoint();
         }
     }   
+
     void GetNextWaypoint()
     {
         if (wavepointIndex >= WayPoints.points.Length - 1)
