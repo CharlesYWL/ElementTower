@@ -15,7 +15,7 @@ namespace Element
                 case ElementTypes.Fire:
                     TypeFactor = 0f;
                     break;
-                case ElementTypes.Water:
+                case ElementTypes.Glacier:
                     TypeFactor = 0.1f;
                     break;
                 case ElementTypes.Wind:

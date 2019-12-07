@@ -38,6 +38,11 @@ public class EnemyMovement : MonoBehaviour
             countDown = 3f;
         }
     }
+
+    public void PullBack()
+    {
+        
+    }
     void Update()
     {
         countDown -= Time.deltaTime;

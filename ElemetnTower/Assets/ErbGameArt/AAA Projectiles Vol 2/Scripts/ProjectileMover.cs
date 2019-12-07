@@ -114,10 +114,12 @@ public class ProjectileMover : MonoBehaviour
                 newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
             }
             */
+            Enemy.TakeDamage(newDamage);
             switch (type)
             {
                 case ElementTypes.Wind:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
+                    Enemy.PullBack();
                     break;
                 case ElementTypes.Fire:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
@@ -127,7 +129,7 @@ public class ProjectileMover : MonoBehaviour
                     Enemy.SlowDownSpeed();
                     break;
             }
-            Enemy.TakeDamage(newDamage);
+            
         }
 
     }
