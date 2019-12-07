@@ -128,7 +128,7 @@ public class BuildManager : MonoBehaviour
 
     public void CardClicked(GameObject card)
     {
-        if (isChildOfShop(card))
+        if (isChildOfShop(card) && c.SlotAvialiable())
         { // which means card is in shop
             //TODO: Check Money Here!!!
             card.transform.SetParent(CardsHoler.transform);

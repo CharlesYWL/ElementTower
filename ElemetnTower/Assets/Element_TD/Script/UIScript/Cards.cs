@@ -8,12 +8,12 @@ using UnityEngine;
 /// </summary>
 public class Cards : MonoBehaviour
 {
-    BuildManager buildManager;
+    BuildManager bm;
     // Start is called before the first frame update
     private int MAXCAP = 8;
     void Start()
     {
-        buildManager = BuildManager.instance;
+        bm = BuildManager.instance;
     }
 
     // Update is called once per frame
@@ -33,5 +33,15 @@ public class Cards : MonoBehaviour
     public int getCardsNumber()
     {
         return transform.childCount;
+    }
+
+    //Return is Slot Aviailable
+    public bool SlotAvialiable()
+    {
+        if (transform.childCount >= MAXCAP)
+        {
+            //Do Something to warn Players
+        }
+        return (transform.childCount<MAXCAP);
     }
 }

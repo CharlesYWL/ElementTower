@@ -39,11 +39,6 @@ public class BuildPoint :  BuildInterface,IDropHandler
     // BUG: Cannot be triggered
     public void OnDrop(PointerEventData eventData)
     {
-/*        if (bm.isChildOfShop(eventData.pointerDrag))
-        {
-            Debug.Log("We drag a shop card to building points");
-            return;
-        }*/
         //Build new tower
         if (tower != null)
         {

@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Tower : BuildInterface
+public class Tower : BuildInterface, IPointerClickHandler
 {
     private Transform Target = null;
 
@@ -125,5 +126,17 @@ public class Tower : BuildInterface
     private void OnMouseDown()
     {
         
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {   //Show Tower Infomation
+            Debug.Log("Left click"); 
+        }
+        else if (eventData.button == PointerEventData.InputButton.Right)
+        { 
+            Debug.Log("Right click"); 
+        }
     }
 }
