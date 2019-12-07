@@ -33,6 +33,7 @@ Material:
     m_Floats:
     - _Colorpower: 3
     - _Colorrange: 2
+    - _CullMode: 2
     - _Depthpower: 1
     - _Emission: 4
     - _Usedark: 1
