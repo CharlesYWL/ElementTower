@@ -9,10 +9,11 @@ public class BuildPoint :  BuildInterface,IDropHandler
     private GameObject hintWehave;
     private MeshRenderer rend;
     private GameObject tower;
-    private readonly BuildManager bm = BuildManager.instance;
+    private BuildManager bm;
     private void Start()
     {
         rend = GetComponent<MeshRenderer>();
+        bm = BuildManager.instance;
     }
 
     private void OnMouseEnter()
@@ -51,11 +52,11 @@ public class BuildPoint :  BuildInterface,IDropHandler
             return;
         }
         //Build a tower and Destory itself
-/*        Debug.Log("eventData is: " + eventData.pointerDrag.name);
-        Debug.Log("isChildOfShop? " + (bm.isChildOfShop(eventData.pointerDrag)));*/
-        if (true)
+        Debug.Log("eventData is: " + eventData.pointerDrag.name);
+        Debug.Log("isChildOfShop? " + (bm.isChildOfShop(eventData.pointerDrag.gameObject)));
+        if (!(bm.isChildOfShop(eventData.pointerDrag.gameObject)))
         {
-            Debug.Log("We drag a shopcard on buildpoints");
+            //Debug.Log("We drag a shopcard on buildpoints");
             eventData.pointerDrag.GetComponent<Draggable>().TowerSuccessCreate();
             GameObject towerToBuild = eventData.pointerDrag.GetComponent<Draggable>().GetTower();
             tower = Instantiate(towerToBuild, transform.position, transform.rotation);

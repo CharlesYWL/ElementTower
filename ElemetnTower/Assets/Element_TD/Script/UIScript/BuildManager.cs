@@ -137,7 +137,9 @@ public class BuildManager : MonoBehaviour
     }
     public bool isChildOfShop(GameObject card)
     {
-        Debug.Log("Check Child of SHOP: "+ (card.transform.parent == ShopHoler.transform));
-        return card.transform.parent == ShopHoler.transform;
+        Draggable dg = card.GetComponent<Draggable>();
+
+        Debug.Log("Check Child of SHOP: "+ (dg.parentToReturnTo == this.ShopHoler.transform));
+        return dg.parentToReturnTo==this.ShopHoler.transform;
     }
 }

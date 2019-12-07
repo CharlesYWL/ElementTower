@@ -6,10 +6,17 @@ using UnityEngine.EventSystems;
 public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler, IPointerClickHandler
 {
     private Vector2 offSet;
-    Transform parentToReturnTo = null;
+    public Transform parentToReturnTo = null;
     public GameObject Tower;
     public bool TowerCreate = false;
-    BuildManager bm = BuildManager.instance;
+    BuildManager bm;
+
+    void Start()
+    {
+        //init all thing
+        parentToReturnTo = transform.parent;
+        bm = BuildManager.instance;
+    }
     public void OnBeginDrag(PointerEventData eventData)
     {
         parentToReturnTo = transform.parent;
@@ -52,6 +59,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        //Update parent everytime of event
+        parentToReturnTo = transform.parent;
         Debug.Log("We click on the card");
         bm.CardClicked(this.gameObject);
        
