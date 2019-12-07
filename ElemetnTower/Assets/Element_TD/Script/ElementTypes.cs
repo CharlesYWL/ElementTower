@@ -12,7 +12,8 @@ namespace Element
         Glacier,
         Poison,
         Shadow,
-        Thunder
+        Thunder,
+        Mountain
     }
 }
 
