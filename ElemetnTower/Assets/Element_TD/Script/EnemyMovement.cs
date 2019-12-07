@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private int wavepointIndex = 0;
     public float Speed = 10f;
     public float SlowFactor = 2f;
-
+    public GameObject SlowDownVFX;
     void Start()
     {
         target = WayPoints.points[0];
@@ -29,7 +29,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if(countDown <= 3 && countDown > 0)
         {
-            Speed = 6f;            
+            Speed = 6f;
+            Instantiate(SlowDownVFX, transform.position, transform.rotation);
         }
         else
         {
