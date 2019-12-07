@@ -4,12 +4,14 @@ using System.Collections;
 public class EnemyMovement : MonoBehaviour
 {
     private float Health = 100f;
+    private float countDown = 3f;
     private Transform target;
     private float MaxTurnSpeed = 10f;
     private float RotationSpeed = 5f;
     private int wavepointIndex = 0;
     public float Speed = 10f;
-
+    public float SlowFactor = 2f;
+    public GameObject SlowDownVFX;
     void Start()
     {
         target = WayPoints.points[0];
@@ -23,8 +25,27 @@ public class EnemyMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void SlowDownSpeed()
+    {
+        if(countDown <= 3 && countDown > 0)
+        {
+            Speed = 6f;
+            //Instantiate(SlowDownVFX, transform.position, transform.rotation);
+        }
+        else
+        {
+            Speed = 10f;
+            countDown = 3f;
+        }
+    }
+
+    public void PullBack()
+    {
+        
+    }
     void Update()
     {
+        countDown -= Time.deltaTime;
         Quaternion Rotation = Quaternion.LookRotation(-WayPoints.points[wavepointIndex].position + transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * RotationSpeed);
         Vector3 dir = target.position - transform.position;
@@ -35,12 +56,7 @@ public class EnemyMovement : MonoBehaviour
         {
             GetNextWaypoint();
         }
-
-        
-        
-
-    }
-    
+    }   
     void GetNextWaypoint()
     {
         if (wavepointIndex >= WayPoints.points.Length - 1)
