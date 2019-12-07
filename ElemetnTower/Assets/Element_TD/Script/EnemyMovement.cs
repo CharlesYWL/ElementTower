@@ -11,7 +11,6 @@ public class EnemyMovement : MonoBehaviour
     private int wavepointIndex = 0;
     public float Speed = 10f;
     public float SlowFactor = 2f;
-    public GameObject SlowDownVFX;
     void Start()
     {
         target = WayPoints.points[0];
