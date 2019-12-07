@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
         target = WayPoints.points[0];
     }
     //Damage Method
-    public void TakeDamage(int DamageAmount)
+    public void TakeDamage(float DamageAmount)
     {
         Health -= DamageAmount;
         if (Health <= 0)

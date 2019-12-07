@@ -1,19 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Element;
 public class ProjectileMover : MonoBehaviour
 {
     public float speed = 15f;
     public float hitOffset = 0f;
-    public int damage = 30;
+    public float damage = 30;
     public bool UseFirePointRotation;
     public Vector3 rotationOffset = new Vector3(0, 0, 0);
     public GameObject hit;
     public GameObject flash;
     private Rigidbody rb;
     public GameObject[] Detached;
-
+    [SerializeField] private ElementTypes type = ElementTypes.Wind;
     //Modified for ElementTower
     public Transform FollowTarget = null;
 
@@ -104,10 +104,29 @@ public class ProjectileMover : MonoBehaviour
 
     void ShootDamage(Transform EnemyTarget)
     {
+        float newDamage = 0f;
         EnemyMovement Enemy = EnemyTarget.GetComponent<EnemyMovement>();
         if(Enemy != null)
         {
-            Enemy.TakeDamage(damage);
+            /*
+            if(type == ElementTypes.Wind)
+            {
+                newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
+            }
+            */
+            switch(type)
+            {
+                case ElementTypes.Wind:
+                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
+                    break;
+                case ElementTypes.Fire:
+                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
+                    break;
+                case ElementTypes.Water:
+                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
+                    break;
+            }
+            Enemy.TakeDamage(newDamage);
         }
         
     }
