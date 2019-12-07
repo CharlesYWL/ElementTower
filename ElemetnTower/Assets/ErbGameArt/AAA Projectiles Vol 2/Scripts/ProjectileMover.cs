@@ -114,23 +114,19 @@ public class ProjectileMover : MonoBehaviour
                 newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
             }
             */
-            
+            if(type == ElementTypes.Glacier) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); Enemy.Speed = 3f; } else { Enemy.Speed = 10f; }
+            if(type == ElementTypes.Wind) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);}
             switch (type)
             {
-                case ElementTypes.Crystal:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    
-                    break;
                 case ElementTypes.Desert:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
                     break;
                 case ElementTypes.Fire:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    
+                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);                   
                     break;
                 case ElementTypes.Glacier:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    Enemy.SlowDownSpeed();
+                    Enemy.Speed = 3f;                   
                     break;
                 case ElementTypes.Light:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
@@ -150,11 +146,7 @@ public class ProjectileMover : MonoBehaviour
                 case ElementTypes.Thunder:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
                     break;
-                case ElementTypes.Wind:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    Enemy.PullBack();
-                    break;
-
+                
             }
             
         }
