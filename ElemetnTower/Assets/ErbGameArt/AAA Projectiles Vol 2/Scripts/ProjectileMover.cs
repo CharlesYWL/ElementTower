@@ -124,6 +124,7 @@ public class ProjectileMover : MonoBehaviour
                     break;
                 case ElementTypes.Water:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
+                    Enemy.SlowDownSpeed();
                     break;
             }
             Enemy.TakeDamage(newDamage);

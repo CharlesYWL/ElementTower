@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     private float RotationSpeed = 5f;
     private int wavepointIndex = 0;
     public float Speed = 10f;
-
+    public float SlowFactor = 2f;
     void Start()
     {
         target = WayPoints.points[0];
@@ -23,6 +23,10 @@ public class EnemyMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void SlowDownSpeed()
+    {
+        Speed = 6f;
+    }
     void Update()
     {
         Quaternion Rotation = Quaternion.LookRotation(-WayPoints.points[wavepointIndex].position + transform.position);
@@ -35,12 +39,7 @@ public class EnemyMovement : MonoBehaviour
         {
             GetNextWaypoint();
         }
-
-        
-        
-
-    }
-    
+    }   
     void GetNextWaypoint()
     {
         if (wavepointIndex >= WayPoints.points.Length - 1)
