@@ -3,16 +3,17 @@ namespace Element
 {
     public enum ElementTypes
     {
-        Fire,
-        Water,
-        Wind,
         Crystal,
         Desert,
-        Light,
+        Fire,
         Glacier,
+        Light,
+        Mountain,
+        Ocean,
         Poison,
         Shadow,
-        Thunder
+        Thunder,
+        Wind
     }
 }
 
