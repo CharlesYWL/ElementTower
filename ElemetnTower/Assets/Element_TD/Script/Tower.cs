@@ -5,21 +5,23 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    private Transform Target=null;
+    private Transform Target = null;
 
     [Header("Property")]
     public float Range = 15f;
     public float FireRate = 1f;
     private float FireCountDown = 0f;
-    
+
     [Header("Setup Fields")]
     public string EnemyTag = "Enemy";
     public GameObject ProjectilePrefab;
     public Transform ProjectilePoint;
 
+    Animator Attack;
 
     void Start()
     {
+        Attack = GetComponent<Animator>();
         //InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -28,10 +30,10 @@ public class Tower : MonoBehaviour
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag(EnemyTag);
         float ShortestPath = Mathf.Infinity;
         GameObject NearestEnemy = null;
-        foreach(GameObject Enemy in Enemies)
+        foreach (GameObject Enemy in Enemies)
         {
             float DistanceToEnemy = Vector3.Distance(transform.position, Enemy.transform.position);
-            if(DistanceToEnemy < ShortestPath)
+            if (DistanceToEnemy < ShortestPath)
             {
                 ShortestPath = DistanceToEnemy;
                 NearestEnemy = Enemy;
@@ -39,7 +41,7 @@ public class Tower : MonoBehaviour
         }
 
         //Find the closest target
-        if(NearestEnemy != null && ShortestPath <= Range)
+        if (NearestEnemy != null && ShortestPath <= Range)
         {
             Target = NearestEnemy.transform;
         }
@@ -54,10 +56,12 @@ public class Tower : MonoBehaviour
         if (Target == null)
         {
             UpdateTarget();
+            Attack.ResetTrigger("Attack");
             return;
         }
         else
         {
+            Attack.SetTrigger("Attack");
             float DistanceToEnemy = Vector3.Distance(transform.position, Target.position);
             if (DistanceToEnemy > Range)
             {
@@ -66,7 +70,7 @@ public class Tower : MonoBehaviour
 
         }
         //Fire Projectile Method
-        if(FireCountDown <= 0f)
+        if (FireCountDown <= 0f)
         {
             FireProjectile();
             FireCountDown = 1f / FireRate;
