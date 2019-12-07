@@ -17,9 +17,11 @@ public class Tower : MonoBehaviour
     public GameObject ProjectilePrefab;
     public Transform ProjectilePoint;
 
+    Animator Attack;
 
     void Start()
     {
+        Attack = GetComponent<Animator>();
         //InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -53,11 +55,13 @@ public class Tower : MonoBehaviour
     {
         if (Target == null)
         {
+            Attack.ResetTrigger("Attack");
             UpdateTarget();
             return;
         }
         else
         {
+            Attack.SetTrigger("Attack");
             float DistanceToEnemy = Vector3.Distance(transform.position, Target.position);
             if (DistanceToEnemy > Range)
             {
@@ -95,4 +99,10 @@ public class Tower : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, Range);
     }
+
+    public Transform TargetReturn()
+    {
+        return Target;
+    }
+
 }

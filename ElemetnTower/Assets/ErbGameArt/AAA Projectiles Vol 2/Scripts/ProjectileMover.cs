@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Element;
+
 public class ProjectileMover : MonoBehaviour
 {
     public float speed = 15f;
     public float hitOffset = 0f;
-    public float damage = 30;
     public bool UseFirePointRotation;
     public Vector3 rotationOffset = new Vector3(0, 0, 0);
     public GameObject hit;
@@ -42,22 +41,10 @@ public class ProjectileMover : MonoBehaviour
     {
 		if (speed != 0)
         {
-            //Modified for ElementTower
-            //rb.velocity = transform.forward * speed;
-            Vector3 hightOffset = new Vector3(0, 2f, 0);
-            if (FollowTarget)
-            {
-                transform.LookAt(FollowTarget.position+ new Vector3(0,2,0));
-                rb.velocity = (FollowTarget.position - transform.position + hightOffset).normalized * speed;
-            }
-            else
-            {
-                rb.velocity = transform.forward * speed;
-            }
-
-
+            rb.velocity = transform.forward * speed;
+            //transform.position += transform.forward * (speed * Time.deltaTime);         
         }
-    }
+	}
 
     //https ://docs.unity3d.com/ScriptReference/Rigidbody.OnCollisionEnter.html
     void OnCollisionEnter(Collision collision)
@@ -95,39 +82,6 @@ public class ProjectileMover : MonoBehaviour
                 detachedPrefab.transform.parent = null;
             }
         }
-        if(FollowTarget != null)
-        {
-            ShootDamage(FollowTarget);
-        }
         Destroy(gameObject);
-    }
-
-    void ShootDamage(Transform EnemyTarget)
-    {
-        float newDamage = 0f;
-        EnemyMovement Enemy = EnemyTarget.GetComponent<EnemyMovement>();
-        if(Enemy != null)
-        {
-            /*
-            if(type == ElementTypes.Wind)
-            {
-                newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-            }
-            */
-            switch(type)
-            {
-                case ElementTypes.Wind:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
-                case ElementTypes.Fire:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
-                case ElementTypes.Water:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
-            }
-            Enemy.TakeDamage(newDamage);
-        }
-        
     }
 }
