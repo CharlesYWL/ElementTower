@@ -18,10 +18,16 @@ public class BuildPoint :  BuildInterface,IDropHandler
 
     private void OnMouseEnter()
     {
+
         Debug.Log("Mouse Enter");
         //TODO: get hint for users
+        if (hintWehave)
+        {
+            return;
+        }
         hintWehave = Instantiate(hint, transform.position, transform.rotation);
-        hintWehave.transform.localScale = new Vector3(2, 2, 2);
+        hintWehave.transform.Rotate(-90, 0, 0);
+        hintWehave.transform.localScale = new Vector3(8, 8, 8);
     }
 
     private void OnMouseExit()
