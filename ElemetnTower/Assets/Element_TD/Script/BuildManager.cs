@@ -22,10 +22,8 @@ public class BuildManager : MonoBehaviour
     public GameObject ThunderTower;
     public GameObject WindTower;
 
-
-
-
-    private GameObject towerToBuild;
+    public GameObject cards;
+    private Cards c;
     private void Awake()
     {
         if(instance != null)
@@ -34,16 +32,27 @@ public class BuildManager : MonoBehaviour
             return;
         }
         instance = this;
+        c = cards.GetComponent<Cards>();
+    }
+    void Start()
+    {
+        InvokeRepeating("RandomGenerateCard", 2.0f, 1f);
+    }
+
+    public void Update()
+    {
+        
     }
 
 
-    public GameObject GetTowerToBuild()
+    public void RandomGenerateCard()
     {
-        return towerToBuild;
-    }
 
-    public void SetTowerToBuild(GameObject tower)
-    {
-        towerToBuild = tower;
+        Debug.Log("Genereate Card");
+        if(c.getCardsNumber() >= 5)
+        {
+            return;
+        }
+        c.addPrefeb(this.OceanTower);
     }
 }

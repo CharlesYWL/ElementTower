@@ -29,4 +29,9 @@ public class Cards : MonoBehaviour
         go = Instantiate(prefeb, transform.position, Quaternion.identity) as GameObject;
         go.transform.SetParent(transform);
     }
+    public int getCardsNumber()
+    {
+        Debug.Log(transform.childCount);
+        return transform.childCount;
+    }
 }
