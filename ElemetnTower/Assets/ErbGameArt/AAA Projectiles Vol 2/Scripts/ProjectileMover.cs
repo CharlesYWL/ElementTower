@@ -35,19 +35,19 @@ public class ProjectileMover : MonoBehaviour
                 Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
-        Destroy(gameObject,5);
-	}
+        Destroy(gameObject, 5);
+    }
 
-    void FixedUpdate ()
+    void FixedUpdate()
     {
-		if (speed != 0)
+        if (speed != 0)
         {
             //Modified for ElementTower
             //rb.velocity = transform.forward * speed;
             Vector3 hightOffset = new Vector3(0, 2f, 0);
             if (FollowTarget)
             {
-                transform.LookAt(FollowTarget.position+ new Vector3(0,2,0));
+                transform.LookAt(FollowTarget.position + new Vector3(0, 2, 0));
                 rb.velocity = (FollowTarget.position - transform.position + hightOffset).normalized * speed;
             }
             else
@@ -95,7 +95,7 @@ public class ProjectileMover : MonoBehaviour
                 detachedPrefab.transform.parent = null;
             }
         }
-        if(FollowTarget != null)
+        if (FollowTarget != null)
         {
             ShootDamage(FollowTarget);
         }
@@ -106,7 +106,7 @@ public class ProjectileMover : MonoBehaviour
     {
         float newDamage = 0f;
         EnemyMovement Enemy = EnemyTarget.GetComponent<EnemyMovement>();
-        if(Enemy != null)
+        if (Enemy != null)
         {
             /*
             if(type == ElementTypes.Wind)
@@ -114,7 +114,7 @@ public class ProjectileMover : MonoBehaviour
                 newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
             }
             */
-            switch(type)
+            switch (type)
             {
                 case ElementTypes.Wind:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
@@ -129,6 +129,6 @@ public class ProjectileMover : MonoBehaviour
             }
             Enemy.TakeDamage(newDamage);
         }
-        
+
     }
 }

@@ -14,6 +14,7 @@ Shader "ERB/Particles/Add_CenterGlow"
 		[MaterialToggle] _Usedepth ("Use depth?", Float ) = 0
         _Depthpower ("Depth power", Float ) = 1
 		[Enum(Cull Off,0, Cull Front,1, Cull Back,2)] _CullMode("Culling", Float) = 0
+		[Enum(One,1,OneMinuSrcAlpha,6)] _Blend2 ("Blend mode subset", Float) = 1
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 	}
 
@@ -22,7 +23,7 @@ Shader "ERB/Particles/Add_CenterGlow"
 		SubShader
 		{
 			Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" "PreviewType"="Plane" }
-			Blend One One
+			Blend One[_Blend2]
 			ColorMask RGB
 			Cull[_CullMode]
 			Lighting Off 

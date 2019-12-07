@@ -72,11 +72,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _CullMode: 0
     - _Cutoff: 0.5
     - _Depthpower: 0.5
     - _DetailNormalMapScale: 1
     - _Distortionpower: 0.5
-    - _DstBlend: 0
+    - _DstBlend: 1
     - _Emission: 3
     - _GlossMapScale: 1
     - _Glossiness: 0.5
