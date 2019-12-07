@@ -74,6 +74,7 @@ Material:
     - _2Uspeed: -0.2
     - _2Vspeed: -0.05
     - _BumpScale: 1
+    - _CullMode: 2
     - _Cutoff: 0.5
     - _Cutted: 0
     - _Cutvalue: 0.8
