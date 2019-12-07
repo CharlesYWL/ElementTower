@@ -3,8 +3,8 @@ using System.Collections;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private float Health = 100f;
-    private float countDown = 3f;
+    public float Health = 100f;
+    private float countDown = 0;
     private Transform target;
     private float MaxTurnSpeed = 10f;
     private float RotationSpeed = 5f;
@@ -25,27 +25,8 @@ public class EnemyMovement : MonoBehaviour
             //TopPanelInfo.getTopPanelInfo.AddMoney();
         }
     }
-    public void SlowDownSpeed()
-    {
-        if(countDown <= 3 && countDown > 0)
-        {
-            Speed = 6f;
-            //Instantiate(SlowDownVFX, transform.position, transform.rotation);
-        }
-        else
-        {
-            Speed = 10f;
-            countDown = 3f;
-        }
-    }
-
-    public void PullBack()
-    {
-        
-    }
     void Update()
-    {
-        countDown -= Time.deltaTime;
+    {        
         Quaternion Rotation = Quaternion.LookRotation(-WayPoints.points[wavepointIndex].position + transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * RotationSpeed);
         Vector3 dir = target.position - transform.position;

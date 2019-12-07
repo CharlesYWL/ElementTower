@@ -22,7 +22,7 @@ namespace Element
                     TypeFactor = 0.5f;
                     break;
                 case ElementTypes.Glacier:
-                    TypeFactor = 0.4f;
+                    TypeFactor = 0.1f;
                     break;
                 case ElementTypes.Light:
                     TypeFactor = 0.1f;
