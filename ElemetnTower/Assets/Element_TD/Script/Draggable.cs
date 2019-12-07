@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler, IPointerClickHandler
@@ -11,6 +12,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
     public bool TowerCreate = false;
     BuildManager bm;
 
+    GameObject placeHolder=null;
+
     void Start()
     {
         //init all thing
@@ -19,6 +22,17 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        //PlaceHoler thing
+        placeHolder = new GameObject();
+        placeHolder.transform.SetParent(this.transform.parent);
+        LayoutElement le = placeHolder.AddComponent<LayoutElement>();
+        le.preferredHeight = this.GetComponent<LayoutElement>().preferredHeight;
+        le.preferredWidth = this.GetComponent<LayoutElement>().preferredWidth;
+        le.flexibleHeight = 0;
+        le.flexibleWidth = 0;
+        placeHolder.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
+
+        //Drag thing
         parentToReturnTo = transform.parent;
         offSet = eventData.position - new Vector2(transform.position.x, transform.position.y);
         transform.SetParent(transform.parent.parent);
@@ -31,18 +45,35 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
 
     public void OnDrag(PointerEventData eventData)
     {
+        // Move
         transform.position = eventData.position-offSet;
+        //PlaceHoler thing
+        int newSiblingIndex = parentToReturnTo.childCount;
+        for (int i = 0; i < parentToReturnTo.childCount; i++)
+        {
+            if (transform.position.x < parentToReturnTo.GetChild(i).position.x)
+            {
+                newSiblingIndex = i;
+                if (placeHolder.transform.GetSiblingIndex() < newSiblingIndex)
+                    newSiblingIndex--; 
+                break;
+            }
+        }
+        placeHolder.transform.SetSiblingIndex(newSiblingIndex);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         transform.SetParent(parentToReturnTo);
+        transform.SetSiblingIndex(placeHolder.transform.GetSiblingIndex());
+
 
         GetComponent<CanvasGroup>().blocksRaycasts = true;
         if (TowerCreate)
         {
             Destroy(this.gameObject);
         }
+        Destroy(placeHolder);
     }
 
     // this is used for genetae appropriate tower
