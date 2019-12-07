@@ -10,10 +10,19 @@ public class BuildManager : MonoBehaviour
 {
     //Shared public 
     public static BuildManager instance;
-    public GameObject MageTowerLv1Prefeb;
-    public GameObject MageTowerLv2Prefeb;
-    public GameObject MageTowerLv3Prefeb;
-    public GameObject MageTowerLv4Prefeb;
+    public GameObject CyrstalTower;
+    public GameObject DesertTower;
+    public GameObject FireTower;
+    public GameObject GlacierTower;
+    public GameObject LightTower;
+    public GameObject MountainTower;
+    public GameObject OceanTower;
+    public GameObject PoisonTower;
+    public GameObject ShadoeTower;
+    public GameObject ThunderTower;
+    public GameObject WindTower;
+
+
 
 
     private GameObject towerToBuild;

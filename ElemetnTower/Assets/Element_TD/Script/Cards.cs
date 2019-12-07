@@ -10,7 +10,6 @@ public class Cards : MonoBehaviour
 {
     BuildManager buildManager;
     // Start is called before the first frame update
-    public GameObject TestTarget;
     void Start()
     {
         buildManager = BuildManager.instance;
