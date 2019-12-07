@@ -41,7 +41,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void PullBack()
     {
-        //Vector3 reDir = transform.position + 1;
+        
     }
     void Update()
     {

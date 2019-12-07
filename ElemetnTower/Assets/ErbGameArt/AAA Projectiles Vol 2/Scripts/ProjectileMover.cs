@@ -6,7 +6,7 @@ public class ProjectileMover : MonoBehaviour
 {
     public float speed = 15f;
     public float hitOffset = 0f;
-    public float damage = 20f;
+    public float damage = 30;
     public bool UseFirePointRotation;
     public Vector3 rotationOffset = new Vector3(0, 0, 0);
     public GameObject hit;
@@ -114,47 +114,23 @@ public class ProjectileMover : MonoBehaviour
                 newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
             }
             */
-            
+            Enemy.TakeDamage(newDamage);
             switch (type)
             {
                 case ElementTypes.Wind:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    //Enemy.PullBack();
+                    Enemy.PullBack();
                     break;
                 case ElementTypes.Fire:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
                     break;
                 case ElementTypes.Water:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);                    
-                    break;
-                case ElementTypes.Light:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
-                case ElementTypes.Poison:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
-                case ElementTypes.Mountain:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
-                case ElementTypes.Shadow:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
-                case ElementTypes.Thunder:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
-                case ElementTypes.Glacier:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
                     Enemy.SlowDownSpeed();
-                    break;
-                case ElementTypes.Crystal:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
-                case ElementTypes.Desert:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
                     break;
             }
             
         }
-        Enemy.TakeDamage(newDamage);
+
     }
 }
