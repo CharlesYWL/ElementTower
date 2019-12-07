@@ -16,6 +16,8 @@ public class Tower : MonoBehaviour
     public string EnemyTag = "Enemy";
     public GameObject ProjectilePrefab;
     public Transform ProjectilePoint;
+    public GameObject hint;
+    private GameObject hintWehave;
 
     Animator Attack;
 
@@ -100,9 +102,23 @@ public class Tower : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, Range);
     }
 
-    public void AddPrefeb(GameObject obj)
+
+    // OnMouseEnter and OnMouseExit relate to choose stuff
+    private void OnMouseEnter()
     {
-        GameObject op = Instantiate(obj, transform.position, transform.rotation);
-        op.transform.SetParent(this.transform);
+
+        //get hint for users
+        if (hintWehave)
+        {
+            return;
+        }
+        hintWehave = Instantiate(hint, transform.position, transform.rotation);
+        hintWehave.transform.Rotate(-90, 0, 0);
+        hintWehave.transform.localScale = new Vector3(8, 8, 8);
+    }
+    private void OnMouseExit()
+    {
+        //TODO: now its just to show we enter the box
+        Destroy(hintWehave);
     }
 }

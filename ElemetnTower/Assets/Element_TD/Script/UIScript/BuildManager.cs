@@ -23,13 +23,15 @@ public class BuildManager : MonoBehaviour
     public GameObject ThunderTower;
     public GameObject WindTower;
 
-    enum cards { CyrstalTower, DesertTower, FireTower , GlacierTower, LightTower, MountainTower, OceanTower , PoisonTower, ShadoeTower , ThunderTower , WindTower }
 
     [Header("UI")]
     public GameObject CardsHoler;
     public GameObject ShopHoler;
+    public GameObject TopPanel;
     private Cards c;
     private Shop s;
+
+    private float timeCount = 0f;
     private void Awake()
     {
         if(instance != null)
@@ -53,7 +55,7 @@ public class BuildManager : MonoBehaviour
 
     public void Update()
     {
-        
+        timeCount += Time.deltaTime;
     }
 
 
@@ -100,7 +102,6 @@ public class BuildManager : MonoBehaviour
             default:
                 break;
         }
-        // Debug.Log("Genereate "+target.name+" in Shops");
         s.addPrefeb(target);
     }
 
@@ -110,12 +111,16 @@ public class BuildManager : MonoBehaviour
 
     public void RefreshShop()
     {
-        Debug.Log("on click");
         s.clearShop();
         // We add 5 random prefebs to shop
         while (!s.isFullCap())
         {
             RandomGenerateCard();
         }
+    }
+
+    public float GetTime()
+    {
+        return this.timeCount;
     }
 }

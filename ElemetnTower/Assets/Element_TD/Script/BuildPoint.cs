@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class BuildPoint :  BuildInterface,IDropHandler
 {
-    public Color hoverColor;
     public GameObject hint;
     private GameObject hintWehave;
     private MeshRenderer rend;

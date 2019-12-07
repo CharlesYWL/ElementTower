@@ -27,7 +27,6 @@ public class Shop : MonoBehaviour
     public void addPrefeb(GameObject prefeb)
     {
         childCount++;
-        Debug.Log("Add prefeb");
         GameObject go;
         go = Instantiate(prefeb, transform.position, Quaternion.identity) as GameObject;
         go.transform.SetParent(transform);
@@ -50,7 +49,6 @@ public class Shop : MonoBehaviour
 
     public bool isFullCap() 
     {
-        Debug.Log("===>" + this.childCount);
         return (this.childCount >= MAXCAP);
     }
 
