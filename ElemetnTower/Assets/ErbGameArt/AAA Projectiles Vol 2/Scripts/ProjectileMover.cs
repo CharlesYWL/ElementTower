@@ -16,7 +16,6 @@ public class ProjectileMover : MonoBehaviour
     [SerializeField] private ElementTypes type = ElementTypes.Wind;
     //Modified for ElementTower
     public Transform FollowTarget = null;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -116,17 +115,11 @@ public class ProjectileMover : MonoBehaviour
             */
             if(type == ElementTypes.Glacier) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); Enemy.Speed = 3f; } else { Enemy.Speed = 10f; }
             if(type == ElementTypes.Wind) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);}
+            if(type == ElementTypes.Fire) { newDamage = DamageEngine.ElementCombatAlgorithm(damage + Random.Range(10, 100), type); }
             switch (type)
             {
                 case ElementTypes.Desert:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
-                case ElementTypes.Fire:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);                   
-                    break;
-                case ElementTypes.Glacier:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    Enemy.Speed = 3f;                   
                     break;
                 case ElementTypes.Light:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
