@@ -9,6 +9,7 @@ public class WaveSpawner : MonoBehaviour
     public float TimeBetweenWaves = 5f;
     private float countdown = 3f;
     private int waveNumber = 0;
+    private int MaxWave = 10;
     private void Update()
     {
         if(countdown <= 0f)
@@ -24,8 +25,15 @@ public class WaveSpawner : MonoBehaviour
         waveNumber++;
         for (int i = 0; i < waveNumber; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            if(waveNumber < MaxWave)
+            {
+                SpawnEnemy();
+            }
+            else
+            {
+                waveNumber = 0;
+            }
+            yield return new WaitForSeconds(1f);
         }        
     }
 
