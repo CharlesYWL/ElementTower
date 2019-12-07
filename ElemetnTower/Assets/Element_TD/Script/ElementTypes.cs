@@ -5,7 +5,14 @@ namespace Element
     {
         Fire,
         Water,
-        Wind
+        Wind,
+        Crystal,
+        Desert,
+        Light,
+        Glacier,
+        Poison,
+        Shadow,
+        Thunder
     }
 }
 

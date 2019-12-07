@@ -17,7 +17,7 @@ public class BuildManager : MonoBehaviour
     public GameObject LightTower;
     public GameObject MountainTower;
     public GameObject OceanTower;
-    public GameObject PoisonTower;
+    public GameObject PoisonTower; // Cannot be used
     public GameObject ShadoeTower;
     public GameObject ThunderTower;
     public GameObject WindTower;
@@ -53,6 +53,46 @@ public class BuildManager : MonoBehaviour
         {
             return;
         }
-        c.addPrefeb(this.OceanTower);
+        GameObject target=null;
+        int i = Random.Range(1, 11);
+        switch (i)
+        {
+            case 1:
+                target = this.CyrstalTower;
+                break;
+            case 2:
+                target = this.DesertTower;
+                break;
+            case 3:
+                target = this.FireTower;
+                break;
+            case 4:
+                target = this.GlacierTower;
+                break;
+            case 5:
+                target = this.LightTower;
+                break;
+            case 6:
+                target = this.MountainTower;
+                break;
+            case 7:
+                target = this.OceanTower;
+                break;
+            case 8:
+                target = this.PoisonTower;
+                break;
+            case 9:
+                target = this.ShadoeTower;
+                break;
+            case 10:
+                target = this.ThunderTower;
+                break;
+            case 11:
+                target = this.WindTower;
+                break;
+            default:
+                break;
+        }
+        c.addPrefeb(target);
     }
 }
