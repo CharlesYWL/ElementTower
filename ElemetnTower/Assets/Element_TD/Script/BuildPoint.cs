@@ -19,8 +19,7 @@ public class BuildPoint :  BuildInterface,IDropHandler
     private void OnMouseEnter()
     {
 
-        Debug.Log("Mouse Enter");
-        //TODO: get hint for users
+        //get hint for users
         if (hintWehave)
         {
             return;
@@ -32,8 +31,6 @@ public class BuildPoint :  BuildInterface,IDropHandler
 
     private void OnMouseExit()
     {
-        Debug.Log("Mouse Exit");
-
         //TODO: now its just to show we enter the box
         Destroy(hintWehave);
     }

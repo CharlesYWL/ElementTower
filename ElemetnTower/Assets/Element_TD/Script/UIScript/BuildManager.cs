@@ -23,6 +23,8 @@ public class BuildManager : MonoBehaviour
     public GameObject ThunderTower;
     public GameObject WindTower;
 
+    enum cards { CyrstalTower, DesertTower, FireTower , GlacierTower, LightTower, MountainTower, OceanTower , PoisonTower, ShadoeTower , ThunderTower , WindTower }
+
     [Header("UI")]
     public GameObject CardsHoler;
     public GameObject ShopHoler;
@@ -36,13 +38,17 @@ public class BuildManager : MonoBehaviour
             return;
         }
         instance = this;
+        if (CardsHoler == null || ShopHoler == null)
+        {
+            Debug.LogError("BuildManager Need Cards & Shops! Check Inspector");
+        }
         c = CardsHoler.GetComponent<Cards>();
         s = ShopHoler.GetComponent<Shop>();
     }
     void Start()
     {
         //This is for demo only! Delete after we have purchase system
-        InvokeRepeating("RandomGenerateCard", 3.0f, 5f);
+        //InvokeRepeating("RandomGenerateCard", 3.0f, 5f);
     }
 
     public void Update()
@@ -53,12 +59,7 @@ public class BuildManager : MonoBehaviour
 
     public void RandomGenerateCard()
     {
-
-        Debug.Log("Genereate Card");
-        if(c.getCardsNumber() >= 5)
-        {
-            return;
-        }
+        //TODO: neew to modify prob
         GameObject target=null;
         int i = Random.Range(1, 11);
         switch (i)
@@ -99,6 +100,22 @@ public class BuildManager : MonoBehaviour
             default:
                 break;
         }
-        c.addPrefeb(target);
+        // Debug.Log("Genereate "+target.name+" in Shops");
+        s.addPrefeb(target);
+    }
+
+    public Cards getCards() {return this.c;}
+
+    public Shop GetShop() { return this.s; }
+
+    public void RefreshShop()
+    {
+        Debug.Log("on click");
+        s.clearShop();
+        // We add 5 random prefebs to shop
+        while (!s.isFullCap())
+        {
+            RandomGenerateCard();
+        }
     }
 }

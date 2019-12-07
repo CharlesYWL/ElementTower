@@ -9,6 +9,8 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     BuildManager buildManager;
+    private int MAXCAP = 5;
+    private int childCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class Shop : MonoBehaviour
     // This is for test use
     public void addPrefeb(GameObject prefeb)
     {
+        childCount++;
         Debug.Log("Add prefeb");
         GameObject go;
         go = Instantiate(prefeb, transform.position, Quaternion.identity) as GameObject;
@@ -34,4 +37,22 @@ public class Shop : MonoBehaviour
         Debug.Log(transform.childCount);
         return transform.childCount;
     }
+    public void clearShop()
+    {
+        int childs = this.transform.childCount;
+        for (int i = childs - 1; i >= 0; i--)
+        {
+            //GameObject.DestroyImmediate();
+            Destroy(this.transform.GetChild(i).gameObject);
+        }
+        this.childCount = 0;
+    }
+
+    public bool isFullCap() 
+    {
+        Debug.Log("===>" + this.childCount);
+        return (this.childCount >= MAXCAP);
+    }
+
+
 }
