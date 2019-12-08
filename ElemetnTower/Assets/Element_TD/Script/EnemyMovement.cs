@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(gameObject);
-            //TopPanelInfo.getTopPanelInfo.AddMoney();
+            BuildManager.instance.AddMoney();
         }
     }
     void Update()

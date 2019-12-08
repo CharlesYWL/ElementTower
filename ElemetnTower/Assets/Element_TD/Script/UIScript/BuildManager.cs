@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Element;
+using UnityEngine.UI;
 
 /// <summary>
 /// ITS useless now, buy leave it for further necessary
@@ -32,6 +33,16 @@ public class BuildManager : MonoBehaviour
     private Cards c;
     private Shop s;
 
+    //Money
+    [Header("MONEY")]
+    [SerializeField]
+    public int Money;
+    [SerializeField]
+    public int Addmoney;
+    [SerializeField]
+    public Text Moneytext;
+    [SerializeField]
+    public int RefreshMoney;
 
     enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
 
@@ -115,6 +126,11 @@ public class BuildManager : MonoBehaviour
 
     public void RefreshShop()
     {
+        if (Money < RefreshMoney)
+        {
+            return;
+        }
+        Money -= RefreshMoney;
         s.clearShop();
         // We add 5 random prefebs to shop
         while (!s.isFullCap())
@@ -140,12 +156,23 @@ public class BuildManager : MonoBehaviour
     public bool isChildOfShop(GameObject card)
     {
         Draggable dg = card.GetComponent<Draggable>();
-
+        card.GetComponent<CardInfoShow>().MoneyText.enabled = false;
         Debug.Log("Check Child of SHOP: "+ (dg.parentToReturnTo == this.ShopHoler.transform));
         return dg.parentToReturnTo==this.ShopHoler.transform;
     }
 
     public Camera GetCamera() {
         return cam;    
+    }
+
+    //Money
+    public int GetMoney()
+    {
+        return Money;
+    }
+
+    public void AddMoney()
+    {
+        this.Money += this.Addmoney;
     }
 }
