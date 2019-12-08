@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cf19bada45c21b043a3879097fcfdd19
+guid: 2ae0e9de575cbfc459030faf301bab71
 ModelImporter:
   serializedVersion: 28
   internalIDToNameTable:
@@ -26,121 +26,166 @@ ModelImporter:
     second: Bip001 L Finger0
   - first:
       1: 100014
-    second: Bip001 L Finger0Nub
+    second: Bip001 L Finger01
   - first:
       1: 100016
-    second: Bip001 L Finger1
+    second: Bip001 L Finger0Nub
   - first:
       1: 100018
-    second: Bip001 L Finger1Nub
+    second: Bip001 L Finger1
   - first:
       1: 100020
-    second: Bip001 L Foot
+    second: Bip001 L Finger11
   - first:
       1: 100022
-    second: Bip001 L Forearm
+    second: Bip001 L Finger1Nub
   - first:
       1: 100024
-    second: Bip001 L Hand
+    second: Bip001 L Finger2
   - first:
       1: 100026
-    second: Bip001 L Thigh
+    second: Bip001 L Finger21
   - first:
       1: 100028
-    second: Bip001 L Toe0
+    second: Bip001 L Finger2Nub
   - first:
       1: 100030
-    second: Bip001 L Toe01
+    second: Bip001 L Foot
   - first:
       1: 100032
-    second: Bip001 L Toe02
+    second: Bip001 L Forearm
   - first:
       1: 100034
-    second: Bip001 L Toe0Nub
+    second: Bip001 L Hand
   - first:
       1: 100036
-    second: Bip001 L UpperArm
+    second: Bip001 L Thigh
   - first:
       1: 100038
-    second: Bip001 Neck
+    second: Bip001 L Toe0
   - first:
       1: 100040
-    second: Bip001 Pelvis
+    second: Bip001 L Toe0Nub
   - first:
       1: 100042
-    second: Bip001 Ponytail1
+    second: Bip001 L Toe1
   - first:
       1: 100044
-    second: Bip001 Ponytail11
+    second: Bip001 L Toe1Nub
   - first:
       1: 100046
-    second: Bip001 Ponytail12
+    second: Bip001 L Toe2
   - first:
       1: 100048
-    second: Bip001 Ponytail1Nub
+    second: Bip001 L Toe2Nub
   - first:
       1: 100050
-    second: Bip001 Prop1
+    second: Bip001 L UpperArm
   - first:
       1: 100052
-    second: Bip001 R Calf
+    second: Bip001 Neck
   - first:
       1: 100054
-    second: Bip001 R Clavicle
+    second: Bip001 Pelvis
   - first:
       1: 100056
-    second: Bip001 R Finger0
+    second: Bip001 R Calf
   - first:
       1: 100058
-    second: Bip001 R Finger0Nub
+    second: Bip001 R Clavicle
   - first:
       1: 100060
-    second: Bip001 R Finger1
+    second: Bip001 R Finger0
   - first:
       1: 100062
-    second: Bip001 R Finger1Nub
+    second: Bip001 R Finger01
   - first:
       1: 100064
-    second: Bip001 R Foot
+    second: Bip001 R Finger0Nub
   - first:
       1: 100066
-    second: Bip001 R Forearm
+    second: Bip001 R Finger1
   - first:
       1: 100068
-    second: Bip001 R Hand
+    second: Bip001 R Finger11
   - first:
       1: 100070
-    second: Bip001 R Thigh
+    second: Bip001 R Finger1Nub
   - first:
       1: 100072
-    second: Bip001 R Toe0
+    second: Bip001 R Finger2
   - first:
       1: 100074
-    second: Bip001 R Toe01
+    second: Bip001 R Finger21
   - first:
       1: 100076
-    second: Bip001 R Toe02
+    second: Bip001 R Finger2Nub
   - first:
       1: 100078
-    second: Bip001 R Toe0Nub
+    second: Bip001 R Foot
   - first:
       1: 100080
-    second: Bip001 R UpperArm
+    second: Bip001 R Forearm
   - first:
       1: 100082
-    second: Bip001 Spine
+    second: Bip001 R Hand
   - first:
       1: 100084
-    second: Bone001
+    second: Bip001 R Thigh
   - first:
       1: 100086
-    second: Bone002
+    second: Bip001 R Toe0
   - first:
       1: 100088
-    second: Villain2
+    second: Bip001 R Toe0Nub
   - first:
       1: 100090
+    second: Bip001 R Toe1
+  - first:
+      1: 100092
+    second: Bip001 R Toe1Nub
+  - first:
+      1: 100094
+    second: Bip001 R Toe2
+  - first:
+      1: 100096
+    second: Bip001 R Toe2Nub
+  - first:
+      1: 100098
+    second: Bip001 R UpperArm
+  - first:
+      1: 100100
+    second: Bip001 Spine
+  - first:
+      1: 100102
+    second: Bip001 Spine1
+  - first:
+      1: 100104
+    second: Bip001 Tail
+  - first:
+      1: 100106
+    second: Bip001 Tail1
+  - first:
+      1: 100108
+    second: Bip001 Tail2
+  - first:
+      1: 100110
+    second: Bip001 Tail3
+  - first:
+      1: 100112
+    second: Bip001 Tail4
+  - first:
+      1: 100114
+    second: Bip001 TailNub
+  - first:
+      1: 100116
+    second: Bone001
+  - first:
+      1: 100118
     second: //RootNode
+  - first:
+      1: 100120
+    second: Villain4
   - first:
       4: 400000
     second: Bip001
@@ -164,124 +209,169 @@ ModelImporter:
     second: Bip001 L Finger0
   - first:
       4: 400014
-    second: Bip001 L Finger0Nub
+    second: Bip001 L Finger01
   - first:
       4: 400016
-    second: Bip001 L Finger1
+    second: Bip001 L Finger0Nub
   - first:
       4: 400018
-    second: Bip001 L Finger1Nub
+    second: Bip001 L Finger1
   - first:
       4: 400020
-    second: Bip001 L Foot
+    second: Bip001 L Finger11
   - first:
       4: 400022
-    second: Bip001 L Forearm
+    second: Bip001 L Finger1Nub
   - first:
       4: 400024
-    second: Bip001 L Hand
+    second: Bip001 L Finger2
   - first:
       4: 400026
-    second: Bip001 L Thigh
+    second: Bip001 L Finger21
   - first:
       4: 400028
-    second: Bip001 L Toe0
+    second: Bip001 L Finger2Nub
   - first:
       4: 400030
-    second: Bip001 L Toe01
+    second: Bip001 L Foot
   - first:
       4: 400032
-    second: Bip001 L Toe02
+    second: Bip001 L Forearm
   - first:
       4: 400034
-    second: Bip001 L Toe0Nub
+    second: Bip001 L Hand
   - first:
       4: 400036
-    second: Bip001 L UpperArm
+    second: Bip001 L Thigh
   - first:
       4: 400038
-    second: Bip001 Neck
+    second: Bip001 L Toe0
   - first:
       4: 400040
-    second: Bip001 Pelvis
+    second: Bip001 L Toe0Nub
   - first:
       4: 400042
-    second: Bip001 Ponytail1
+    second: Bip001 L Toe1
   - first:
       4: 400044
-    second: Bip001 Ponytail11
+    second: Bip001 L Toe1Nub
   - first:
       4: 400046
-    second: Bip001 Ponytail12
+    second: Bip001 L Toe2
   - first:
       4: 400048
-    second: Bip001 Ponytail1Nub
+    second: Bip001 L Toe2Nub
   - first:
       4: 400050
-    second: Bip001 Prop1
+    second: Bip001 L UpperArm
   - first:
       4: 400052
-    second: Bip001 R Calf
+    second: Bip001 Neck
   - first:
       4: 400054
-    second: Bip001 R Clavicle
+    second: Bip001 Pelvis
   - first:
       4: 400056
-    second: Bip001 R Finger0
+    second: Bip001 R Calf
   - first:
       4: 400058
-    second: Bip001 R Finger0Nub
+    second: Bip001 R Clavicle
   - first:
       4: 400060
-    second: Bip001 R Finger1
+    second: Bip001 R Finger0
   - first:
       4: 400062
-    second: Bip001 R Finger1Nub
+    second: Bip001 R Finger01
   - first:
       4: 400064
-    second: Bip001 R Foot
+    second: Bip001 R Finger0Nub
   - first:
       4: 400066
-    second: Bip001 R Forearm
+    second: Bip001 R Finger1
   - first:
       4: 400068
-    second: Bip001 R Hand
+    second: Bip001 R Finger11
   - first:
       4: 400070
-    second: Bip001 R Thigh
+    second: Bip001 R Finger1Nub
   - first:
       4: 400072
-    second: Bip001 R Toe0
+    second: Bip001 R Finger2
   - first:
       4: 400074
-    second: Bip001 R Toe01
+    second: Bip001 R Finger21
   - first:
       4: 400076
-    second: Bip001 R Toe02
+    second: Bip001 R Finger2Nub
   - first:
       4: 400078
-    second: Bip001 R Toe0Nub
+    second: Bip001 R Foot
   - first:
       4: 400080
-    second: Bip001 R UpperArm
+    second: Bip001 R Forearm
   - first:
       4: 400082
-    second: Bip001 Spine
+    second: Bip001 R Hand
   - first:
       4: 400084
-    second: Bone001
+    second: Bip001 R Thigh
   - first:
       4: 400086
-    second: Bone002
+    second: Bip001 R Toe0
   - first:
       4: 400088
-    second: //RootNode
+    second: Bip001 R Toe0Nub
   - first:
       4: 400090
-    second: Villain2
+    second: Bip001 R Toe1
+  - first:
+      4: 400092
+    second: Bip001 R Toe1Nub
+  - first:
+      4: 400094
+    second: Bip001 R Toe2
+  - first:
+      4: 400096
+    second: Bip001 R Toe2Nub
+  - first:
+      4: 400098
+    second: Bip001 R UpperArm
+  - first:
+      4: 400100
+    second: Bip001 Spine
+  - first:
+      4: 400102
+    second: Bip001 Spine1
+  - first:
+      4: 400104
+    second: Bip001 Tail
+  - first:
+      4: 400106
+    second: Bip001 Tail1
+  - first:
+      4: 400108
+    second: Bip001 Tail2
+  - first:
+      4: 400110
+    second: Bip001 Tail3
+  - first:
+      4: 400112
+    second: Bip001 Tail4
+  - first:
+      4: 400114
+    second: Bip001 TailNub
+  - first:
+      4: 400116
+    second: Bone001
+  - first:
+      4: 400118
+    second: Villain4
+  - first:
+      4: 400120
+    second: //RootNode
   - first:
       43: 4300000
-    second: Villain2
+    second: Villain4
   - first:
       74: 7400000
     second: Take 001
@@ -293,13 +383,13 @@ ModelImporter:
     second: //RootNode
   - first:
       137: 13700000
-    second: Villain2
+    second: Villain4
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: default
-    second: {fileID: 2100000, guid: 64c00ea24a1c96241b9b155dee86fca1, type: 2}
+    second: {fileID: 2100000, guid: ef341fed9eed37e4daecfffab02fbc94, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -364,13 +454,14 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips:
-  - ed8d66db1bc75da4592167ff4dfa2e62
-  - be3eb66456bd82b46985ab5f290739b7
-  - 87230c6f8a6fbaf48a26232591cc7aaf
-  - 0070d2d111c4345439d83d42f74a4f06
-  - 244d4053ba87e1c40afe54a21dd911fb
-  - 7a9dacc87ebfecc47906a105e3802827
-  - d5854e6a5e1056b43b09f27e60d1e8f8
+  - c80fe26809bc67e4799abb5b066250cf
+  - 15b8edf2d8c8cf346b82e92889b8944e
+  - 7e7788cf14ea69d46b0f9554ced12118
+  - a0e37b256b4490247bdfe67e74816066
+  - 1fa634ba24287b545aeb2e2b789edab9
+  - fb67b3784bcf2a14cbb601fe9a45d1b2
+  - 35248befb62c4d943b8f690efac87ee8
+  - 70e161517ce75da4bb82d503ef225efa
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -389,7 +480,6 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 1
