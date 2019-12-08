@@ -47,14 +47,16 @@ public class BuildManager : MonoBehaviour
 
     private Cards c;
     private Shop s;
-    private GameObject SelectedTower;
     private GameObject hintWeHave;
-    private GameObject SellUI = null;
+    private bool SellUIActive = false;
     private bool isOpen = false;
     private bool firstclick = true;
     enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
 
     private float timeCount = 0f;
+
+    public GameObject SelectedTower;
+
     private void Awake()
     {
         if(instance != null)
@@ -205,36 +207,34 @@ public class BuildManager : MonoBehaviour
     }
     public void TowerClicked(GameObject tower)
     {
-        if (SelectedTower != tower) // we select differnt tower
+        if (this.SelectedTower != tower) // we select differnt tower
         {
-            SelectedTower = tower;
+            this.SelectedTower = tower;
             if (hintWeHave)
             {
                 Destroy(hintWeHave);
             }
             hintWeHave = Instantiate(Hint, tower.transform.position, tower.transform.rotation);
             hintWeHave.transform.localScale = new Vector3(6, 6, 6);
-            if (!SellUI)
-            {
-                SellUI = Instantiate(SellUIPrefeb,tower.transform.position, tower.transform.rotation);
-            }
-            else
-            {
-                SellUI.transform.position = tower.transform.position;
-            }
+            SellUIPrefeb.transform.position = tower.transform.position;
+            SellUIPrefeb.SetActive(true);
+            SellUIActive = true;
         }
         else //Now we select it self, shoul toggle UI off
         {
-            SelectedTower = null;
             if (hintWeHave)
             {
                 Destroy(hintWeHave);
             }
-            if (SellUI)
-            {
-                Destroy(SellUI);
+            if (SellUIActive) {
+                this.SelectedTower = null;
+                SellUIPrefeb.SetActive(false);
             }
-
+            else
+            {
+                this.SelectedTower = tower;
+                SellUIPrefeb.SetActive(true);
+            }
         }
 
     }
@@ -245,8 +245,14 @@ public class BuildManager : MonoBehaviour
     }
     public void RecycleClicked()
     {
-        Debug.Log("We click Recycle");
-    }
 
+        //Seriouse Problem, this.SelectedTower is null here;
+        Debug.Log("We click Recycle"+this.SelectedTower.name);
+        Destroy(this.SelectedTower);
+
+        Destroy(hintWeHave);
+        this.SelectedTower = null;
+        SellUIPrefeb.SetActive(false);
+    }
 
 }

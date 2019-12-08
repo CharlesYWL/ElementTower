@@ -70,7 +70,7 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {   //Show Tower Infomation
-            bm.TowerClicked(this.gameObject);
+            bm.TowerClicked(gameObject);
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
