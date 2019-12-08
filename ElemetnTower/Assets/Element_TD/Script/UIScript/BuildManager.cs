@@ -181,7 +181,6 @@ public class BuildManager : MonoBehaviour
     public bool isChildOfShop(GameObject card)
     {
         Draggable dg = card.GetComponent<Draggable>();
-        card.GetComponent<CardInfoShow>().MoneyText.enabled = false;
         Debug.Log("Check Child of SHOP: "+ (dg.parentToReturnTo == this.ShopHoler.transform));
         return dg.parentToReturnTo==this.ShopHoler.transform;
     }
