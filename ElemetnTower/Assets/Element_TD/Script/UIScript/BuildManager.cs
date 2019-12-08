@@ -31,8 +31,8 @@ public class BuildManager : MonoBehaviour
     public GameObject ShopHoler;
     public GameObject TopPanel;
     public Camera cam;
-    private Cards c;
-    private Shop s;
+    public GameObject Hint;
+    public GameObject SellUIPrefeb;
 
     //Money
     [Header("MONEY")]
@@ -45,11 +45,18 @@ public class BuildManager : MonoBehaviour
     [SerializeField]
     public int RefreshMoney;
 
+    private Cards c;
+    private Shop s;
+    private GameObject hintWeHave;
+    private bool SellUIActive = false;
     private bool isOpen = false;
     private bool firstclick = true;
     enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
 
     private float timeCount = 0f;
+
+    public GameObject SelectedTower;
+
     private void Awake()
     {
         if(instance != null)
@@ -181,8 +188,6 @@ public class BuildManager : MonoBehaviour
     public bool isChildOfShop(GameObject card)
     {
         Draggable dg = card.GetComponent<Draggable>();
-        card.GetComponent<CardInfoShow>().MoneyText.enabled = false;
-        Debug.Log("Check Child of SHOP: "+ (dg.parentToReturnTo == this.ShopHoler.transform));
         return dg.parentToReturnTo==this.ShopHoler.transform;
     }
 
@@ -200,4 +205,54 @@ public class BuildManager : MonoBehaviour
     {
         this.Money += this.Addmoney;
     }
+    public void TowerClicked(GameObject tower)
+    {
+        if (this.SelectedTower != tower) // we select differnt tower
+        {
+            this.SelectedTower = tower;
+            if (hintWeHave)
+            {
+                Destroy(hintWeHave);
+            }
+            hintWeHave = Instantiate(Hint, tower.transform.position, tower.transform.rotation);
+            hintWeHave.transform.localScale = new Vector3(6, 6, 6);
+            SellUIPrefeb.transform.position = tower.transform.position;
+            SellUIPrefeb.SetActive(true);
+            SellUIActive = true;
+        }
+        else //Now we select it self, shoul toggle UI off
+        {
+            if (hintWeHave)
+            {
+                Destroy(hintWeHave);
+            }
+            if (SellUIActive) {
+                this.SelectedTower = null;
+                SellUIPrefeb.SetActive(false);
+            }
+            else
+            {
+                this.SelectedTower = tower;
+                SellUIPrefeb.SetActive(true);
+            }
+        }
+
+    }
+
+    public void UpgradeClicked()
+    {
+        Debug.Log("We Click Upgrade");
+    }
+    public void RecycleClicked()
+    {
+
+        //Seriouse Problem, this.SelectedTower is null here;
+        Debug.Log("We click Recycle"+this.SelectedTower.name);
+        Destroy(this.SelectedTower);
+
+        Destroy(hintWeHave);
+        this.SelectedTower = null;
+        SellUIPrefeb.SetActive(false);
+    }
+
 }
