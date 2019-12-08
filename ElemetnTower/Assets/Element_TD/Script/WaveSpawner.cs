@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Element;
 public class WaveSpawner : MonoBehaviour
 {
     public GameObject EnemyPrefab;
@@ -10,6 +10,7 @@ public class WaveSpawner : MonoBehaviour
     private float countdown = 3f;
     private int waveNumber = 0;
     private int MaxWave = 10;
+    
     private void Update()
     {
         if(countdown <= 0f)
