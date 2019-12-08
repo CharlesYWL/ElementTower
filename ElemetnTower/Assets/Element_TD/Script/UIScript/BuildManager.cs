@@ -45,6 +45,8 @@ public class BuildManager : MonoBehaviour
     [SerializeField]
     public int RefreshMoney;
 
+    private bool isOpen = false;
+    private bool firstclick = true;
     enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
 
     private float timeCount = 0f;
@@ -137,6 +139,28 @@ public class BuildManager : MonoBehaviour
         while (!s.isFullCap())
         {
             RandomGenerateCard();
+        }
+    }
+
+    public void OpenCloseShop()
+    {
+        if (firstclick)
+        {
+            firstclick = false;
+            
+            RefreshShop();
+            isOpen = true;
+            return;
+        }
+        if (isOpen)
+        {
+            s.closeShop();
+            isOpen = false;
+        }
+        else
+        {
+            s.openShop();
+            isOpen = true;
         }
     }
 
