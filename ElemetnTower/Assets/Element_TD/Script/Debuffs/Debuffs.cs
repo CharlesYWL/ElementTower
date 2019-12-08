@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Debuffs
 {
-    protected EnemyMovement Target;
+    protected Enemy Target;
     
-    public Debuffs(EnemyMovement Target)
+    public Debuffs(Enemy Target)
     {
         this.Target = Target;
     }
