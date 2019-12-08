@@ -26,10 +26,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Slow()
+    public void Slow(float percentage)
     {
-        Speed = startSpeed / 2f;
+        Speed = startSpeed *(1f - percentage);
         Debug.Log(Speed);
     }
-   
+    public void Poison(float damage)
+    {
+        
+    }
 }

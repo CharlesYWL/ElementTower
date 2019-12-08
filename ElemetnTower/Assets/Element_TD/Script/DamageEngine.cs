@@ -16,34 +16,34 @@ namespace Element
                     TypeFactor = 0f;
                     break;
                 case ElementTypes.Desert:
-                    TypeFactor = 0.1f;
+                    TypeFactor = 0.6f;
                     break;
                 case ElementTypes.Fire:
-                    TypeFactor = 0.1f;
+                    TypeFactor = 0.2f;
                     break;
                 case ElementTypes.Glacier:
-                    TypeFactor = 0.1f;
+                    TypeFactor = 0.2f;
                     break;
                 case ElementTypes.Light:
-                    TypeFactor = 0.1f;
+                    TypeFactor = 0.6f;
                     break;
                 case ElementTypes.Mountain:
-                    TypeFactor = 0.5f;
+                    TypeFactor = 0.4f;
                     break;
                 case ElementTypes.Ocean:
-                    TypeFactor = 0.1f;
+                    TypeFactor = 0.6f;
                     break;
                 case ElementTypes.Poison:
-                    TypeFactor = 0.1f;
+                    TypeFactor = 0.6f;
                     break;
                 case ElementTypes.Shadow:
-                    TypeFactor = 0.5f;
+                    TypeFactor = 0.6f;
                     break;
                 case ElementTypes.Wind:
-                    TypeFactor = 1f;
+                    TypeFactor = 0.2f;
                     break;
                 case ElementTypes.Thunder:
-                    TypeFactor = 0.5f;
+                    TypeFactor = 0.4f;
                     break;
             }
             damage = ElementDamage * TypeFactor;
