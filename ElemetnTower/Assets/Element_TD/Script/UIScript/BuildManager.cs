@@ -9,6 +9,7 @@ using Element;
 public class BuildManager : MonoBehaviour
 {
     //Shared public 
+
     [Header("CardPool")]
     public static BuildManager instance;
     public GameObject CyrstalTower;
