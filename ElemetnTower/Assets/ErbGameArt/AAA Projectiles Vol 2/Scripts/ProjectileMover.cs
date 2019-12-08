@@ -104,8 +104,8 @@ public class ProjectileMover : MonoBehaviour
     void ShootDamage(Transform EnemyTarget)
     {
         float newDamage = 0f;
-        EnemyMovement Enemy = EnemyTarget.GetComponent<EnemyMovement>();
-        if (Enemy != null)
+        Enemy enemy = EnemyTarget.GetComponent<Enemy>();
+        if (enemy != null)
         {
             /*
             if(type == ElementTypes.Wind)
@@ -113,7 +113,8 @@ public class ProjectileMover : MonoBehaviour
                 newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
             }
             */
-            if(type == ElementTypes.Glacier) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); Enemy.Speed = 3f; } else { Enemy.Speed = 10f; }
+            if(type == ElementTypes.Glacier) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);}
+            if(type == ElementTypes.Ocean) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); enemy.Slow();}
             if(type == ElementTypes.Wind) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); }
             if(type == ElementTypes.Fire) { newDamage = DamageEngine.ElementCombatAlgorithm(damage + Random.Range(1, 5), type); } else { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); }
             switch (type)
@@ -143,6 +144,6 @@ public class ProjectileMover : MonoBehaviour
             }
             
         }
-        Enemy.TakeDamage(newDamage);
+        enemy.TakeDamage(newDamage);
     }
 }
