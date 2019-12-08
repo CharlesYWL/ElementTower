@@ -49,7 +49,8 @@ public class Shop : MonoBehaviour
             Destroy(this.transform.GetChild(i).gameObject);
         }
         this.childCount = 0;
-    
+        CardArray.Clear();
+
     }
 
     public void openShop()
