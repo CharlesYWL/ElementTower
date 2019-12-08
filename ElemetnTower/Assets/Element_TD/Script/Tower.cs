@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Tower : BuildInterface, IPointerClickHandler
+public class Tower : BuildInterface
 {
     private Transform Target = null;
 
@@ -161,16 +161,4 @@ public class Tower : BuildInterface, IPointerClickHandler
         
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Left)
-        {   //Show Tower Infomation
-            Debug.Log("Left click"); 
-        }
-        else if (eventData.button == PointerEventData.InputButton.Right)
-        { 
-            // Test only
-            Debug.Log("Right click"); 
-        }
-    }
 }
