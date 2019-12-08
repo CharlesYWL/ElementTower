@@ -31,8 +31,8 @@ public class BuildManager : MonoBehaviour
     public GameObject ShopHoler;
     public GameObject TopPanel;
     public Camera cam;
-    private Cards c;
-    private Shop s;
+    public GameObject Hint;
+    public GameObject SellUIPrefeb;
 
     //Money
     [Header("MONEY")]
@@ -45,6 +45,11 @@ public class BuildManager : MonoBehaviour
     [SerializeField]
     public int RefreshMoney;
 
+    private Cards c;
+    private Shop s;
+    private GameObject SelectedTower;
+    private GameObject hintWeHave;
+    private GameObject SellUI = null;
     private bool isOpen = false;
     private bool firstclick = true;
     enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
@@ -200,4 +205,37 @@ public class BuildManager : MonoBehaviour
     {
         this.Money += this.Addmoney;
     }
+    public void TowerClicked(GameObject tower)
+    {
+        Debug.Log(tower.name+" has been clicked");
+        if (SelectedTower != tower) // we select differnt tower
+        {
+            if (hintWeHave)
+            {
+                Destroy(hintWeHave);
+            }
+            hintWeHave = Instantiate(Hint, tower.transform.position, tower.transform.rotation);
+            hintWeHave.transform.localScale = new Vector3(6, 6, 6);
+            if (!SellUI)
+            {
+                SellUI = Instantiate(SellUIPrefeb,tower.transform.position, tower.transform.rotation);
+            }
+            else
+            {
+                SellUI.transform.position = tower.transform.position;
+            }
+        }
+
+    }
+
+    public void UpgradeClicked()
+    {
+        Debug.Log("We Click Upgrade");
+    }
+    public void RecycleClicked()
+    {
+        Debug.Log("We click Recycle");
+    }
+
+
 }

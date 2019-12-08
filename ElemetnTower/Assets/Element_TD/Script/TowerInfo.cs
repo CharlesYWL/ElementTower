@@ -59,12 +59,11 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {   //Show Tower Infomation
-            Debug.Log("Left click");
+            bm.TowerClicked(this.gameObject);
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
             // Test only
-            Debug.Log("Right click");
         }
     }
 
