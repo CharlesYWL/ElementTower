@@ -114,8 +114,8 @@ public class ProjectileMover : MonoBehaviour
             }
             */
             if(type == ElementTypes.Glacier) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); Enemy.Speed = 3f; } else { Enemy.Speed = 10f; }
-            if(type == ElementTypes.Wind) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);}
-            if(type == ElementTypes.Fire) { newDamage = DamageEngine.ElementCombatAlgorithm(damage + Random.Range(10, 100), type); }
+            if(type == ElementTypes.Wind) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); }
+            if(type == ElementTypes.Fire) { newDamage = DamageEngine.ElementCombatAlgorithm(damage + Random.Range(1, 5), type); } else { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); }
             switch (type)
             {
                 case ElementTypes.Desert:
