@@ -19,7 +19,7 @@ namespace Element
                     TypeFactor = 0.1f;
                     break;
                 case ElementTypes.Fire:
-                    TypeFactor = 0.5f;
+                    TypeFactor = 0.1f;
                     break;
                 case ElementTypes.Glacier:
                     TypeFactor = 0.1f;
