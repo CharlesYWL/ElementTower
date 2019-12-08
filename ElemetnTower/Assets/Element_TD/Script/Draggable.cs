@@ -93,18 +93,21 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        int money = bm.Money;
-        int towermoney = this.gameObject.GetComponent<CardInfoShow>().CardMoney;
-        if (money < towermoney)
-        {
-            return;
-        }
-        bm.Money -= towermoney;
         //Update parent everytime of event
         parentToReturnTo = transform.parent;
+        if (bm.isChildOfShop(this.gameObject))
+        {
+            int money = bm.Money;
+            int towermoney = this.gameObject.GetComponent<CardInfoShow>().CardMoney;
+            if (money < towermoney)
+            {
+                return;
+            }
+            bm.Money -= towermoney;
+        }
         Debug.Log("We click on the card");
+        this.gameObject.GetComponent<CardInfoShow>().MoneyText.enabled = false;
         bm.CardClicked(this.gameObject);
-       
     }
 
 }
