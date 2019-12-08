@@ -8,7 +8,7 @@ using System;
 public class TowerInfo : MonoBehaviour, IPointerClickHandler
 {
     public Text text;
-    public GameObject TextHolder;
+    //public GameObject TextHolder;
     private bool displayInfo = false;
     public float fadeTime = 1f;
     private BuildManager bm;
@@ -28,6 +28,10 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
 
     private void TurnRotate()
     {
+/*        Camera cam = bm.GetCamera();
+        
+        TextHolder.transform.LookAt(cam.transform);
+        //TextHolder.transform.Rotate(0,90,0);*/
 
     }
 
