@@ -8,6 +8,7 @@ using System;
 public class CardInfoShow : MonoBehaviour , IPointerEnterHandler,IPointerExitHandler
 {
     public Text text;
+    public Text MoneyText;
 
     //private Text t;
     private bool displayInfo = false;
@@ -17,6 +18,8 @@ public class CardInfoShow : MonoBehaviour , IPointerEnterHandler,IPointerExitHan
     private GameObject canvas;
     public Vector2 M_pos = new Vector2(60, -80);//增加的位移 
 
+    [Header("MONEY")]
+    public int CardMoney;
     // Start is called before the first frame update
     void Start()
     {
