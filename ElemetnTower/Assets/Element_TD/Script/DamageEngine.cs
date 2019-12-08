@@ -31,7 +31,7 @@ namespace Element
                     TypeFactor = 0.5f;
                     break;
                 case ElementTypes.Ocean:
-                    TypeFactor = 0.2f;
+                    TypeFactor = 0.1f;
                     break;
                 case ElementTypes.Poison:
                     TypeFactor = 0.1f;
