@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlacierDebuff : Debuffs
 {
     private float countDown = 3f;
-    public GlacierDebuff(EnemyMovement Target) : base(Target)
+    public GlacierDebuff(Enemy Target) : base(Target)
     {
 
     }
