@@ -8,9 +8,11 @@ using System;
 public class TowerInfo : MonoBehaviour, IPointerClickHandler
 {
     public Text text;
+    public GameObject hint;
     //public GameObject TextHolder;
     private bool displayInfo = false;
     public float fadeTime = 1f;
+    private GameObject hintWehave=null;
     private BuildManager bm;
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,14 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
         {
             displayInfo = true;
         }
+        //get hint for users
+        if (hintWehave)
+        {
+            return;
+        }
+        hintWehave = Instantiate(hint, transform.position, transform.rotation);
+        hintWehave.transform.Rotate(-90, 0, 0);
+        hintWehave.transform.localScale = new Vector3(8, 8, 8);
     }
     private void OnMouseExit()
     {
@@ -48,6 +58,7 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
         {
             displayInfo = false;
         }
+        Destroy(hintWehave);
     }
 
     // TODO: It will pop up recycle sign to click.
@@ -76,4 +87,5 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
         else
         { text.color = Color.Lerp(Color.clear, Color.white, fadeTime * Time.deltaTime); }
     }
+
 }

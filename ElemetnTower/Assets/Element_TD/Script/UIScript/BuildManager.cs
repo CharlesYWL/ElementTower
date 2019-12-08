@@ -186,7 +186,6 @@ public class BuildManager : MonoBehaviour
     public bool isChildOfShop(GameObject card)
     {
         Draggable dg = card.GetComponent<Draggable>();
-        Debug.Log("Check Child of SHOP: "+ (dg.parentToReturnTo == this.ShopHoler.transform));
         return dg.parentToReturnTo==this.ShopHoler.transform;
     }
 
@@ -206,9 +205,9 @@ public class BuildManager : MonoBehaviour
     }
     public void TowerClicked(GameObject tower)
     {
-        Debug.Log(tower.name+" has been clicked");
         if (SelectedTower != tower) // we select differnt tower
         {
+            SelectedTower = tower;
             if (hintWeHave)
             {
                 Destroy(hintWeHave);
@@ -223,6 +222,19 @@ public class BuildManager : MonoBehaviour
             {
                 SellUI.transform.position = tower.transform.position;
             }
+        }
+        else //Now we select it self, shoul toggle UI off
+        {
+            SelectedTower = null;
+            if (hintWeHave)
+            {
+                Destroy(hintWeHave);
+            }
+            if (SellUI)
+            {
+                Destroy(SellUI);
+            }
+
         }
 
     }

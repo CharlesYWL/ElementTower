@@ -105,7 +105,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
             }
             bm.Money -= towermoney;
         }
-        Debug.Log("We click on the card");
         this.gameObject.GetComponent<CardInfoShow>().MoneyText.enabled = false;
         bm.CardClicked(this.gameObject);
     }
