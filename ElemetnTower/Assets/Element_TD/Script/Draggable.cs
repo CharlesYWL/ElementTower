@@ -85,7 +85,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
         return Tower;
     }
 
-    // this is to set TowerCreate true to destory itself
+    // this is to set TowerCreate true and to destory itself
     public void TowerSuccessCreate()
     {
         TowerCreate = true;
