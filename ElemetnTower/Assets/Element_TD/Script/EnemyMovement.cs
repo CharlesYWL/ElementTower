@@ -49,6 +49,11 @@ public class EnemyMovement : MonoBehaviour
     void EndPath()
     {
         Destroy(gameObject);
+        //health -1
+        //if health -3 life heart -1
+        //when life heart == 0, end game
+
+
     }
 
 }
