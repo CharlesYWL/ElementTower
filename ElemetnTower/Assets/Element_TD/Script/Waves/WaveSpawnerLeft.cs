@@ -12,7 +12,6 @@ public class WaveSpawnerLeft : MonoBehaviour
 
     public Transform SpawnPoint;
 
-
     public IEnumerator SpawnWave()
     {
         switch (WaveController.waveNumber)
