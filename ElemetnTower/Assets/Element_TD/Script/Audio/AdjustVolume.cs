@@ -9,8 +9,6 @@ public class AdjustVolume : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log("start bgm ");
-        Debug.Log(" volume is " + GamePlayVolume);
         AudioManager.instance.Play("battlebgm", SoundType.SOUND);
     }
 
