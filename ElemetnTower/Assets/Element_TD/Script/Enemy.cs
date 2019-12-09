@@ -21,9 +21,14 @@ public class Enemy : MonoBehaviour
         Health -= DamageAmount;
         if (Health <= 0)
         {
-            Destroy(gameObject);
-            BuildManager.instance.AddMoney();
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+        BuildManager.instance.AddMoney();
     }
 
     public void Slow(float percentage)
