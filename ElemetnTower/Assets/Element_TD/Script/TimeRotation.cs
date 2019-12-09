@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class TimeRotation : MonoBehaviour
 {
-    public float RotateSpeed = 10.0f;
+    public float RotateSpeedDay = 10.0f;
+    public float RotateSpeedNight = 10.0f;
+    [SerializeField]
+    private GameObject Sun;
 
     private Vector3 RotateDirection;
     private Vector3 Center;
@@ -18,7 +21,22 @@ public class TimeRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(Center, RotateDirection, RotateSpeed * Time.deltaTime);
-        transform.LookAt(Center);
+/*        transform.RotateAround(Center, RotateDirection, RotateSpeedDay * Time.deltaTime);
+        transform.LookAt(Center);*/
+
+        //Day Time
+        if (Sun.transform.position.y >= 0)
+        {
+            transform.RotateAround(Center, RotateDirection, RotateSpeedDay * Time.deltaTime);
+            transform.LookAt(Center);
+        }
+
+        //Night Time
+        if (Sun.transform.position.y <= 0)
+        {
+            transform.RotateAround(Center, RotateDirection, RotateSpeedNight * Time.deltaTime);
+            transform.LookAt(Center);
+        }
+
     }
 }
