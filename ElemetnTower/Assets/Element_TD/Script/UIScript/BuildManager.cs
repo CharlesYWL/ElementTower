@@ -33,6 +33,7 @@ public class BuildManager : MonoBehaviour
     public Camera cam;
     public GameObject Hint;
     public GameObject SellUIPrefeb;
+    public GameObject BuildPointPrefeb;
 
     //Money
     [Header("MONEY")]
@@ -245,14 +246,24 @@ public class BuildManager : MonoBehaviour
     }
     public void RecycleClicked()
     {
-
-        //Seriouse Problem, this.SelectedTower is null here;
-        Debug.Log("We click Recycle"+this.SelectedTower.name);
+        if (!c.SlotAvialiable())
+        {
+            Debug.Log("CardNoSlots");
+            //Dothing warn player
+            return;
+        }
+        //Now Add card back to hand
+        TowerInfo tf = SelectedTower.GetComponent<TowerInfo>();
+        c.addPrefeb(tf.CardPrefeb);
+        // Create Buildpoint back and destory tower
+        Instantiate(BuildPointPrefeb, SelectedTower.transform.position, SelectedTower.transform.rotation);
         Destroy(this.SelectedTower);
-
+        // Set Selected UI back
         Destroy(hintWeHave);
         this.SelectedTower = null;
         SellUIPrefeb.SetActive(false);
+
+
     }
 
 }
