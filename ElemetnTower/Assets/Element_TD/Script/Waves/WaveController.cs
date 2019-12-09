@@ -6,11 +6,11 @@ public class WaveController : MonoBehaviour
 {
     public static int waveNumber = 0;
     [SerializeField]
-    public GameObject Gate1;
+    public GameObject GateBot;
     [SerializeField]
-    public GameObject Gate2;
+    public GameObject GateLeft;
     [SerializeField]
-    public GameObject Gate3;
+    public GameObject GateTop;
 
     public float TimeBetweenWaves = 10f;
     private float countdown = 3f;
@@ -21,9 +21,9 @@ public class WaveController : MonoBehaviour
 
     private void Start()
     {
-        wb = Gate1.GetComponent<WaveSpawnerBot>();
-        wl = Gate2.GetComponent<WaveSpawnerLeft>();
-        wt = Gate3.GetComponent<WaveSpawnerTop>();
+        wb = GateBot.GetComponent<WaveSpawnerBot>();
+        wl = GateLeft.GetComponent<WaveSpawnerLeft>();
+        wt = GateTop.GetComponent<WaveSpawnerTop>();
     }
 
     private void Update()
