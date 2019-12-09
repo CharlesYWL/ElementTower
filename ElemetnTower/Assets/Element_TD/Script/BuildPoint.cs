@@ -65,7 +65,7 @@ public class BuildPoint :  BuildInterface,IDropHandler,IPointerEnterHandler,IPoi
     {
         if (eventData.pointerDrag)
         {
-            Debug.Log(eventData.pointerDrag.name);
+            bm.DestroySelectUI();
             Draggable dg = eventData.pointerDrag.GetComponent<Draggable>();
             bm.BuildRangeMark(dg.Tower,this.transform);
         }
@@ -74,6 +74,9 @@ public class BuildPoint :  BuildInterface,IDropHandler,IPointerEnterHandler,IPoi
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        bm.DestoryRangeMark();
+        if (eventData.pointerDrag)
+        {
+            bm.DestoryRangeMark();
+        }
     }
 }
