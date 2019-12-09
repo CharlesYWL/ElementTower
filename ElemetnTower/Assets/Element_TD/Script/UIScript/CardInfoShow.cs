@@ -16,7 +16,6 @@ public class CardInfoShow : MonoBehaviour , IPointerEnterHandler,IPointerExitHan
     public Camera cam;
     private BuildManager bm;
     private GameObject canvas;
-    public Vector2 M_pos = new Vector2(60, -80);//增加的位移 
 
     [Header("MONEY")]
     public int CardMoney;
