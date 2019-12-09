@@ -45,7 +45,6 @@ public class EnemyMovement : MonoBehaviour
         wavepointIndex++;
         target = WayPoints.points[wavepointIndex];
     }
-
     void ChangeToLeftWave()
     {
         target = WayPointsLeft.Leftpoints[0];
