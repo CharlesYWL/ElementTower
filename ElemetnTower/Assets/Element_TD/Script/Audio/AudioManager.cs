@@ -30,13 +30,11 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string name, SoundType type = SoundType.GAME)
     {
-        Debug.Log("hit played");
         Sound sound = new Sound();
         sound.name = "empty";
 
         if(type == SoundType.GAME)
         {
-            Debug.Log("game type");
             foreach (Sound s in GameSounds)
             {
                 if (s.name == name)
@@ -50,7 +48,6 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("music type");
             foreach (Sound s in GameMusics)
             {
                 if (s.name == name)
@@ -65,7 +62,6 @@ public class AudioManager : MonoBehaviour
 
         if (sound.name != "empty")
         {
-            Debug.Log("found music");
             sound.source.Play();
         }
     }
