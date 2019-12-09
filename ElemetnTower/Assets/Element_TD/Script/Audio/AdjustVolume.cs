@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AdjustVolume : MonoBehaviour
 {
-    public static float GamePlayVolume;
-    public static float GameMusicVolume;
+    public static float GamePlayVolume = .5f;
+    public static float GameMusicVolume = .5f;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,6 +19,18 @@ public class AdjustVolume : MonoBehaviour
 
     void setMusicVolume()
     {
+        AudioManager.instance.setMusicVolume(GameMusicVolume);
+    }
+
+    public void setGameVolume(float sliderValue)
+    {
+        GamePlayVolume = sliderValue;
+        AudioManager.instance.setGameVolume(GamePlayVolume);
+    }
+
+    public void setMusicVolume(float sliderValue)
+    {
+        GameMusicVolume = sliderValue;
         AudioManager.instance.setMusicVolume(GameMusicVolume);
     }
 

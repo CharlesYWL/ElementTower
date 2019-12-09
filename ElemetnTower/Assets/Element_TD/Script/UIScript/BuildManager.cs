@@ -57,11 +57,12 @@ public class BuildManager : MonoBehaviour
     private bool firstclick = true;
     private System.Random random;
     private float RescaleMark = 0.37f;
+    public GameObject SelectedTower;
     enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
 
     private float timeCount = 0f;
 
-    public GameObject SelectedTower;
+
 
     private void Awake()
     {
@@ -269,30 +270,13 @@ public class BuildManager : MonoBehaviour
     {
         if (this.SelectedTower != tower) // we select differnt tower
         {
-            this.SelectedTower = tower;
-            if (hintWeHave)
-            {
-                Destroy(hintWeHave);
-            }
-            if (RangeWeHave)
-            {
-                DestoryRangeMark();
-            }
-            hintWeHave = Instantiate(Hint, tower.transform.position, tower.transform.rotation);
-            hintWeHave.transform.localScale = new Vector3(6, 6, 6);
-            SellUIPrefeb.transform.position = tower.transform.position;
-            SellUIPrefeb.SetActive(true);
-            SellUIActive = true;
-            BuildRangeMark(tower,tower.transform);
-
+            DestroySelectUI();
+            BuildSelectUI(tower);
         }
         else //Now we select it self, shoul toggle UI off
         {
             if (SellUIActive) {
-                this.SelectedTower = null;
-                SellUIPrefeb.SetActive(false);
-                Destroy(hintWeHave);
-                DestoryRangeMark();
+                DestroySelectUI();
             }
             else
             {
@@ -328,6 +312,30 @@ public class BuildManager : MonoBehaviour
         SellUIPrefeb.SetActive(false);
     }
 
+    public void BuildSelectUI(GameObject tower)
+    {
+        this.SelectedTower = tower;
+        hintWeHave = Instantiate(Hint, tower.transform.position, tower.transform.rotation);
+        hintWeHave.transform.localScale = new Vector3(6, 6, 6);
+        SellUIPrefeb.transform.position = tower.transform.position;
+        SellUIPrefeb.SetActive(true);
+        SellUIActive = true;
+        BuildRangeMark(tower, tower.transform);
+    }
+    public void DestroySelectUI()
+    {
+        this.SelectedTower = null;
+        if (hintWeHave)
+        {
+            Destroy(hintWeHave);
+        }
+        if (RangeWeHave)
+        {
+            DestoryRangeMark();
+        }
+        SellUIPrefeb.SetActive(false);
+        SellUIActive = false;
+    }
     public void BuildRangeMark(GameObject tower,Transform tr) 
     {
         RangeWeHave = Instantiate(TowerRangeMark, tr.position + new Vector3(0, 0.5f, 0), tr.rotation);
@@ -342,5 +350,5 @@ public class BuildManager : MonoBehaviour
             Destroy(RangeWeHave);
         }
     }
-
+    public bool IsTowerSelected() { return (SelectedTower != null); }
 }

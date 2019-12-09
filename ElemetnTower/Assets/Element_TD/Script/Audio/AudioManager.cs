@@ -1,11 +1,12 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
+using System.Collections.Generic;
 
 public enum SoundType { GAME, SOUND };
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] GameSounds;
-    public Sound[] GameMusics;
+    public List<Sound> GameSounds = new List<Sound>();
+    public List<Sound> GameMusics = new List<Sound>();
     static public AudioManager instance;
     // Start is called before the first frame update
     void Awake()
@@ -26,6 +27,17 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
         }
         instance = this;
+    }
+
+    public void AddSound(Sound s, SoundType type)
+    {
+        if (type == SoundType.GAME)
+        {
+            GameSounds.Add(s);
+        }else
+        {
+            GameMusics.Add(s);
+        }
     }
 
     public void Play(string name, SoundType type = SoundType.GAME)
