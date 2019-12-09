@@ -11,7 +11,7 @@ public class RazerTower : BuildInterface
     [Header("Property")]
     public float Range = 15f;
     public float FireRate = 1f;
-    private float damageOverTime = 20f;
+    private float damageOverTime = 40f;
       
     [Header("Setup Fields")]
     public string EnemyTag = "Enemy";
