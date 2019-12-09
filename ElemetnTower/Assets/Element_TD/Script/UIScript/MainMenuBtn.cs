@@ -23,18 +23,6 @@ public class MainMenuBtn : MonoBehaviour
         AudioManager.instance.Play("clickbtn", SoundType.GAME);
     }
 
-    private void swtichToggle()
-    {
-        if (clicked)
-        {
-            clicked = false;
-        }
-        else
-        {
-            clicked = true;
-        }
-    }
-
     public void setGameVolume( float sliderValue)
     {
         AudioManager.instance.setGameVolume(sliderValue);
