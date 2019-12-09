@@ -56,7 +56,6 @@ public class BuildPoint :  BuildInterface,IDropHandler
             Destroy(hintWehave);
             Destroy(gameObject);
         }
-
     }
 
 }

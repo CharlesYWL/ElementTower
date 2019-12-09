@@ -62,7 +62,6 @@ public class CardInfoShow : MonoBehaviour , IPointerEnterHandler,IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Pointer enter");
         if (text)
         {
             displayInfo = true;
@@ -71,7 +70,6 @@ public class CardInfoShow : MonoBehaviour , IPointerEnterHandler,IPointerExitHan
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Pointer Exit");
         if (text)
         {
             displayInfo = false;
