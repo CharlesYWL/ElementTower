@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BuildPoint :  BuildInterface,IDropHandler
+public class BuildPoint :  BuildInterface,IDropHandler,IPointerEnterHandler,IPointerExitHandler
 {
     public GameObject hint;
     private GameObject hintWehave;
@@ -27,6 +27,8 @@ public class BuildPoint :  BuildInterface,IDropHandler
         hintWehave = Instantiate(hint, transform.position, transform.rotation);
         hintWehave.transform.Rotate(-90, 0, 0);
         hintWehave.transform.localScale = new Vector3(8, 8, 8);
+        //bm.BuildRangeMark(tower);
+
     }
 
     private void OnMouseExit()
@@ -39,6 +41,7 @@ public class BuildPoint :  BuildInterface,IDropHandler
     // BUG: Cannot be triggered
     public void OnDrop(PointerEventData eventData)
     {
+        bm.DestoryRangeMark();
         //Build new tower
         if (tower != null)
         {
@@ -58,4 +61,22 @@ public class BuildPoint :  BuildInterface,IDropHandler
         }
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag)
+        {
+            bm.DestroySelectUI();
+            Draggable dg = eventData.pointerDrag.GetComponent<Draggable>();
+            bm.BuildRangeMark(dg.Tower,this.transform);
+        }
+
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (eventData.pointerDrag)
+        {
+            bm.DestoryRangeMark();
+        }
+    }
 }
