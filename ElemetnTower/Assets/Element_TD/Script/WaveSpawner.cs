@@ -26,6 +26,7 @@ public class WaveSpawner : MonoBehaviour
         waveNumber++;
         for (int i = 0; i < waveNumber; i++)
         {
+
             if(waveNumber < MaxWave)
             {
                 SpawnEnemy();
