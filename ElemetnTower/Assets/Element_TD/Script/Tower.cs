@@ -11,14 +11,11 @@ public class Tower : BuildInterface
     [Header("Property")]
     public float Range = 15f;
     public float FireRate = 1f;
-    public LineRenderer LineRenderer;
     private float FireCountDown = 0f;
-    private float damageOverTime = 4f;
       
     [Header("Setup Fields")]
     public string EnemyTag = "Enemy";
     public bool isProjectile = false;
-    public bool isRaser = false;
     public GameObject ProjectilePrefab;
     public Transform ProjectilePoint;
 
@@ -61,13 +58,6 @@ public class Tower : BuildInterface
         if (Target == null)
         {
             
-            if (isRaser == true)
-            {
-                if (LineRenderer.enabled)
-                {
-                    LineRenderer.enabled = false;
-                }
-            }
             UpdateTarget();
             Attack.ResetTrigger("Attack");
             
@@ -84,11 +74,6 @@ public class Tower : BuildInterface
 
         }
 
-        //Razer Method
-        if(isRaser == true)
-        {
-            FireRazer();
-        }
         //Projectile Method
         if (FireCountDown <= 0f && isProjectile == true)
         {
@@ -97,20 +82,6 @@ public class Tower : BuildInterface
             
         }
         FireCountDown -= Time.deltaTime;
-
-    }
-
-    public void FireRazer()
-    {
-        
-        Target.GetComponent<Enemy>().TakeDamage(damageOverTime * Time.deltaTime);
-        if(!LineRenderer.enabled)
-        {
-            LineRenderer.enabled = true;
-        }
-        LineRenderer.SetPosition(0, ProjectilePoint.position);
-        LineRenderer.SetPosition(1, Target.position);
-        
 
     }
 
