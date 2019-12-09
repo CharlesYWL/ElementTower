@@ -65,7 +65,6 @@ public class AudioManager : MonoBehaviour
 
         if (sound.name != "empty")
         {
-            Debug.Log("found music");
             sound.source.Play();
         }
     }
