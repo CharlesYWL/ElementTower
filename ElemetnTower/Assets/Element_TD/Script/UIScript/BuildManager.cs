@@ -148,7 +148,6 @@ public class BuildManager : MonoBehaviour
         }
         float num = (float)random.NextDouble()*100;
 
-        Debug.Log(num);
         int i;
         for ( i = 0; i < AcumulateProb.Count; i++)
         {
@@ -277,17 +276,14 @@ public class BuildManager : MonoBehaviour
             }
             if (RangeWeHave)
             {
-                Destroy(RangeWeHave);
+                DestoryRangeMark();
             }
             hintWeHave = Instantiate(Hint, tower.transform.position, tower.transform.rotation);
             hintWeHave.transform.localScale = new Vector3(6, 6, 6);
             SellUIPrefeb.transform.position = tower.transform.position;
             SellUIPrefeb.SetActive(true);
             SellUIActive = true;
-            RangeWeHave = Instantiate(TowerRangeMark, tower.transform.position+new Vector3(0,0.5f,0), tower.transform.rotation);
-            Tower t = tower.GetComponent<Tower>();
-            RangeWeHave.transform.localScale = new Vector3(RescaleMark*t.Range, RescaleMark * t.Range, RescaleMark * t.Range);
-            RangeWeHave.transform.Rotate(90,0, 0);
+            BuildRangeMark(tower,tower.transform);
 
         }
         else //Now we select it self, shoul toggle UI off
@@ -296,7 +292,7 @@ public class BuildManager : MonoBehaviour
                 this.SelectedTower = null;
                 SellUIPrefeb.SetActive(false);
                 Destroy(hintWeHave);
-                Destroy(RangeWeHave);
+                DestoryRangeMark();
             }
             else
             {
@@ -330,9 +326,21 @@ public class BuildManager : MonoBehaviour
         Destroy(RangeWeHave);
         this.SelectedTower = null;
         SellUIPrefeb.SetActive(false);
-        
+    }
 
-
+    public void BuildRangeMark(GameObject tower,Transform tr) 
+    {
+        RangeWeHave = Instantiate(TowerRangeMark, tr.position + new Vector3(0, 0.5f, 0), tr.rotation);
+        Tower t = tower.GetComponent<Tower>();
+        RangeWeHave.transform.localScale = new Vector3(RescaleMark * t.Range, RescaleMark * t.Range, RescaleMark * t.Range);
+        RangeWeHave.transform.Rotate(90, 0, 0);
+    }
+    public void DestoryRangeMark()
+    {
+        if (RangeWeHave)
+        {
+            Destroy(RangeWeHave);
+        }
     }
 
 }
