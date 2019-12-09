@@ -22,6 +22,18 @@ public class AdjustVolume : MonoBehaviour
         AudioManager.instance.setMusicVolume(GameMusicVolume);
     }
 
+    public void setGameVolume(float sliderValue)
+    {
+        GamePlayVolume = sliderValue;
+        AudioManager.instance.setGameVolume(GamePlayVolume);
+    }
+
+    public void setMusicVolume(float sliderValue)
+    {
+        GameMusicVolume = sliderValue;
+        AudioManager.instance.setMusicVolume(GameMusicVolume);
+    }
+
     void Update()
     {
         setMusicVolume();
