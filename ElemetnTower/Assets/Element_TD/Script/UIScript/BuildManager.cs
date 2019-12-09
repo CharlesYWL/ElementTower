@@ -35,6 +35,7 @@ public class BuildManager : MonoBehaviour
     public GameObject Hint;
     public GameObject SellUIPrefeb;
     public GameObject BuildPointPrefeb;
+    public GameObject TowerRangeMark;
 
     //Money
     [Header("MONEY")]
@@ -50,10 +51,12 @@ public class BuildManager : MonoBehaviour
     private Cards c;
     private Shop s;
     private GameObject hintWeHave;
+    private GameObject RangeWeHave;
     private bool SellUIActive = false;
     private bool isOpen = false;
     private bool firstclick = true;
     private System.Random random;
+    private float RescaleMark = 0.37f;
     enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
 
     private float timeCount = 0f;
@@ -272,21 +275,28 @@ public class BuildManager : MonoBehaviour
             {
                 Destroy(hintWeHave);
             }
+            if (RangeWeHave)
+            {
+                Destroy(RangeWeHave);
+            }
             hintWeHave = Instantiate(Hint, tower.transform.position, tower.transform.rotation);
             hintWeHave.transform.localScale = new Vector3(6, 6, 6);
             SellUIPrefeb.transform.position = tower.transform.position;
             SellUIPrefeb.SetActive(true);
             SellUIActive = true;
+            RangeWeHave = Instantiate(TowerRangeMark, tower.transform.position+new Vector3(0,0.5f,0), tower.transform.rotation);
+            Tower t = tower.GetComponent<Tower>();
+            RangeWeHave.transform.localScale = new Vector3(RescaleMark*t.Range, RescaleMark * t.Range, RescaleMark * t.Range);
+            RangeWeHave.transform.Rotate(90,0, 0);
+
         }
         else //Now we select it self, shoul toggle UI off
         {
-            if (hintWeHave)
-            {
-                Destroy(hintWeHave);
-            }
             if (SellUIActive) {
                 this.SelectedTower = null;
                 SellUIPrefeb.SetActive(false);
+                Destroy(hintWeHave);
+                Destroy(RangeWeHave);
             }
             else
             {
@@ -317,8 +327,10 @@ public class BuildManager : MonoBehaviour
         Destroy(this.SelectedTower);
         // Set Selected UI back
         Destroy(hintWeHave);
+        Destroy(RangeWeHave);
         this.SelectedTower = null;
         SellUIPrefeb.SetActive(false);
+        
 
 
     }
