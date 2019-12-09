@@ -7,7 +7,6 @@ public class EnemyMovement : MonoBehaviour
 {
     private Transform target;
     private int wavepointIndex = 0;
-
     private Enemy enemy;
     void Start()
     {
@@ -27,8 +26,14 @@ public class EnemyMovement : MonoBehaviour
         {
             GetNextWaypoint();
         }
-        enemy.Speed = enemy.startSpeed;
+        //Reset speed to initial after slow down enemy
+        if(enemy.Speed <= enemy.startSpeed)
+        {
+            enemy.Speed += Time.deltaTime;
+        }
+        
     }
+
 
     void GetNextWaypoint()
     {

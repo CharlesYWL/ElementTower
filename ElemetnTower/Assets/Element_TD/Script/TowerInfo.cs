@@ -8,9 +8,12 @@ using System;
 public class TowerInfo : MonoBehaviour, IPointerClickHandler
 {
     public Text text;
-    public GameObject TextHolder;
+    public GameObject hint;
+    public GameObject CardPrefeb;
+    //public GameObject TextHolder;
     private bool displayInfo = false;
     public float fadeTime = 1f;
+    private GameObject hintWehave=null;
     private BuildManager bm;
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,10 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
 
     private void TurnRotate()
     {
+/*        Camera cam = bm.GetCamera();
+
+        text.transform.LookAt(cam.transform);
+        text.transform.Rotate(0,90,0);*/
 
     }
 
@@ -37,6 +44,14 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
         {
             displayInfo = true;
         }
+        //get hint for users
+        if (hintWehave)
+        {
+            return;
+        }
+        hintWehave = Instantiate(hint, transform.position, transform.rotation);
+        hintWehave.transform.Rotate(-90, 0, 0);
+        hintWehave.transform.localScale = new Vector3(8, 8, 8);
     }
     private void OnMouseExit()
     {
@@ -44,6 +59,7 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
         {
             displayInfo = false;
         }
+        Destroy(hintWehave);
     }
 
     // TODO: It will pop up recycle sign to click.
@@ -55,12 +71,11 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {   //Show Tower Infomation
-            Debug.Log("Left click");
+            bm.TowerClicked(gameObject);
         }
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
             // Test only
-            Debug.Log("Right click");
         }
     }
 
@@ -73,4 +88,5 @@ public class TowerInfo : MonoBehaviour, IPointerClickHandler
         else
         { text.color = Color.Lerp(Color.clear, Color.white, fadeTime * Time.deltaTime); }
     }
+
 }

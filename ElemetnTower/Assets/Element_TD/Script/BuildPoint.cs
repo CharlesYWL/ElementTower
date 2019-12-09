@@ -47,8 +47,6 @@ public class BuildPoint :  BuildInterface,IDropHandler
             return;
         }
         //Build a tower and Destory itself
-        Debug.Log("eventData is: " + eventData.pointerDrag.name);
-        Debug.Log("isChildOfShop? " + (bm.isChildOfShop(eventData.pointerDrag.gameObject)));
         if (!(bm.isChildOfShop(eventData.pointerDrag.gameObject)))
         {
             //Debug.Log("We drag a shopcard on buildpoints");
@@ -58,7 +56,6 @@ public class BuildPoint :  BuildInterface,IDropHandler
             Destroy(hintWehave);
             Destroy(gameObject);
         }
-
     }
 
 }

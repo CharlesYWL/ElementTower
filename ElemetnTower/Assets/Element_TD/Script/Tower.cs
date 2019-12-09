@@ -21,8 +21,6 @@ public class Tower : BuildInterface
     public bool isRaser = false;
     public GameObject ProjectilePrefab;
     public Transform ProjectilePoint;
-    public GameObject hint;
-    private GameObject hintWehave;
 
     Animator Attack;
 
@@ -137,28 +135,6 @@ public class Tower : BuildInterface
     }
 
 
-    // OnMouseEnter and OnMouseExit relate to choose stuff
-    private void OnMouseEnter()
-    {
 
-        //get hint for users
-        if (hintWehave)
-        {
-            return;
-        }
-        hintWehave = Instantiate(hint, transform.position, transform.rotation);
-        hintWehave.transform.Rotate(-90, 0, 0);
-        hintWehave.transform.localScale = new Vector3(8, 8, 8);
-    }
-    private void OnMouseExit()
-    {
-        Destroy(hintWehave);
-    }
-
-    // TODO: It will pop up recycle sign to click.
-    private void OnMouseDown()
-    {
-        
-    }
 
 }

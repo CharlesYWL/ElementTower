@@ -7,6 +7,7 @@ public class ProjectileMover : MonoBehaviour
     public float speed = 15f;
     public float hitOffset = 0f;
     public float damage = 30;
+    private float percentage = 0.3f;
     public bool UseFirePointRotation;
     public Vector3 rotationOffset = new Vector3(0, 0, 0);
     public GameObject hit;
@@ -113,15 +114,13 @@ public class ProjectileMover : MonoBehaviour
                 newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
             }
             */
-            if(type == ElementTypes.Glacier) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);}
-            if(type == ElementTypes.Ocean) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); enemy.Slow();}
+            if(type == ElementTypes.Glacier) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); enemy.Slow(percentage); }
+            if(type == ElementTypes.Ocean) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);}
             if(type == ElementTypes.Wind) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); }
             if(type == ElementTypes.Fire) { newDamage = DamageEngine.ElementCombatAlgorithm(damage + Random.Range(1, 5), type); } else { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); }
+            if(type == ElementTypes.Desert) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); newDamage += Random.Range(0f, 10f); }
             switch (type)
             {
-                case ElementTypes.Desert:
-                    newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-                    break;
                 case ElementTypes.Light:
                     newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
                     break;
