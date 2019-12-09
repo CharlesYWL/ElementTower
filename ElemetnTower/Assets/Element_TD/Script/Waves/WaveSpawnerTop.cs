@@ -151,7 +151,9 @@ public class WaveSpawnerTop : MonoBehaviour
 
    private void SpawnEnemyEasy()
     {
-        Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject en = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = en.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsTop.TopPoints);
     }
 
     private void SpawnEnemyMedium()

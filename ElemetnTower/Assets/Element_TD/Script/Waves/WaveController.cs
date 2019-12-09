@@ -35,8 +35,8 @@ public class WaveController : MonoBehaviour
             Debug.Log("Wave: " + waveNumber);
             
             StartCoroutine(wb.SpawnWave());
-            StartCoroutine(wl.SpawnWave());
-            StartCoroutine(wt.SpawnWave());
+            //StartCoroutine(wl.SpawnWave());
+            //StartCoroutine(wt.SpawnWave());
             countdown = TimeBetweenWaves;
             return;
         }

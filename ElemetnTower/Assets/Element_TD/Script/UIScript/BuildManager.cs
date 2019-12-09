@@ -162,7 +162,6 @@ public class BuildManager : MonoBehaviour
 
         //TODO: Get wave from other
         int i = WaveController.waveNumber;
-        Debug.Log("Wave" + i);
         //Get wave from other place;
         switch (i)
         {
