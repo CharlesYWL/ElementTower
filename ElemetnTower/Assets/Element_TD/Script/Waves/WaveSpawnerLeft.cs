@@ -121,7 +121,7 @@ public class WaveSpawnerLeft : MonoBehaviour
     {
         GameObject trg = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
         EnemyMovement em = trg.GetComponent<EnemyMovement>();
-        em.WayChoise = 2;
+        em.SetTargets(WayPointsLeft.Leftpoints);
     }
 
     private void SpawnEnemyMedium()
@@ -133,16 +133,22 @@ public class WaveSpawnerLeft : MonoBehaviour
 
     private void SpawnEnemyHard()
     {
-        Instantiate(EnemyPrefabHard, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject trg = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = trg.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsLeft.Leftpoints);
     }
 
     private void SpawnEnemyHardPlus()
     {
-        Instantiate(EnemyPrefabHardPlus, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject trg = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = trg.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsLeft.Leftpoints);
     }
 
     private void SpawnEnemyBoss()
     {
-        Instantiate(EnemyPrefabBoss, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject trg = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = trg.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsLeft.Leftpoints);
     }
 }
