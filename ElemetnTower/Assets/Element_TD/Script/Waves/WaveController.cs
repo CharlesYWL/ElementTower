@@ -13,7 +13,7 @@ public class WaveController : MonoBehaviour
     public GameObject GateTop;
 
     public float TimeBetweenWaves = 9f;
-    private float countdown = 10f;
+    private float countdown = 24f;
     private float TimeInBattle = 15f;
     private WaveSpawnerBot wb;
     private WaveSpawnerLeft wl;
