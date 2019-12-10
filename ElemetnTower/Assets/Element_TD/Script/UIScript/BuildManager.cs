@@ -38,6 +38,7 @@ public class BuildManager : MonoBehaviour
     public GameObject BuildPointPrefeb;
     public GameObject TowerRangeMark;
     public GameObject heartGroup;
+    public GameObject UpgradeEffect;
     //Money
     [Header("MONEY")]
     [SerializeField]
@@ -218,10 +219,9 @@ public class BuildManager : MonoBehaviour
         {
             firstclick = false;
             RefreshShop();
-            toggleShop();
+            //toggleShop();
             return;
         }
-
         if (isOpen)
         {
             s.closeShop();
@@ -308,6 +308,9 @@ public class BuildManager : MonoBehaviour
         {
             // Create NewTower and destory old tower
             Instantiate(tf.UpgradeTower, SelectedTower.transform.position, SelectedTower.transform.rotation);
+            GameObject efc = Instantiate(this.UpgradeEffect, SelectedTower.transform.position, SelectedTower.transform.rotation);
+            efc.transform.localScale = new Vector3(4, 4, 4);
+            efc.transform.Rotate(-90, 0, 0);
             Destroy(this.SelectedTower);
             // Set Selected UI back
             Destroy(hintWeHave);

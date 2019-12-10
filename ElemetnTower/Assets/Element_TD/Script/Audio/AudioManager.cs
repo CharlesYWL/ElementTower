@@ -67,7 +67,6 @@ public class AudioManager : MonoBehaviour
                     sound = s;
                     sound.volume = s.volume;
                     sound.pitch = s.pitch;
-                    Debug.Log("found sound in music");
                 }
             }
         }
