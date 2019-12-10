@@ -10,9 +10,10 @@ public class EGA_EffectSound : MonoBehaviour
     public bool RandomVolume;
     public float minVolume = .4f;
     public float maxVolume = 1f;
-    private float TimeCount = 0f;
+    public float LifeTime = 5f;
+    private float TimeCount=0;
     private AudioSource soundComponent;
-    private float LifeTime = 2f;
+
     void Start ()
     {
         soundComponent = GetComponent<AudioSource>();
@@ -27,17 +28,17 @@ public class EGA_EffectSound : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         TimeCount += Time.deltaTime;
-        if(TimeCount >= LifeTime)
+        if (TimeCount >= LifeTime)
         {
             Destroy(gameObject);
         }
-
     }
     void RepeatSound()
     {
         soundComponent.Play(0);
+
     }
 }

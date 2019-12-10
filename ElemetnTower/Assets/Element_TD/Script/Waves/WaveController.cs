@@ -39,7 +39,7 @@ public class WaveController : MonoBehaviour
         if (countdown <= 0f && EnemyList.Length == 0 && TimeRotation.Day == false)
         {
             waveNumber++;
-            Debug.Log("Wave: " + waveNumber);
+            //Debug.Log("Wave: " + waveNumber);
             
             StartCoroutine(wb.SpawnWave());
             StartCoroutine(wl.SpawnWave());
