@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// OceanSpecial is adding combination between Ocean and Desert Only
+/// </summary>
 public class OceanSpecial : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -16,13 +18,13 @@ public class OceanSpecial : MonoBehaviour
         switch (tl.Level)
         {
             case 1:
-                buffAS = 30f;
+                buffAS = 5f;
                 break;
             case 2:
-                buffAS = 40f;
+                buffAS = 10f;
                 break;
             case 3:
-                buffAS = 50f;
+                buffAS = 15f;
                 break;
             default:
                 break;
