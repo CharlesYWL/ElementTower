@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class WayPointsLeft : MonoBehaviour
+public class WayPointsLeft : WayPointFather
 {
 
     public static Transform[] Leftpoints;

@@ -9,41 +9,51 @@ public class EnemyMovement : MonoBehaviour
     private int wavepointIndex = 0;
     private Enemy enemy;
     private float timeCount = 0;
+    public int WayChoise = 0;
+    public Transform[] targets;
     void Start()
     {
         enemy = GetComponent<Enemy>();
-        target = WayPoints.points[0];
+
+        target = targets[0];
     }
     void Update()
     {
         timeCount += Time.deltaTime;
-        if(timeCount > 0 && timeCount <= 10)
+
+        Quaternion Rotation = Quaternion.LookRotation(targets[wavepointIndex].position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * enemy.RotationSpeed);
+        Vector3 dir = target.position - transform.position;
+        transform.Translate(dir.normalized * enemy.Speed * Time.deltaTime, Space.World); //Initialze the first wavepoint
+
+        //Obtain next wavepoint
+        if (Vector3.Distance(transform.position, targets[wavepointIndex].position) <= 0.4f)
         {
-            BottomWave();
+            GetNextWaypoint();
         }
-        else if(timeCount > 10 && timeCount <= 20)
+        //Reset speed to initial after slow down enemy
+        if (enemy.Speed <= enemy.startSpeed)
         {
-            TopWave();
+            enemy.Speed += Time.deltaTime;
         }
-        else if(timeCount >= 20)
-        {
-            LeftWave();
-        }
-        
-        
+
+
     }
 
-    
+    public void SetTargets(Transform[] t) 
+    {
+        this.targets = t;
+    }
     void GetNextWaypoint()
     {
-        if (wavepointIndex >= WayPoints.points.Length - 1)
+        if (wavepointIndex >= targets.Length - 1)
         {
             EndPath();
             return;
         }
 
         wavepointIndex++;
-        target = WayPoints.points[wavepointIndex];
+        target = targets[wavepointIndex];
     }
     void ChangeToLeftWave()
     {
@@ -54,10 +64,10 @@ public class EnemyMovement : MonoBehaviour
     {
         target = WayPointsTop.TopPoints[0];
     }
-    void BottomWave()
+/*    void BottomWave()
     {
 
-        Quaternion Rotation = Quaternion.LookRotation(WayPoints.points[wavepointIndex].position - transform.position);
+        Quaternion Rotation = Quaternion.LookRotation(WayPointsLeft.Leftpoints[wavepointIndex].position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * enemy.RotationSpeed);
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * enemy.Speed * Time.deltaTime, Space.World); //Initialze the first wavepoint
@@ -111,7 +121,7 @@ public class EnemyMovement : MonoBehaviour
         {
             enemy.Speed += Time.deltaTime;
         }
-    }
+    }*/
     void EndPath()
     {
         Destroy(gameObject);

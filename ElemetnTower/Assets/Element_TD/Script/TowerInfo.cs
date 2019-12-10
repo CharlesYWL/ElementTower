@@ -7,12 +7,16 @@ using System;
 
 public class TowerInfo : MonoBehaviour, IPointerClickHandler
 {
+    [Header("Setting")]
     public Text text;
+    public float fadeTime = 1f;
+    [Header("Prefebs")]
     public GameObject hint;
     public GameObject CardPrefeb;
+    public GameObject UpgradeTower;
     //public GameObject TextHolder;
     private bool displayInfo = false;
-    public float fadeTime = 1f;
+
     private GameObject hintWehave=null;
     private BuildManager bm;
     // Start is called before the first frame update

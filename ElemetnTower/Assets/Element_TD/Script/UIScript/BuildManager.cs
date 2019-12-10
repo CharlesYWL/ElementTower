@@ -162,10 +162,11 @@ public class BuildManager : MonoBehaviour
 
         //TODO: Get wave from other
         int i = WaveController.waveNumber;
-        Debug.Log("Wave" + i);
         //Get wave from other place;
         switch (i)
         {
+            case 0:
+                return new List<float>() { 33.3f, 33.3f, 33.3f, 0, 0, 0, 0, 0, 0, 0, 0 };
             case 1:
                 return new List<float>() {33.3f,33.3f,33.3f,0,0,0,0,0,0,0,0};
             case 2:
@@ -187,9 +188,8 @@ public class BuildManager : MonoBehaviour
             case 10:
                 return new List<float>() { 6.3f, 6.3f, 6.3f, 12.5f, 12.5f, 12.5f, 12.5f, 12.5f, 12.5f, 3, 3};
             default:
-                break;
+                return new List<float>() { 6.3f, 6.3f, 6.3f, 12.5f, 12.5f, 12.5f, 12.5f, 12.5f, 12.5f, 3, 3 };
         }
-        return null;
     }
 
     public Cards getCards() {return this.c;}
@@ -291,6 +291,19 @@ public class BuildManager : MonoBehaviour
     public void UpgradeClicked()
     {
         Debug.Log("We Click Upgrade");
+        TowerInfo tf = SelectedTower.GetComponent<TowerInfo>();
+        if (!tf.UpgradeTower)
+        {
+            return;
+        }
+        // Create Buildpoint back and destory tower
+        Instantiate(tf.UpgradeTower, SelectedTower.transform.position, SelectedTower.transform.rotation);
+        Destroy(this.SelectedTower);
+        // Set Selected UI back
+        Destroy(hintWeHave);
+        Destroy(RangeWeHave);
+        this.SelectedTower = null;
+        SellUIPrefeb.SetActive(false);
     }
     public void RecycleClicked()
     {
