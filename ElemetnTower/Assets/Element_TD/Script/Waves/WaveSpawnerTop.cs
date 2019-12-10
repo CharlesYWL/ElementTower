@@ -158,21 +158,29 @@ public class WaveSpawnerTop : MonoBehaviour
 
     private void SpawnEnemyMedium()
     {
-        Instantiate(EnemyPrefabMedium, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject en = Instantiate(EnemyPrefabMedium, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = en.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsTop.TopPoints);
     }
 
     private void SpawnEnemyHard()
     {
-        Instantiate(EnemyPrefabHard, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject en = Instantiate(EnemyPrefabHard, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = en.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsTop.TopPoints);
     }
 
     private void SpawnEnemyHardPlus()
     {
-        Instantiate(EnemyPrefabHardPlus, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject en = Instantiate(EnemyPrefabHardPlus, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = en.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsTop.TopPoints);
     }
 
     private void SpawnEnemyBoss()
     {
-        Instantiate(EnemyPrefabBoss, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject en = Instantiate(EnemyPrefabBoss, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = en.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsTop.TopPoints);
     }
 }

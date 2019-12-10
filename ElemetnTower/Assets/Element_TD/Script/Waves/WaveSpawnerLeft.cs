@@ -119,30 +119,36 @@ public class WaveSpawnerLeft : MonoBehaviour
 
     private void SpawnEnemyEasy()
     {
-        GameObject trg = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
-        EnemyMovement em = trg.GetComponent<EnemyMovement>();
-        em.WayChoise = 2;
+        GameObject en = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = en.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsLeft.Leftpoints);
     }
 
     private void SpawnEnemyMedium()
     {
-        GameObject en = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject en = Instantiate(EnemyPrefabMedium, SpawnPoint.position, SpawnPoint.rotation);
         EnemyMovement em = en.GetComponent<EnemyMovement>();
         em.SetTargets(WayPointsLeft.Leftpoints);
     }
 
     private void SpawnEnemyHard()
     {
-        Instantiate(EnemyPrefabHard, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject en = Instantiate(EnemyPrefabHard, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = en.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsLeft.Leftpoints);
     }
 
     private void SpawnEnemyHardPlus()
     {
-        Instantiate(EnemyPrefabHardPlus, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject en = Instantiate(EnemyPrefabHardPlus, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = en.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsLeft.Leftpoints);
     }
 
     private void SpawnEnemyBoss()
     {
-        Instantiate(EnemyPrefabBoss, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject en = Instantiate(EnemyPrefabBoss, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement em = en.GetComponent<EnemyMovement>();
+        em.SetTargets(WayPointsLeft.Leftpoints);
     }
 }
