@@ -21,7 +21,6 @@ public class ProjectileMover : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Towers = Towers.GetComponent<Tower>();
         if (flash != null)
         {
             var flashInstance = Instantiate(flash, transform.position, Quaternion.identity);

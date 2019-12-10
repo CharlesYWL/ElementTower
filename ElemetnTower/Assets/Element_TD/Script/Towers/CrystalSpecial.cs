@@ -5,7 +5,7 @@ using UnityEngine;
 public class CrystalSpecial : MonoBehaviour
 {
     Tower towers;
-    float Buff = 5f;
+    float Buff = 10f;
     float newRange = 0f;
     // Start is called before the first frame update
     void Start()
@@ -18,11 +18,12 @@ public class CrystalSpecial : MonoBehaviour
     {
         if(GameObject.FindGameObjectWithTag("Crystal"))
         {
-            newRange = towers.Range + Buff;
+            towers.Range += Buff;
         }
         else
         {
-            newRange = towers.Range;
+            //towers.Range;
+            
         }
     }
 }
