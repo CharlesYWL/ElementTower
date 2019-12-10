@@ -4,6 +4,7 @@ using UnityEngine;
 using Element;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// ITS useless now, buy leave it for further necessary
@@ -376,4 +377,9 @@ public class BuildManager : MonoBehaviour
         }
     }
     public bool IsTowerSelected() { return (SelectedTower != null); }
+
+    public void LoseGame() 
+    { //We lose, Add some text to show, and go EndScene
+        SceneManager.LoadScene("EndScene");
+    }
 }
