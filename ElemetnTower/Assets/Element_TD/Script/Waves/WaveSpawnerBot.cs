@@ -161,29 +161,29 @@ public class WaveSpawnerBot : MonoBehaviour
 
     private void SpawnEnemyMedium()
     {
-        GameObject en = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
-        EnemyMovement em = en.GetComponent<EnemyMovement>();
-        em.SetTargets(WayPoints.points);
+        GameObject en = Instantiate(EnemyPrefabMedium, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement emMedium = en.GetComponent<EnemyMovement>();
+        emMedium.SetTargets(WayPoints.points);
     }
 
     private void SpawnEnemyHard()
     {
-        GameObject en = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
-        EnemyMovement em = en.GetComponent<EnemyMovement>();
-        em.SetTargets(WayPoints.points);
+        GameObject enHard = Instantiate(EnemyPrefabHard, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement emHard = enHard.GetComponent<EnemyMovement>();
+        emHard.SetTargets(WayPoints.points);
     }
 
     private void SpawnEnemyHardPlus()
     {
-        GameObject en = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
-        EnemyMovement em = en.GetComponent<EnemyMovement>();
-        em.SetTargets(WayPoints.points); ;
+        GameObject enHardPlus = Instantiate(EnemyPrefabHard, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement emHardPlus = enHardPlus.GetComponent<EnemyMovement>();
+        emHardPlus.SetTargets(WayPoints.points);
     }
 
     private void SpawnEnemyBoss()
     {
-        GameObject en = Instantiate(EnemyPrefabEasy, SpawnPoint.position, SpawnPoint.rotation);
-        EnemyMovement em = en.GetComponent<EnemyMovement>();
-        em.SetTargets(WayPoints.points);
+        GameObject enHardBoss = Instantiate(EnemyPrefabHard, SpawnPoint.position, SpawnPoint.rotation);
+        EnemyMovement emHardBoss = enHardBoss.GetComponent<EnemyMovement>();
+        emHardBoss.SetTargets(WayPoints.points);
     }
 }

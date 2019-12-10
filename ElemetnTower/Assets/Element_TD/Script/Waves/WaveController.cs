@@ -12,9 +12,9 @@ public class WaveController : MonoBehaviour
     [SerializeField]
     public GameObject GateTop;
 
-    public float TimeBetweenWaves = 20f;
+    public float TimeBetweenWaves = 9f;
     private float countdown = 10f;
-    private float TimeInBattle = 60.0f;
+    private float TimeInBattle = 15f;
     private WaveSpawnerBot wb;
     private WaveSpawnerLeft wl;
     private WaveSpawnerTop wt;

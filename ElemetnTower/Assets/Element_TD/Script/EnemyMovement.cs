@@ -55,73 +55,7 @@ public class EnemyMovement : MonoBehaviour
         wavepointIndex++;
         target = targets[wavepointIndex];
     }
-    void ChangeToLeftWave()
-    {
-        target = WayPointsLeft.Leftpoints[0];
-    }
 
-    void ChangeToTopWave()
-    {
-        target = WayPointsTop.TopPoints[0];
-    }
-/*    void BottomWave()
-    {
-
-        Quaternion Rotation = Quaternion.LookRotation(WayPointsLeft.Leftpoints[wavepointIndex].position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * enemy.RotationSpeed);
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * enemy.Speed * Time.deltaTime, Space.World); //Initialze the first wavepoint
-
-        //Obtain next wavepoint
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
-        {
-            GetNextWaypoint();
-        }
-        //Reset speed to initial after slow down enemy
-        if (enemy.Speed <= enemy.startSpeed)
-        {
-            enemy.Speed += Time.deltaTime;
-        }
-    }
-
-    void LeftWave()
-    {
-        ChangeToLeftWave();
-        Quaternion Rotation = Quaternion.LookRotation(WayPoints.points[wavepointIndex].position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * enemy.RotationSpeed);
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * enemy.Speed * Time.deltaTime, Space.World); //Initialze the first wavepoint
-
-        //Obtain next wavepoint
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
-        {
-            GetNextWaypoint();
-        }
-        //Reset speed to initial after slow down enemy
-        if (enemy.Speed <= enemy.startSpeed)
-        {
-            enemy.Speed += Time.deltaTime;
-        }
-    }
-    void TopWave()
-    {
-        ChangeToTopWave();
-        Quaternion Rotation = Quaternion.LookRotation(WayPoints.points[wavepointIndex].position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Rotation, Time.deltaTime * enemy.RotationSpeed);
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * enemy.Speed * Time.deltaTime, Space.World); //Initialze the first wavepoint
-
-        //Obtain next wavepoint
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
-        {
-            GetNextWaypoint();
-        }
-        //Reset speed to initial after slow down enemy
-        if (enemy.Speed <= enemy.startSpeed)
-        {
-            enemy.Speed += Time.deltaTime;
-        }
-    }*/
     void EndPath()
     {
         Destroy(gameObject);
