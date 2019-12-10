@@ -6,16 +6,17 @@ namespace Element
 {
     public class DamageEngine
     {
+
         public static float ElementCombatAlgorithm(float damage, ElementTypes ElementType)
         {
             float TypeFactor = 0.0f;
+            
             float ElementDamage = damage;
-            float AllFireRate = 0f;
-            Tower Towers;
-            switch(ElementType)
+            
+            
+            switch (ElementType)
             {
                 case ElementTypes.Crystal:
-                    //AllFireRate = Towers.GetComponent<Tower>().FireRate;
                     TypeFactor = 0f;
                     break;
                 case ElementTypes.Desert:
@@ -53,38 +54,6 @@ namespace Element
             return damage;
         }
 
-        public void Combination(ElementTypes elementFirst, ElementTypes elementSecond)
-        {
-            switch(elementFirst)
-            {
-                case ElementTypes.Crystal:
-                    if(elementSecond == ElementTypes.Fire)
-                    {
-
-                    }
-                    break;
-                case ElementTypes.Desert:
-                    break;
-                case ElementTypes.Fire:
-                    break;
-                case ElementTypes.Glacier:
-                    break;
-                case ElementTypes.Light:
-                    break;
-                case ElementTypes.Mountain:
-                    break;
-                case ElementTypes.Ocean:
-                    break;
-                case ElementTypes.Poison:
-                    break;
-                case ElementTypes.Shadow:
-                    break;
-                case ElementTypes.Thunder:
-                    break;
-                case ElementTypes.Wind:
-                    break;
-            }
-        }
     }
 }
 
