@@ -4,6 +4,7 @@ using UnityEngine;
 using Element;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// ITS useless now, buy leave it for further necessary
@@ -36,13 +37,16 @@ public class BuildManager : MonoBehaviour
     public GameObject SellUIPrefeb;
     public GameObject BuildPointPrefeb;
     public GameObject TowerRangeMark;
-
+    public GameObject heartGroup;
+    public GameObject UpgradeEffect;
+    public GameObject WastedTitle;
+    public GameObject WinTitle;
     //Money
     [Header("MONEY")]
     [SerializeField]
-    public int Money;
+    public float Money;
     [SerializeField]
-    public int Addmoney;
+    public float Addmoney;
     [SerializeField]
     public Text Moneytext;
     [SerializeField]
@@ -217,10 +221,9 @@ public class BuildManager : MonoBehaviour
         {
             firstclick = false;
             RefreshShop();
-            toggleShop();
+            //toggleShop();
             return;
         }
-
         if (isOpen)
         {
             s.closeShop();
@@ -269,7 +272,7 @@ public class BuildManager : MonoBehaviour
     }
 
     //Money
-    public int GetMoney()
+    public float GetMoney()
     {
         return Money;
     }
@@ -301,12 +304,14 @@ public class BuildManager : MonoBehaviour
 
     public void UpgradeClicked()
     {
-        Debug.Log("We Click Upgrade");
         TowerInfo tf = SelectedTower.GetComponent<TowerInfo>();
         if (tf.UpgradeTower && c.UpgradeTower(SelectedTower))
         {
             // Create NewTower and destory old tower
             Instantiate(tf.UpgradeTower, SelectedTower.transform.position, SelectedTower.transform.rotation);
+            GameObject efc = Instantiate(this.UpgradeEffect, SelectedTower.transform.position, SelectedTower.transform.rotation);
+            efc.transform.localScale = new Vector3(4, 4, 4);
+            efc.transform.Rotate(-90, 0, 0);
             Destroy(this.SelectedTower);
             // Set Selected UI back
             Destroy(hintWeHave);
@@ -376,4 +381,24 @@ public class BuildManager : MonoBehaviour
         }
     }
     public bool IsTowerSelected() { return (SelectedTower != null); }
+
+    public void LoseGame() 
+    { //We lose, Add some text to show, and go EndScene
+        WastedTitle.SetActive(true);   
+    }
+    public void WinGame()
+    { //We lose, Add some text to show, and go EndScene
+        WinTitle.SetActive(true);
+    }
+
+    public void PlayerGetDamage(int damage)
+    {
+        HeartGroup hg = heartGroup.GetComponent<HeartGroup>();
+        hg.PlayerGetDamage(damage);
+    }
+
+    public void GoToEndScene()
+    {
+        SceneManager.LoadScene("EndScene");
+    }
 }

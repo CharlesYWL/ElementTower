@@ -7,30 +7,28 @@ using UnityEngine;
 /// </summary>
 public class PoisonSpecial : MonoBehaviour
 {
-    GameObject AOEPoison;
-    private bool Comboflag = false;
-    private float buffAS = 3f;
-    float currentHealth = 0f;
-    private Enemy targets;
+    public GameObject AOEPoison;
+    private float PoisonDamage = 3f;
+    private Tower tower;
     private TowerLabel towerLabel;
     float count = 0f;
     float CD = 5f;
+    private GameObject ComboEffectWeHave = null;
     // Start is called before the first frame update
     void Start()
     {
-        targets = gameObject.GetComponent<Enemy>();
+        tower = gameObject.GetComponent<Tower>();
         towerLabel = gameObject.GetComponent<TowerLabel>();
-        currentHealth = targets.Health;
         switch (towerLabel.Level)
         {
             case 1:
-                buffAS = 5f;
+                PoisonDamage = 5f;
                 break;
             case 2:
-                buffAS = 10f;
+                PoisonDamage = 10f;
                 break;
             case 3:
-                buffAS = 15f;
+                PoisonDamage = 15f;
                 break;
             default:
                 break;
@@ -40,28 +38,28 @@ public class PoisonSpecial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        count += Time.deltaTime;
+        count -= Time.deltaTime;
         var dt = GameObject.FindGameObjectWithTag("Fire");
-        if (!Comboflag && dt)
+        if (dt)
         {
-            if(count < CD)
+            // Apply Poison AOE to in range enemy
+            GameObject[] es = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject e in es)
             {
-                //Instantiate(AOEPoison, transform.position, Quaternion.identity);
-                currentHealth -= buffAS * Time.deltaTime;
-                Comboflag = true;
+                if (Vector3.Distance(this.transform.position, e.transform.position) <= tower.Range)
+                {
+                    Enemy enemy = e.GetComponent<Enemy>();
+                    enemy.Health -= PoisonDamage;
+                }
             }
-            else
+            if (count <= 0 && tower.Target != null && !ComboEffectWeHave)
             {
-                //Destroy(AOEPoison);
-                targets.Health = currentHealth;
+                Quaternion rotation = Quaternion.FromToRotation(this.transform.position, tower.Target.transform.position);
+                ComboEffectWeHave = Instantiate(AOEPoison, transform.position, rotation);
+                ComboEffectWeHave.transform.localScale = new Vector3(4, 4, 4);
+                Destroy(AOEPoison);
+                count = CD;
             }
-            
-        }
-        else if (Comboflag && !dt)
-        {
-            targets.Health = currentHealth;
-
-            Comboflag = false;
         }
     }
 }

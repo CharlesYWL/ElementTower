@@ -97,8 +97,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragH
         parentToReturnTo = transform.parent;
         if (bm.isChildOfShop(this.gameObject))
         {
-            int money = bm.Money;
-            int towermoney = this.gameObject.GetComponent<CardInfoShow>().CardMoney;
+            float money = bm.Money;
+            float towermoney = this.gameObject.GetComponent<CardInfoShow>().CardMoney;
             if (money < towermoney)
             {
                 return;
