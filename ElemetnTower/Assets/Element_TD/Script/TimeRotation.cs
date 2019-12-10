@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimeRotation : MonoBehaviour
 {
     public float RotateSpeedDay = 10.0f;
-    public float RotateSpeedNight = 6.0f;
+    public float RotateSpeedNight = 5.5f;
     [SerializeField]
     private GameObject Sun;
 
@@ -44,7 +44,7 @@ public class TimeRotation : MonoBehaviour
             //Night Time
             if (Sun.transform.position.y <= 0)
             {
-                transform.RotateAround(Center, RotateDirection, RotateSpeedNight * Time.deltaTime);
+                transform.RotateAround(Center, RotateDirection, (RotateSpeedNight + 2 * WaveController.waveNumber) * Time.deltaTime);
                 transform.LookAt(Center);
                 Day = false;
             }

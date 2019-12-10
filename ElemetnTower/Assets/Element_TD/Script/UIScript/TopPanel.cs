@@ -7,6 +7,7 @@ public class TopPanel : MonoBehaviour
 {
     [SerializeField]
     public Text textobject;
+    public Text Wave;
 
     public static TopPanel instance;
     // Start is called before the first frame update
@@ -19,6 +20,14 @@ public class TopPanel : MonoBehaviour
     void Update()
     {
         textobject.text = BuildManager.instance.GetMoney().ToString();
+        if (WaveController.waveNumber.ToString() == "0")
+        {
+            Wave.text = "PREPARING";
+        }
+        else
+        {
+            Wave.text = WaveController.waveNumber.ToString();
+        }
     }
 
     public static TopPanel getTopPanelInfo
