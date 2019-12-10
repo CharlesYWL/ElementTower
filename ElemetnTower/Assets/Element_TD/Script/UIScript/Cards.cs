@@ -44,4 +44,29 @@ public class Cards : MonoBehaviour
         }
         return (transform.childCount<MAXCAP);
     }
+    public bool UpgradeTower(GameObject tower)
+    {
+        int find = 0;
+        List<int> index = new List<int>();
+
+        for (int i = 0; i < getCardsNumber(); i++)
+        {
+            if (TowerLabel.Compare(tower, transform.GetChild(i).gameObject))
+            {// if they have same label
+                find++;
+                index.Add(i);
+            }
+        }
+        if (find < 2)
+        {
+            return false;
+        }
+        else
+        {
+            Destroy(transform.GetChild(index[1]).gameObject);
+            Destroy(transform.GetChild(index[0]).gameObject);
+            return true;
+        }
+
+    }
 }
