@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Fire tower will help poison spread out its poison effect
 /// </summary>
-public class PoisonSpecial : MonoBehaviour
+public class MountainSpecial : MonoBehaviour
 {
     public GameObject AOEPoison;
     private float PoisonDamage = 3f;
@@ -22,13 +22,13 @@ public class PoisonSpecial : MonoBehaviour
         switch (towerLabel.Level)
         {
             case 1:
-                PoisonDamage = 5f;
-                break;
-            case 2:
                 PoisonDamage = 10f;
                 break;
+            case 2:
+                PoisonDamage = 20f;
+                break;
             case 3:
-                PoisonDamage = 15f;
+                PoisonDamage = 40f;
                 break;
             default:
                 break;
