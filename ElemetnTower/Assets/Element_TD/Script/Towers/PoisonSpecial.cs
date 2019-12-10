@@ -8,13 +8,12 @@ using UnityEngine;
 public class PoisonSpecial : MonoBehaviour
 {
     public GameObject AOEPoison;
-    private bool Comboflag = false;
     private float PoisonDamage = 3f;
-    float currentHealth = 0f;
     private Tower tower;
     private TowerLabel towerLabel;
     float count = 0f;
     float CD = 5f;
+    private GameObject ComboEffectWeHave = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,11 +38,28 @@ public class PoisonSpecial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        count += Time.deltaTime;
+        count -= Time.deltaTime;
         var dt = GameObject.FindGameObjectWithTag("Fire");
         if (dt)
         {
-            
+            // Apply Poison AOE to in range enemy
+            GameObject[] es = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject e in es)
+            {
+                if (Vector3.Distance(this.transform.position, e.transform.position) <= tower.Range)
+                {
+                    Enemy enemy = e.GetComponent<Enemy>();
+                    enemy.Health -= PoisonDamage;
+                }
+            }
+            if (count <= 0 && tower.Target != null && !ComboEffectWeHave)
+            {
+                Quaternion rotation = Quaternion.FromToRotation(this.transform.position, tower.Target.transform.position);
+                ComboEffectWeHave = Instantiate(AOEPoison, transform.position, rotation);
+                ComboEffectWeHave.transform.localScale = new Vector3(4, 4, 4);
+                Destroy(AOEPoison);
+                count = CD;
+            }
         }
     }
 }

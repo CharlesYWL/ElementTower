@@ -9,12 +9,11 @@ public class GlacierSpecial : MonoBehaviour
 {
     public GameObject AOEGlacier;
     private float SlowRatio = 3f;
-    private Enemy targets;
     private TowerLabel towerLabel;
     private Tower tower;
     private float count = 0f;
     private float CD = 5f;
-    private GameObject ComboEffectWeHave=null;
+    private GameObject ComboEffectWeHave = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +47,7 @@ public class GlacierSpecial : MonoBehaviour
             GameObject[] es = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject e in es)
             {
-                if (Vector3.Distance(this.transform.position,e.transform.position)<=tower.Range)
+                if (Vector3.Distance(this.transform.position, e.transform.position) <= tower.Range)
                 {
                     Enemy enemy = e.GetComponent<Enemy>();
                     enemy.Slow(SlowRatio);
@@ -59,6 +58,7 @@ public class GlacierSpecial : MonoBehaviour
                 Quaternion rotation = Quaternion.FromToRotation(this.transform.position, tower.Target.transform.position);
                 ComboEffectWeHave = Instantiate(AOEGlacier, transform.position, rotation);
                 ComboEffectWeHave.transform.localScale=new Vector3(2, 2, 2);
+                Destroy(AOEGlacier);
                 count = CD;
             }
         }
