@@ -216,19 +216,30 @@ public class BuildManager : MonoBehaviour
         if (firstclick)
         {
             firstclick = false;
-            
             RefreshShop();
-            isOpen = true;
+            toggleShop();
             return;
         }
+
         if (isOpen)
         {
             s.closeShop();
-            isOpen = false;
+            toggleShop();
         }
         else
         {
             s.openShop();
+            toggleShop();
+        }
+    }
+
+    public void toggleShop()
+    {
+        if (isOpen)
+        {
+            isOpen = false;
+        }else
+        {
             isOpen = true;
         }
     }
