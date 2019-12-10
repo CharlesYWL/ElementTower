@@ -23,8 +23,7 @@ public class ExitButton : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Click");
-        SceneManager.LoadScene("EndScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("EndScene");
     }
 
 }

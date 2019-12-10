@@ -39,6 +39,7 @@ public class BuildManager : MonoBehaviour
     public GameObject TowerRangeMark;
     public GameObject heartGroup;
     public GameObject UpgradeEffect;
+    public GameObject WastedTitle;
     //Money
     [Header("MONEY")]
     [SerializeField]
@@ -383,7 +384,7 @@ public class BuildManager : MonoBehaviour
 
     public void LoseGame() 
     { //We lose, Add some text to show, and go EndScene
-        SceneManager.LoadScene("EndScene");
+        WastedTitle.SetActive(true);   
     }
 
     public void PlayerGetDamage(int damage)
@@ -392,4 +393,8 @@ public class BuildManager : MonoBehaviour
         hg.PlayerGetDamage(damage);
     }
 
+    public void GoToEndScene()
+    {
+        SceneManager.LoadScene("EndScene");
+    }
 }
