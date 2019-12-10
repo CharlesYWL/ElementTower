@@ -31,8 +31,6 @@ public class WaveController : MonoBehaviour
     {
         EnemyList = GameObject.FindGameObjectsWithTag("Enemy");
 
-        Debug.Log("Day: " + TimeRotation.Day);
-
         if (EnemyList.Length != 0)
         {
             countdown = TimeBetweenWaves;
