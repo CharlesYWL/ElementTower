@@ -17,9 +17,11 @@ public class ProjectileMover : MonoBehaviour
     [SerializeField] private ElementTypes type = ElementTypes.Wind;
     //Modified for ElementTower
     public Transform FollowTarget = null;
+    Tower Towers;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Towers = Towers.GetComponent<Tower>();
         if (flash != null)
         {
             var flashInstance = Instantiate(flash, transform.position, Quaternion.identity);
