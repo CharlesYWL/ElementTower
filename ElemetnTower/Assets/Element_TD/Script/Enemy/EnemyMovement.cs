@@ -11,8 +11,11 @@ public class EnemyMovement : MonoBehaviour
     private float timeCount = 0;
     public int WayChoise = 0;
     public Transform[] targets;
+    public int DamageToPlayer = 1;
+    BuildManager bm;
     void Start()
     {
+        bm = BuildManager.instance;
         enemy = GetComponent<Enemy>();
 
         target = targets[0];
@@ -58,6 +61,7 @@ public class EnemyMovement : MonoBehaviour
 
     void EndPath()
     {
+        bm.PlayerGetDamage(DamageToPlayer);
         Destroy(gameObject);
         //health -1
         //if health -3 life heart -1

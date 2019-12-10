@@ -37,7 +37,7 @@ public class BuildManager : MonoBehaviour
     public GameObject SellUIPrefeb;
     public GameObject BuildPointPrefeb;
     public GameObject TowerRangeMark;
-
+    public GameObject heartGroup;
     //Money
     [Header("MONEY")]
     [SerializeField]
@@ -382,4 +382,11 @@ public class BuildManager : MonoBehaviour
     { //We lose, Add some text to show, and go EndScene
         SceneManager.LoadScene("EndScene");
     }
+
+    public void PlayerGetDamage(int damage)
+    {
+        HeartGroup hg = heartGroup.GetComponent<HeartGroup>();
+        hg.PlayerGetDamage(damage);
+    }
+
 }
