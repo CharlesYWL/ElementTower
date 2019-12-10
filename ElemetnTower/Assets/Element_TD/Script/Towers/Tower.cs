@@ -82,7 +82,7 @@ public class Tower : BuildInterface
             
         }
         FireCountDown -= Time.deltaTime;
-        Debug.Log(Range);
+        //Debug.Log(Range);
     }
 
     public void FireProjectile()
