@@ -58,7 +58,7 @@ public class BuildManager : MonoBehaviour
     private System.Random random;
     private float RescaleMark = 0.37f;
     public GameObject SelectedTower;
-    enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
+    public enum ElementType { FireTower , GlacierTower , WindTower , OceanTower , DesertTower , ThunderTower, MountainTower, LightTower, ShadoeTower, CyrstalTower, PoisonTower }
 
     private float timeCount = 0f;
 
@@ -292,18 +292,18 @@ public class BuildManager : MonoBehaviour
     {
         Debug.Log("We Click Upgrade");
         TowerInfo tf = SelectedTower.GetComponent<TowerInfo>();
-        if (!tf.UpgradeTower)
+        if (tf.UpgradeTower && c.UpgradeTower(SelectedTower))
         {
-            return;
+            // Create NewTower and destory old tower
+            Instantiate(tf.UpgradeTower, SelectedTower.transform.position, SelectedTower.transform.rotation);
+            Destroy(this.SelectedTower);
+            // Set Selected UI back
+            Destroy(hintWeHave);
+            Destroy(RangeWeHave);
+            this.SelectedTower = null;
+            SellUIPrefeb.SetActive(false);
         }
-        // Create Buildpoint back and destory tower
-        Instantiate(tf.UpgradeTower, SelectedTower.transform.position, SelectedTower.transform.rotation);
-        Destroy(this.SelectedTower);
-        // Set Selected UI back
-        Destroy(hintWeHave);
-        Destroy(RangeWeHave);
-        this.SelectedTower = null;
-        SellUIPrefeb.SetActive(false);
+
     }
     public void RecycleClicked()
     {
