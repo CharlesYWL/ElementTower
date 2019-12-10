@@ -55,6 +55,12 @@ public class WaveController : MonoBehaviour
                 Destroy(Enemy);
             }
         }
+        // Win Stage
+        if (waveNumber >= 11)
+        {
+            BuildManager bm = BuildManager.instance;
+            bm.WinGame();
+        }
 
         countdown -= Time.deltaTime;
     }

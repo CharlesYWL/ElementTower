@@ -40,12 +40,13 @@ public class BuildManager : MonoBehaviour
     public GameObject heartGroup;
     public GameObject UpgradeEffect;
     public GameObject WastedTitle;
+    public GameObject WinTitle;
     //Money
     [Header("MONEY")]
     [SerializeField]
-    public int Money;
+    public float Money;
     [SerializeField]
-    public int Addmoney;
+    public float Addmoney;
     [SerializeField]
     public Text Moneytext;
     [SerializeField]
@@ -271,7 +272,7 @@ public class BuildManager : MonoBehaviour
     }
 
     //Money
-    public int GetMoney()
+    public float GetMoney()
     {
         return Money;
     }
@@ -303,7 +304,6 @@ public class BuildManager : MonoBehaviour
 
     public void UpgradeClicked()
     {
-        Debug.Log("We Click Upgrade");
         TowerInfo tf = SelectedTower.GetComponent<TowerInfo>();
         if (tf.UpgradeTower && c.UpgradeTower(SelectedTower))
         {
@@ -385,6 +385,10 @@ public class BuildManager : MonoBehaviour
     public void LoseGame() 
     { //We lose, Add some text to show, and go EndScene
         WastedTitle.SetActive(true);   
+    }
+    public void WinGame()
+    { //We lose, Add some text to show, and go EndScene
+        WinTitle.SetActive(true);
     }
 
     public void PlayerGetDamage(int damage)

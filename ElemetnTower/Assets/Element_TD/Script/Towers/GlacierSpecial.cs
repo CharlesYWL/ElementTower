@@ -38,7 +38,6 @@ public class GlacierSpecial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Time is " + count);
         count -= Time.deltaTime;
         var dt = GameObject.FindGameObjectWithTag("Ocean");
         if (dt)
