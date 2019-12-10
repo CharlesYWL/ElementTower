@@ -4,9 +4,9 @@ using UnityEngine;
 using Element;
 public class ProjectileMover : MonoBehaviour
 {
-    public float speed = 15f;
+    [SerializeField]public float speed = 15f;
     public float hitOffset = 0f;
-    public float damage = 30;
+    [SerializeField]public float damage = 150;
     private float percentage = 0.3f;
     public bool UseFirePointRotation;
     public Vector3 rotationOffset = new Vector3(0, 0, 0);
@@ -17,6 +17,7 @@ public class ProjectileMover : MonoBehaviour
     [SerializeField] private ElementTypes type = ElementTypes.Wind;
     //Modified for ElementTower
     public Transform FollowTarget = null;
+    Tower Towers;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -59,7 +60,6 @@ public class ProjectileMover : MonoBehaviour
         }
     }
 
-    //https ://docs.unity3d.com/ScriptReference/Rigidbody.OnCollisionEnter.html
     void OnCollisionEnter(Collision collision)
     {
         //Lock all axes movement and rotation
@@ -108,12 +108,6 @@ public class ProjectileMover : MonoBehaviour
         Enemy enemy = EnemyTarget.GetComponent<Enemy>();
         if (enemy != null)
         {
-            /*
-            if(type == ElementTypes.Wind)
-            {
-                newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);
-            }
-            */
             if(type == ElementTypes.Glacier) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); enemy.Slow(percentage); }
             if(type == ElementTypes.Ocean) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type);}
             if(type == ElementTypes.Wind) { newDamage = DamageEngine.ElementCombatAlgorithm(damage, type); }

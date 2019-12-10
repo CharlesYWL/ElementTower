@@ -13,7 +13,7 @@ public class WaveController : MonoBehaviour
     public GameObject GateTop;
 
     public float TimeBetweenWaves = 9f;
-    private float countdown = 10f;
+    private float countdown = 24f;
     private float TimeInBattle = 15f;
     private WaveSpawnerBot wb;
     private WaveSpawnerLeft wl;
@@ -32,7 +32,7 @@ public class WaveController : MonoBehaviour
         if (countdown <= 0f)
         {
             waveNumber++;
-            Debug.Log("Wave: " + waveNumber);
+            //Debug.Log("Wave: " + waveNumber);
             
             StartCoroutine(wb.SpawnWave());
             StartCoroutine(wl.SpawnWave());

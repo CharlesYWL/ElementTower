@@ -11,32 +11,39 @@ public class TimeRotation : MonoBehaviour
 
     private Vector3 RotateDirection;
     private Vector3 Center;
+
+    private float DelayTime;
+
     // Start is called before the first frame update
     void Start()
     {
         RotateDirection = new Vector3(0f, 0f, 1f);
         Center = new Vector3(20f, -0.5f, -40f);
+        DelayTime = 14;
     }
 
     // Update is called once per frame
     void Update()
     {
-/*        transform.RotateAround(Center, RotateDirection, RotateSpeedDay * Time.deltaTime);
-        transform.LookAt(Center);*/
-
-        //Day Time
-        if (Sun.transform.position.y >= 0)
+        if (DelayTime >= 0)
         {
-            transform.RotateAround(Center, RotateDirection, RotateSpeedDay * Time.deltaTime);
-            transform.LookAt(Center);
+            DelayTime -= Time.deltaTime;
         }
-
-        //Night Time
-        if (Sun.transform.position.y <= 0)
+        else
         {
-            transform.RotateAround(Center, RotateDirection, RotateSpeedNight * Time.deltaTime);
-            transform.LookAt(Center);
-        }
+            //Day Time
+            if (Sun.transform.position.y >= 0)
+            {
+                transform.RotateAround(Center, RotateDirection, RotateSpeedDay * Time.deltaTime);
+                transform.LookAt(Center);
+            }
 
+            //Night Time
+            if (Sun.transform.position.y <= 0)
+            {
+                transform.RotateAround(Center, RotateDirection, RotateSpeedNight * Time.deltaTime);
+                transform.LookAt(Center);
+            }
+        }
     }
 }
