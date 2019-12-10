@@ -14,10 +14,11 @@ public class WaveController : MonoBehaviour
 
     public float TimeBetweenWaves = 9f;
     private float countdown = 24f;
-    private float TimeInBattle = 15f;
     private WaveSpawnerBot wb;
     private WaveSpawnerLeft wl;
     private WaveSpawnerTop wt;
+
+    private GameObject[] EnemyList;
 
     private void Start()
     {
@@ -28,8 +29,16 @@ public class WaveController : MonoBehaviour
 
     private void Update()
     {
+        EnemyList = GameObject.FindGameObjectsWithTag("Enemy");
 
-        if (countdown <= 0f)
+        Debug.Log("Day: " + TimeRotation.Day);
+
+        if (EnemyList.Length != 0)
+        {
+            countdown = TimeBetweenWaves;
+        }
+
+        if (countdown <= 0f && EnemyList.Length == 0 && TimeRotation.Day == false)
         {
             waveNumber++;
             Debug.Log("Wave: " + waveNumber);
@@ -39,6 +48,14 @@ public class WaveController : MonoBehaviour
             StartCoroutine(wt.SpawnWave());
             countdown = TimeBetweenWaves;
             return;
+        }
+
+        if (TimeRotation.Day == true && EnemyList.Length != 0)
+        {
+            foreach (GameObject Enemy in EnemyList)
+            {
+                Destroy(Enemy);
+            }
         }
 
         countdown -= Time.deltaTime;
