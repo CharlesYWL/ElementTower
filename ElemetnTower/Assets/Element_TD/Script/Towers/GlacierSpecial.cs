@@ -7,30 +7,29 @@ using UnityEngine;
 /// </summary>
 public class GlacierSpecial : MonoBehaviour
 {
-    GameObject AOEGlacier;
-    private bool Comboflag = false;
-    private float buffAS = 3f;
-    float currentSpeed = 0f;
+    public GameObject AOEGlacier;
+    private float SlowRatio = 3f;
     private Enemy targets;
     private TowerLabel towerLabel;
-    float count = 0f;
-    float CD = 5f;
+    private Tower tower;
+    private float count = 0f;
+    private float CD = 5f;
+    private GameObject ComboEffectWeHave=null;
     // Start is called before the first frame update
     void Start()
     {
-        targets = gameObject.GetComponent<Enemy>();
+        tower = gameObject.GetComponent<Tower>();
         towerLabel = gameObject.GetComponent<TowerLabel>();
-        currentSpeed = targets.startSpeed;
         switch (towerLabel.Level)
         {
             case 1:
-                buffAS = 2f;
+                SlowRatio = 0.3f;
                 break;
             case 2:
-                buffAS = 3f;
+                SlowRatio = 0.5f;
                 break;
             case 3:
-                buffAS = 4f;
+                SlowRatio = 0.7f;
                 break;
             default:
                 break;
@@ -40,28 +39,28 @@ public class GlacierSpecial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        count += Time.deltaTime;
+        Debug.Log("Time is " + count);
+        count -= Time.deltaTime;
         var dt = GameObject.FindGameObjectWithTag("Ocean");
-        if (!Comboflag && dt)
+        if (dt)
         {
-            if (count < CD)
+            // Apply slow to in range enemy
+            GameObject[] es = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject e in es)
             {
-                //Instantiate(AOEGlacier, transform.position, Quaternion.identity);
-                currentSpeed -= buffAS * Time.deltaTime;
-                Comboflag = true;
+                if (Vector3.Distance(this.transform.position,e.transform.position)<=tower.Range)
+                {
+                    Enemy enemy = e.GetComponent<Enemy>();
+                    enemy.Slow(SlowRatio);
+                }
             }
-            else
+            if (count <= 0 && tower.Target != null && !ComboEffectWeHave)
             {
-                //Destroy(AOEGlacier);
-                targets.startSpeed = currentSpeed;
+                Quaternion rotation = Quaternion.FromToRotation(this.transform.position, tower.Target.transform.position);
+                ComboEffectWeHave = Instantiate(AOEGlacier, transform.position, rotation);
+                ComboEffectWeHave.transform.localScale=new Vector3(2, 2, 2);
+                count = CD;
             }
-
-        }
-        else if (Comboflag && !dt)
-        {
-            targets.Health = currentSpeed;
-
-            Comboflag = false;
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Tower : BuildInterface
 {
-    private Transform Target = null;
+    public Transform Target = null;
 
     [Header("Property")]
     public float Range = 15f;
@@ -82,7 +82,7 @@ public class Tower : BuildInterface
             
         }
         FireCountDown -= Time.deltaTime;
-        Debug.Log(Range);
+        //Debug.Log(Range);
     }
 
     public void FireProjectile()
