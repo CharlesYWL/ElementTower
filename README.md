@@ -82,7 +82,6 @@ Damage Engine: With different types and rarity of towers, the damage engine is d
 
 ### Animation and Visuals
 Annie Qin, Yangfeng Qiao 
-List your assets including their sources, and licenses.
 
 [Carboard box, alcohol bottle](https://opengameart.org/content/recycle-items-set) ; CC3.0-by 3.0 license, Author - Clint Bellanger
 
