@@ -5,9 +5,9 @@ using UnityEngine;
 public class TutorialCamera : MonoBehaviour
 {
     [SerializeField]
-    GameObject MainCamera;
+    GameObject MainCamera = null;
     [SerializeField]
-    GameObject CameraTwo;
+    GameObject CameraTwo = null;
 
     AudioListener MainCameraAudio;
     AudioListener CameraTwoAudio;
