@@ -2,12 +2,17 @@
 A Tower Defence game combined with AutoChess.  
 
 ![](./Src/ETLOGO.png)
+
 ## Summary
 ### Our Inspriation
-Classic Tower Defence Game: Kingdom Rush.    
+Classic Tower Defence Game: Kingdom Rush.  
+
 ![](./Src/KingdomRush.jpg)
-New trending AutoChass game: DotA2 AutoChess.    
+
+New trending AutoChass game: DotA2 AutoChess.  
+
 ![](./Src/dotachess.jpg)
+
 We want to combine Classic Strategy Game Tower Defence and AutoChess with some interseting gambling system like drawing cards from a card pool.
 ### Background Story 
 Long long ago, this world has been controlled by a cruel devil. However, a group of warriors came here and defeated this devil to free the people on this land. The devil has been keeping developing his power to try to come back one day. Now, the devil is back, and warriors are leading to fight to protect the land.
