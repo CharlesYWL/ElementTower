@@ -143,25 +143,14 @@ List your assets including their sources, and licenses.
 [Crystal](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Crystal.mp3)
 [Desert](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Desert.mp3)
 [Fire](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Fire.wav)
-[Glacial]
-[Light]
-[Ocean]
-[Poison]
-[Shadow]
-[Thunder]
-[Wind]
+[Glacial](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Ice.mp3)
+[Light](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Light.mp3)
+[Ocean](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Ocean.mp3)
+[Poison](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Poison.mp3)
+[Shadow](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Shadow.mp3)
+[Thunder](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Thunder.mp3)
+[Wind](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Wind.wav)
 
-[Grunt](https://opengameart.org/content/grunt) - Death ; CC-by 3.0 license, Author: n3b
-
-[Jump Landing](https://opengameart.org/content/jump-landing-sound) ; CC0 license
-
-[Jump](https://freesound.org/people/cabled_mess/sounds/350906/); CC0 license
-
-[GamePlay Song](https://opengameart.org/content/imaginary-dystopia) - Imaginary Dystopia ; CC0 license
-
-[CutScene Song](https://opengameart.org/content/nosferatus-house-party) - Nosferatus House Party ; CC0 license
-
-[Picking Up Items](https://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-54116?fbclid=IwAR11wXyhT3HET8lP-AJ3_D4gO9OAOuR2x_9JA0ec3HkkOkDs2yq-UsnI5RA) ; CC0 license
 
 Describe the implementation of your audio system. The audio in our game was mainly focused around adding assets to the player and the songs to each scene. For organization, I wrote a separate script for each asset that I was developing sound for, which included the various sounds that corresponded to the Player in the GamePlay scene and the background songs for the beginning cutscene and the GamePlay scene (3 scripts). Caleb (Game Feel) also found audio - the sound that cues after picking up an item.
 
