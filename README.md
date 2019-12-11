@@ -82,22 +82,9 @@ Colliders - The projectiles from towers and everything they interact with has an
 The ground and walls all act as regular colliders and three gates represent the spawning points of the enemies. With the help of wave points on the map, enemies will know where they can move during the game. 
 Damage Engine: With different types and rarity of towers, the damage engine is different. While the level 1 tower should have least damages causing on the enemies, and the level easy type of enemies should also have the least amount of health so that player can get better gameplay experience in the beginning. Moreover, when the stage gets bigger, the enemies should be stronger and the health of enemies also depending on the sizes of enemies. We design the last stage, “Boss” come out, the rotation of the enemies will have 4:1 ratio compared to the normal enemies before, in the meantime, the speed of “Boss” will also be decreased so that it will give the player a feeling of how hard they need to defend on the last stage.
 
-### Animation and Visuals(*Annie Qin, Yangfeng Qiao*)
- 
-
-[Carboard box, alcohol bottle](https://opengameart.org/content/recycle-items-set) ; CC3.0-by 3.0 license, Author - Clint Bellanger
-
-[Player (man with pony tail)](https://hugues-laborde.itch.io/cartoon-side-scroller-character); CC3.0-by 3.0 license, Author - Hugues Laborde
-
-[Shadow character](https://hugues-laborde.itch.io/pack-character-pixel-art-05) ; CC3.0-by 3.0 license, Author - Hugues Laborde
-
-[Cigarette](https://opengameart.org/content/various-inventory-24-pixel-icon-set) ; CC3.0-by 3.0 license, Author - OceansDream
-
-[Wall and Ground Tiles](https://assetstore.unity.com/packages/2d/environments/free-8-bit-pixel-pack-79530?fbclid=IwAR0IuR3Pkv3mrRmjArXrsPy2X7mUIN8IHpoUNtINgbr1-UNhEVKS-YaWBLU) ; CC0 license
-
-Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists. For the animations, I created many more than we ended up using based on the narrative and the final abilities for the player, but I primarily built animations for the player and the shadow (enemy) character. To avoid having to make my own pixel art, I chose to find full packages of pre-made art assets that I could divide up into the various individual animations and create a state machine for them.
-
-Our initial visual idea for the show was to create a scene that resembled the location of a film noir movie. Therefore, we agreed upon a night city background, which perfectly set the mood for our narrative, where our player struggles with cigarettes and alcohol and is trying to get to rehab.
+### Animation and Visuals(*Annie Qin, Fengqiao Yang*)
+The animation of the crystal on the tower is made by ourselves. We used the animator to record the keyframes of the crystal position and rotation to make it float up and down and rotate, and attach the animation to the prefab of the towers. The VFX effect of Lv. 2 & 3 tower is from the RPG VFX Pack, and we changed and combined the magic spells to our Lv2 & 3 tower prefabs.
+The animation of the enemy was designed and included in the asset from S1 Villain Pack.
 
 **Player and Enemy Character**
 Our player has a third-person view of the whole map and the world, and he/she needs to choose different towers to try to beat the enemies. So basically our player’s animation are the tower’s animation. In total we have 11 elements towers, and each of them has three levels, so in total, we have 33 towers. Each elements tower will have their own type of crystal, and we achieve this goal by building different material of the tower crystal and put an animation asset on the crystal to help user identify which type of tower it is. By upgrading the tower to the next level, we have different size and type of magical circle under the tower. Second level have two magical circle, third level has three magical circle with different size. We also have different animation for the crystal. There are two animation property of the tower crystal, one is when it is idle and the other one is when it is attacking. When the tower is attacking, the crystal is rotating, and when the tower is idle, the crystal constantly move up and down.
