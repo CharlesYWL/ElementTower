@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
@@ -43,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    public void SetTargets(Transform[] t) 
+    public void SetTargets(Transform[] t)
     {
         this.targets = t;
     }
@@ -67,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
         //if health -3 life heart -1
         //when life heart == 0, end game
 
-
+    //    health.healthCounts = health.healthCounts - 1; 
     }
 
 }
