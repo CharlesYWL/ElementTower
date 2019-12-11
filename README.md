@@ -15,8 +15,6 @@ New trending AutoChass game: DotA2 AutoChess.
 We want to combine Classic Strategy Game Tower Defence and AutoChess with some interseting gambling system like drawing cards from a card pool.
 ### Background Story 
 Long long ago, this world has been controlled by a cruel devil. However, a group of warriors came here and defeated this devil to free the people on this land. The devil has been keeping developing his power to try to come back one day. Now, the devil is back, and warriors are leading to fight to protect the land.
-### Basic 
-We have designed eleven elements towers in total. They are, crystal tower, infernal tower(namely fire element), shadow tower, 
 ### Gameplay explanation
 You will need to build your element towers to defeat the enemy waves and protect home. There are totally three Gates from the wall that enemy broke, and they will flood in through three routes. Fortunately, the Enemy will only start their attack during Night time. So, arm yourself and build the element towers during Day time.
 
@@ -41,9 +39,9 @@ Annie Qin -- Enemy Movement, Tower Animations, Health Bar Control and animation
 Weili Yi -- Game Logic: card pool system, User Interface
 Zijian He -- Game Logic: combination of elements, damage engine, Movement/Physics
 Zhongquan Chen -- User Interface
+
+### Map Design (*Fengqiao Yang*)
 	There are two parts  in Map Design: Battle Field and Background Terrain. For the Battle Field, I used the online resource of ground, water, walls, bridges and trees and arranged them into the scene. For the Background Terrain, I was using the [Terrain Tool](https://assetstore.unity.com/packages/2d/textures-materials/terrain-tools-sample-asset-pack-145808) in the Unity Asset Store to paint out the Terrain with different brushes and effects.
-	The beginning camera was designed and implemented by using the Animator that was built in the unity. Considering we have a relatively large map, we decided to have a MOBA-like camera and I attached a script for the [camera movement](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Script/CameraMovement.cs) to our main camera.
-	Most of the Animation I did was in the tower prefab. The major implementation method is using the animator and the animation controller to switch between different animations. The VFX effect of Lv. 2 & 3 tower is from the [RPG VFX Pack](https://assetstore.unity.com/packages/vfx/particles/spells/rpg-vfx-pack-133704), and we combined the magic spells to our Lv2 & 3 tower prefabs.
 	
 ### User Interface (*ZhongQuan Chen, Weili Yin*)
 For user interface we decide to put into 3 scenes, one is start scene, where the user is allows to change the volume setting; one game scene, which namely is a game scene to play; and one ending scene, which will display all the credits for this project. 
@@ -69,8 +67,8 @@ One money income source will be killing monsters. Players build up tower to kill
 Ending Scene
 Ending scene will be some credit to our game project. We are a great team, and we are proud of being part of this project. Therefore, credit scene is the most significant one.
 
-### Movement/Physics
-**Movement** (*Zijian He*)
+### Movement/Physics(*Zijian He*)
+**Movement** 
 The implementation of the movement design basically focuses on the enemy movement and the projectile of each tower. We used the combination of Unity 3D mesh system and animation to implement the movement of the enemies in our game. The choice of rigidbody is not in our concern due to the mesh system and the automated system. For our enemy movements, we have four levels attached to how hard and strong the enemy is in our game. Below is our weakest enemy, as a level 1 enemy, we set the health of it below average to around 50 health. 
 
 For the projectile movement, we tie each projectile to each single enemy, and the projectile movement significantly depends on the speed  and the position of the enemy. The collision system is another huge way we build our relation between towers and enemies. This allowed the game to almost automatically implement every movement so that the player can focus more on his strategy to play through the game.
@@ -80,8 +78,8 @@ Colliders - The projectiles from towers and everything they interact with has an
 The ground and walls all act as regular colliders and three gates represent the spawning points of the enemies. With the help of wave points on the map, enemies will know where they can move during the game. 
 Damage Engine: With different types and rarity of towers, the damage engine is different. While the level 1 tower should have least damages causing on the enemies, and the level easy type of enemies should also have the least amount of health so that player can get better gameplay experience in the beginning. Moreover, when the stage gets bigger, the enemies should be stronger and the health of enemies also depending on the sizes of enemies. We design the last stage, “Boss” come out, the rotation of the enemies will have 4:1 ratio compared to the normal enemies before, in the meantime, the speed of “Boss” will also be decreased so that it will give the player a feeling of how hard they need to defend on the last stage.
 
-### Animation and Visuals
-Annie Qin, Yangfeng Qiao 
+### Animation and Visuals(*Annie Qin, Yangfeng Qiao*)
+ 
 
 [Carboard box, alcohol bottle](https://opengameart.org/content/recycle-items-set) ; CC3.0-by 3.0 license, Author - Clint Bellanger
 
@@ -103,7 +101,9 @@ Our player has a third-person view of the whole map and the world, and he/she ne
 For the enemy animation, as we said in class, we set different way point to show the enemy animation. For enemies, we have a total of five types of enemies, each enemies have two animation sets, one is when they are in movement, the other is when they die. So we set different way point to show different movement of the enemy. 
 
 **Camera**
-Yangfeng Qiao 
+Fengqiao Yang:
+The beginning camera was designed and implemented by using the Animator that was built in the unity. I took several keyframes to identify the path and rotation for the camera. The fade in and fade out effect was the keyframes record of the alpha value of the black canvas. At the end of the animation, I set an event trigger that calls the function to switch the camera.
+Considering we have a relatively large map, we decided to have a MOBA-like camera and I attached a script for the camera movement to our main camera. Player can move around the camera by moving their cursor to the edge of the screen, and they are able to scroll up and down to adjust for the better view they prefer.
 
 ### Input 
 Weili Yin:
@@ -136,9 +136,20 @@ Basically, if you have played games like Magika or Magic World, you will enjoy t
 
 ## Sub-Roles
 ### Audio
-Yangfeng Qiao 
+Fengqiao Yang
 
 List your assets including their sources, and licenses.
+
+[Crystal](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Crystal.mp3)
+[Desert](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Desert.mp3)
+[Fire](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Fire.wav)
+[Glacial]
+[Light]
+[Ocean]
+[Poison]
+[Shadow]
+[Thunder]
+[Wind]
 
 [Grunt](https://opengameart.org/content/grunt) - Death ; CC-by 3.0 license, Author: n3b
 
