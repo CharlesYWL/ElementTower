@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class TimeRotation : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject Sun = null;
     public float RotateSpeedDay = 10.0f;
     public float RotateSpeedNight = 3f;
-    [SerializeField]
-    private GameObject Sun;
-
     public static bool Day = true;
 
     private Vector3 RotateDirection;
@@ -16,10 +15,10 @@ public class TimeRotation : MonoBehaviour
 
     private float DelayTime;
     private float Checkdelay = 3f;
+
     //Able for delay
     private bool Delayable = false;
     private bool Checkable = false;
-
 
     private GameObject[] EnemyList;
 
@@ -27,8 +26,11 @@ public class TimeRotation : MonoBehaviour
     void Start()
     {
         RotateDirection = new Vector3(0f, 0f, 1f);
+
         Center = new Vector3(20f, -0.5f, -40f);
+
         DelayTime = 14;
+
         
     }
 
@@ -86,14 +88,7 @@ public class TimeRotation : MonoBehaviour
 
                 transform.RotateAround(Center, RotateDirection, RotateSpeedNight * Time.deltaTime);
                 transform.LookAt(Center);
-
-
-                
             }
-
-
         }
-
-
     }
 }

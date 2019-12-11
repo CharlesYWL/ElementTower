@@ -20,8 +20,6 @@ public class HoverMove : MonoBehaviour
     {
         time += Time.deltaTime;
         RotateCa();
-        float startTime = 1f;
-        float endTime = 15f;
         transform.position += new Vector3(upSpeed * Time.deltaTime, upSpeed * Time.deltaTime, 0);
 
         FowardMove();

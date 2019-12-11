@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class ExitButton : MonoBehaviour, IPointerClickHandler
 {
     // Start is called before the first frame update
-    private bool isOptionOpen = false;
 
 
     void Start()
