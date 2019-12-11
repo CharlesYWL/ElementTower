@@ -41,7 +41,7 @@ Zijian He -- Game Logic: combination of elements, damage engine, Movement/Physic
 Zhongquan Chen -- User Interface
 
 ### Map Design (*Fengqiao Yang*)
-	There are two parts  in Map Design: Battle Field and Background Terrain. For the Battle Field, I used the online resource of ground, water, walls, bridges and trees and arranged them into the scene. For the Background Terrain, I was using the [Terrain Tool](https://assetstore.unity.com/packages/2d/textures-materials/terrain-tools-sample-asset-pack-145808) in the Unity Asset Store to paint out the Terrain with different brushes and effects.
+There are two parts  in Map Design: Battle Field and Background Terrain. For the Battle Field, I used the online resource of ground, water, walls, bridges and trees and arranged them into the scene. For the Background Terrain, I was using the [Terrain Tool](https://assetstore.unity.com/packages/2d/textures-materials/terrain-tools-sample-asset-pack-145808) in the Unity Asset Store to paint out the Terrain with different brushes and effects.
 	
 ### User Interface (*ZhongQuan Chen, Weili Yin*)
 For user interface we decide to put into 3 scenes, one is start scene, where the user is allows to change the volume setting; one game scene, which namely is a game scene to play; and one ending scene, which will display all the credits for this project. 
