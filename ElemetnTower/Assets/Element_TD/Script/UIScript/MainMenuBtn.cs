@@ -8,7 +8,6 @@ public class MainMenuBtn : MonoBehaviour
 {
     private float GamePlaySilder = 0.5f;
     private float GameMusicSilder = 0.5f;
-    private bool clicked = false;
     public void StartGame()
     {
         AudioManager.instance.Play("clickbtn", SoundType.GAME);
