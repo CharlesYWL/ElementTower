@@ -1,5 +1,6 @@
 # ElementTower Game Basic Information
-A Tower Defence game combined with AutoChess.    
+A Tower Defence game combined with AutoChess.  
+
 ![](./Src/ETLOGO.png)
 ## Summary
 ### Our Inspriation
