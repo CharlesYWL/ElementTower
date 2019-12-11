@@ -12,7 +12,7 @@ public class WaveController : MonoBehaviour
     [SerializeField]
     public GameObject GateTop;
 
-    public float TimeBetweenWaves = 9f;
+    public float TimeBetweenWaves = 3f;
     private float countdown = 24f;
     private WaveSpawnerBot wb;
     private WaveSpawnerLeft wl;
@@ -39,22 +39,15 @@ public class WaveController : MonoBehaviour
         if (countdown <= 0f && EnemyList.Length == 0 && TimeRotation.Day == false)
         {
             waveNumber++;
-            //Debug.Log("Wave: " + waveNumber);
-            
+
             StartCoroutine(wb.SpawnWave());
             StartCoroutine(wl.SpawnWave());
             StartCoroutine(wt.SpawnWave());
             countdown = TimeBetweenWaves;
+
             return;
         }
 
-        if (TimeRotation.Day == true && EnemyList.Length != 0)
-        {
-            foreach (GameObject Enemy in EnemyList)
-            {
-                Destroy(Enemy);
-            }
-        }
         // Win Stage
         if (waveNumber >= 11)
         {
