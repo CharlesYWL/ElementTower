@@ -141,28 +141,27 @@ Fengqiao Yang
 List your assets including their sources, and licenses.
 
 [Crystal](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Crystal.mp3)
+
 [Desert](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Desert.mp3)
+
 [Fire](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Fire.wav)
+
 [Glacial](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Ice.mp3)
+
 [Light](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Light.mp3)
+
 [Ocean](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Ocean.mp3)
+
 [Poison](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Poison.mp3)
+
 [Shadow](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Shadow.mp3)
+
 [Thunder](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Thunder.mp3)
+
 [Wind](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Wind.wav)
 
+Since we need the sound to be generated while firing, I attached all the sound source component into the projectile prefab of each tower, so that every time when the tower fires, or instantiating the projectile, the sound will be played on awake. For the setting of the audio source component, we don't want the sound to be played in loop and we need the sound to be 3D, so I set the 3D value to be 0.9. The sound style is all in magic and element spelling effect to make it consistent with the theme of our game.
 
-Describe the implementation of your audio system. The audio in our game was mainly focused around adding assets to the player and the songs to each scene. For organization, I wrote a separate script for each asset that I was developing sound for, which included the various sounds that corresponded to the Player in the GamePlay scene and the background songs for the beginning cutscene and the GamePlay scene (3 scripts). Caleb (Game Feel) also found audio - the sound that cues after picking up an item.
-
-For implementation, I first created an empty GameObject in the scene and added an Audio Source component to each. Since Audio Sources have a clip element to them, I attached the relevant sound clip to each Audio Source. For the background songs, I then went to the Camera object in the scene (I could have chosen any object that is used in the scene and never disappears) and attached the audio script that I wanted to use (ie. the Cut Scene Audio script to attach the cut scene background song). In each script, I used a Serialized field for the audio source that I wanted to play. After attaching the audio source and calling the function in the script to play the sound, the relevant sound plays.
-
-For the Player Object in the GamePlay scene, the same as above was performed for the jumping sounds and sounds for picking up items. However, playing the grunt sound correctly required a couple extra steps. In the PlayerAudio.cs script, I had to create a function that returns an IEnumerator. The grunt sound is played when the player dies from running into an enemy and when they fall below the platform scene, which cues the game object to be set to inactive. Since the sound won't play once the game object is deactivated, I added a coroutine using StartCoroutine() in GamePlayController.cs [link](https://github.com/kyle-andrus/RIP/blob/aade263f4579a75ca30d0ab0c7f9391d3509d42b/Assets/Scripts/GamePlayScripts/GamePlayController.cs#L208) to coroutine call and the IEnumerator function in the audio script, which causes the script to halt progress until the entire grunt sound clip has played.
-
-Document the sound style. After adding the sound assets, the game feel of the game was completely enhanced. Since our game is quite dark, based on the fact that the goal of our level is to get to rehab and is faced with avoiding his shadow throughout, I chose quite dark music for the cut scene as well as the GamePlay scene. Since we used art assets that resemble traditional platformers, we wanted the GamePlay song to also showcase the same theme, so I think the dark, fast-paced, retro song used in the GamePlay scene fit perfecting. The jumping sounds also fit the same retro vibe. We included an audible grunt for the player to give the feeling that the player is an actual man, which is supplemented by the death animation.
-For the cut scene, since this is the first part of the game and therefore the first aspect of game feel the player gets (besides the main menu), we wanted to build the drama and tension between the shadow and the player. I believe the song that I chose for the cut scene successfully achieved that.
-
-### Gameplay Testing
-This is the [link](https://github.com/CharlesYWL/ElementTower) to the full results of your gameplay tests.
 ### Narrative Design
 Annie Qin 
 Our narrative design idea mostly come from different animes, or typical tower defense game narrative. We have a background story for our game, but since our game focused on largely the game feel and strategy, so that our narrative doesn’t stand out that much. We have a narrative to make our scene and our game more make sense and more attractive or interesting for our audience. We have different element representations of our towers, so our narrative largely based on the word magic. The element tower land is a land with magic, but there is a cruel devil that occupied this land before but were defeated by the honorary warriors. Now, the devil came back with his armies and want to try to get the land back. Our player is the leader of the honorary warriors. Player need to play with magical element towers to defeat the devil to protect the land. Our game incorporate with this background narrative entirely. 
