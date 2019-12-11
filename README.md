@@ -85,9 +85,13 @@ Annie Qin, Yangfeng Qiao
 List your assets including their sources, and licenses.
 
 [Carboard box, alcohol bottle](https://opengameart.org/content/recycle-items-set) ; CC3.0-by 3.0 license, Author - Clint Bellanger
+
 [Player (man with pony tail)](https://hugues-laborde.itch.io/cartoon-side-scroller-character); CC3.0-by 3.0 license, Author - Hugues Laborde
+
 [Shadow character](https://hugues-laborde.itch.io/pack-character-pixel-art-05) ; CC3.0-by 3.0 license, Author - Hugues Laborde
+
 [Cigarette](https://opengameart.org/content/various-inventory-24-pixel-icon-set) ; CC3.0-by 3.0 license, Author - OceansDream
+
 [Wall and Ground Tiles](https://assetstore.unity.com/packages/2d/environments/free-8-bit-pixel-pack-79530?fbclid=IwAR0IuR3Pkv3mrRmjArXrsPy2X7mUIN8IHpoUNtINgbr1-UNhEVKS-YaWBLU) ; CC0 license
 
 Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists. For the animations, I created many more than we ended up using based on the narrative and the final abilities for the player, but I primarily built animations for the player and the shadow (enemy) character. To avoid having to make my own pixel art, I chose to find full packages of pre-made art assets that I could divide up into the various individual animations and create a state machine for them.
