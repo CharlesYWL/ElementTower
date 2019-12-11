@@ -35,9 +35,13 @@ Like Combinaion in AutoChess, we also have insane effect when certain towers exi
 ![](./Src/Combo2.png)
 ## Main Roles
 Fengqiao Yang - Map Design, Camera Movement & Animation
+
 Annie Qin -- Enemy Movement, Tower Animations, Health Bar Control and animation 
+
 Weili Yi -- Game Logic: card pool system, User Interface
+
 Zijian He -- Game Logic: combination of elements, damage engine, Movement/Physics
+
 Zhongquan Chen -- User Interface
 
 ### Map Design (*Fengqiao Yang*)
