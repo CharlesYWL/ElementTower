@@ -91,7 +91,7 @@ Our player has a third-person view of the whole map and the world, and he/she ne
 
 For the enemy animation, as we said in class, we set different way point to show the enemy animation. For enemies, we have a total of five types of enemies, each enemies have two animation sets, one is when they are in movement, the other is when they die. So we set different way point to show different movement of the enemy. 
 
-**Camera**
+### Camera
 Fengqiao Yang:
 The beginning camera was designed and implemented by using the Animator that was built in the unity. I took several keyframes to identify the path and rotation for the camera. The fade in and fade out effect was the keyframes record of the alpha value of the black canvas. At the end of the animation, I set an event trigger that calls the function to switch the camera.
 Considering we have a relatively large map, we decided to have a MOBA-like camera and I attached a script for the camera movement to our main camera. Player can move around the camera by moving their cursor to the edge of the screen, and they are able to scroll up and down to adjust for the better view they prefer.
@@ -127,10 +127,7 @@ Basically, if you have played games like Magika or Magic World, you will enjoy t
 
 ## Sub-Roles
 ### Audio
-Fengqiao Yang
-
-List your assets including their sources, and licenses.
-
+Fengqiao Yang:
 [Crystal](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Crystal.mp3)
 
 [Desert](https://github.com/CharlesYWL/ElementTower/blob/master/ElemetnTower/Assets/Element_TD/Audio/Music%20Pack/SoundEffect/Desert.mp3)
@@ -154,7 +151,7 @@ List your assets including their sources, and licenses.
 Since we need the sound to be generated while firing, I attached all the sound source component into the projectile prefab of each tower, so that every time when the tower fires, or instantiating the projectile, the sound will be played on awake. For the setting of the audio source component, we don't want the sound to be played in loop and we need the sound to be 3D, so I set the 3D value to be 0.9. The sound style is all in magic and element spelling effect to make it consistent with the theme of our game.
 
 ### Narrative Design
-Annie Qin 
+Annie Qin:
 Our narrative design idea mostly come from different animes, or typical tower defense game narrative. We have a background story for our game, but since our game focused on largely the game feel and strategy, so that our narrative doesn’t stand out that much. We have a narrative to make our scene and our game more make sense and more attractive or interesting for our audience. We have different element representations of our towers, so our narrative largely based on the word magic. The element tower land is a land with magic, but there is a cruel devil that occupied this land before but were defeated by the honorary warriors. Now, the devil came back with his armies and want to try to get the land back. Our player is the leader of the honorary warriors. Player need to play with magical element towers to defeat the devil to protect the land. Our game incorporate with this background narrative entirely. 
 
 ### Promotion Video/Trailer
@@ -167,9 +164,6 @@ As for our press kit, we want to show how we come up with the game and some gene
 First thing first, the **Main Menu**: it has the basic idea of start game, exit the game, and option setting. We add a unity button for each, if you use the mouse hovered over the button, you will have different feelings.
 
 Second, **Game Play**: when the player starts the game, the camera view is unique since you will have the first position view to enter the map, and it will provide an overview of the whole map, such as the position of our hometown, the three lines where the enemies will come out. When the player is playing the game, he can press the pause button to think about his logic strategy and take a rest, then press the continue button to re-play the game anytime he wants. The game feeling of freebility is the main point of tower defense strategy due to the play time of strategy game is too long to take a rest. Moreover, the card pool system and the combination of elements will provide you an unprecedented game feeling while playing this game. As a player, you will think about not only the strategy of positioning towers, but also combining the speciality of different elements tower. Sound of each tower’s projectiles will offer a little bit of chaos, but more motivated and stimulating. Overall, this is a AAA tower defense game combining both elements from DOTA Auto Chess and Magika, and our expect in this game is quite fitting the real game is like.
-
-
-
 
 ## Fun points
 Like all TD game, we want players enjoy the combination they created to pass the game and also enjoy the random drawing system to make game more challenging.
