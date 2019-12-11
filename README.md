@@ -166,7 +166,4 @@ First thing first, the **Main Menu**: it has the basic idea of start game, exit 
 Second, **Game Play**: when the player starts the game, the camera view is unique since you will have the first position view to enter the map, and it will provide an overview of the whole map, such as the position of our hometown, the three lines where the enemies will come out. When the player is playing the game, he can press the pause button to think about his logic strategy and take a rest, then press the continue button to re-play the game anytime he wants. The game feeling of freebility is the main point of tower defense strategy due to the play time of strategy game is too long to take a rest. Moreover, the card pool system and the combination of elements will provide you an unprecedented game feeling while playing this game. As a player, you will think about not only the strategy of positioning towers, but also combining the speciality of different elements tower. Sound of each tower’s projectiles will offer a little bit of chaos, but more motivated and stimulating. Overall, this is a AAA tower defense game combining both elements from DOTA Auto Chess and Magika, and our expect in this game is quite fitting the real game is like.
 
 ## Fun points
-Like all TD game, we want players enjoy the combination they created to pass the game and also enjoy the random drawing system to make game more challenging.
-
-# Orignal Game Design Document
-[Game Desgin Document](https://docs.google.com/document/d/1-JhM0NS9NnjRnicqaa4K63Cw8s0sf8SvQn0fL8RQoBc/edit?usp=sharing)
+Like all TD game, we want players enjoy the combination of elements while building the front and also enjoy the random drawing system to make game more challenging. Hope you enjoy!
