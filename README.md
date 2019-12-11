@@ -173,6 +173,8 @@ Second, **Game Play**: when the player starts the game, the camera view is uniqu
 
 
 
-
 ## Fun points
 Like all TD game, we want players enjoy the combination they created to pass the game and also enjoy the random drawing system to make game more challenging.
+
+# Orignal Game Design Document
+[Game Desgin Document](https://docs.google.com/document/d/1-JhM0NS9NnjRnicqaa4K63Cw8s0sf8SvQn0fL8RQoBc/edit?usp=sharing)
