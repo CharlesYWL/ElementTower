@@ -1,4 +1,4 @@
-# ElementTower Game Basic Information
+# ElementTower Game
 A Tower Defence game combined with AutoChess.  
 
 ![](./Src/ETLOGO.png)
